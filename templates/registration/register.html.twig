@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Kayıt Ol{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+{% endblock %}
+
+{% block body %}
+    <h1>Kayıt Ol</h1>
+
+    {{ form_start(registrationForm) }}
+    {{ form_row(registrationForm.firstName) }}
+    {{ form_row(registrationForm.lastName) }}
+    {{ form_row(registrationForm.email) }}
+    {{ form_row(registrationForm.plainPassword) }}
+    {{ form_row(registrationForm.gender) }}
+    {{ form_row(registrationForm.title) }}
+    {{ form_row(registrationForm.institution) }}
+    {{ form_row(registrationForm.specialization) }}
+
+    <div class="form-group">
+        {{ form_label(registrationForm.country) }}
+        {{ form_widget(registrationForm.country, {'attr': {'class': 'form-control country-select'}}) }}
+        {{ form_errors(registrationForm.country) }}
+    </div>
+
+    {{ form_row(registrationForm.submit) }}
+    {{ form_end(registrationForm) }}
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('.country-select').select2({
+                placeholder: "Ülke Seçiniz",
+                allowClear: true
+            });
+        });
+    </script>
+{% endblock %}
