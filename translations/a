@@ -1,0 +1,581 @@
+    <style>
+            .logo {
+                color: #ffffff;
+                font-weight: bold;
+                font-size: 1.5rem;
+                text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            }
+            .breadcrumb-bg {
+                background: linear-gradient(135deg, #dee2e6 0%, #ced4da 100%);
+                padding: 20px 0;
+            }
+            .card-featured {
+                border: none;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            }
+            .card-featured .badge {
+                position: absolute;
+                top: 10px;
+                left: 10px;
+                z-index: 1;
+            }
+            .social-buttons a {
+                display: inline-block;
+                width: 30px;
+                height: 30px;
+                line-height: 30px;
+                text-align: center;
+                margin-right: 5px;
+                border-radius: 3px;
+                color: white;
+                text-decoration: none;
+            }
+            .social-facebook { background-color: #3b5998; }
+            .social-twitter { background-color: #1da1f2; }
+            .social-linkedin { background-color: #0077b5; }
+            .social-whatsapp { background-color: #25d366; }
+            .social-email { background-color: #34495e; }
+            .social-copy { background-color: #6c757d; }
+            .list-group-item {
+                border-left: none;
+                border-right: none;
+                border-top: none;
+                padding: 12px 15px;
+                transition: all 0.3s ease;
+                border-radius: 8px !important;
+                margin-bottom: 5px;
+                background: #f8f9fa;
+                color: #495057;
+                font-weight: 500;
+            }
+
+            .list-group-item:hover {
+                background: #e9ecef;
+                transform: translateX(5px);
+                box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            }
+
+            .list-group-item.active {
+                background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+                color: white;
+                border-color: #007bff;
+                transform: translateX(5px);
+                box-shadow: 0 4px 12px rgba(0,123,255,0.3);
+            }
+
+            .list-group-item.active:hover {
+                background: linear-gradient(135deg, #0056b3 0%, #004085 100%);
+            }
+
+            .list-group-item::before {
+                content: '\f0da';
+                font-family: 'Font Awesome 5 Free';
+                font-weight: 900;
+                margin-right: 10px;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+            }
+
+            .list-group-item.active::before {
+                opacity: 1;
+            }
+
+            .modern-list-group {
+                border: none;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+                border-radius: 10px;
+                overflow: hidden;
+                padding: 10px;
+            }
+            .accordion-item {
+                border: 1px solid #e9ecef;
+                border-radius: 8px;
+                margin-bottom: 10px;
+                overflow: hidden;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                transition: all 0.3s ease;
+            }
+            .accordion-item:hover {
+                box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+            }
+            .accordion-button {
+                background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+                border: none;
+                color: white;
+                text-decoration: none;
+                padding: 15px 20px;
+                margin-bottom: 0;
+                width: 100%;
+                text-align: left;
+                font-weight: 500;
+                position: relative;
+                transition: all 0.3s ease;
+            }
+            .accordion-button:hover {
+                background: linear-gradient(135deg, #0056b3 0%, #004085 100%);
+                transform: translateY(-1px);
+            }
+            .accordion-button::after {
+                content: '\f107';
+                font-family: 'Font Awesome 5 Free';
+                font-weight: 900;
+                position: absolute;
+                right: 20px;
+                top: 50%;
+                transform: translateY(-50%);
+                transition: transform 0.3s ease;
+            }
+            .accordion-button.active::after {
+                transform: translateY(-50%) rotate(180deg);
+            }
+            .accordion-content {
+                display: none;
+                padding: 20px;
+                background: #f8f9fa;
+                border-top: 1px solid #e9ecef;
+                animation: slideDown 0.3s ease;
+            }
+            .accordion-content.show {
+                display: block;
+            }
+            @keyframes slideDown {
+                from {
+                    opacity: 0;
+                    max-height: 0;
+                    padding-top: 0;
+                    padding-bottom: 0;
+                }
+                to {
+                    opacity: 1;
+                    max-height: 200px;
+                    padding-top: 20px;
+                    padding-bottom: 20px;
+                }
+            }
+            .page-header-section {
+                background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+                padding: 40px 0;
+                border-bottom: 1px solid #dee2e6;
+            }
+            .page-title {
+                color: #2c3e50;
+                font-size: 2.5rem;
+                font-weight: 700;
+                margin-bottom: 10px;
+            }
+            .page-subtitle {
+                color: #6c757d;
+                font-size: 1.1rem;
+                margin-bottom: 0;
+            }
+            .breadcrumb a {
+                color: #007bff;
+                text-decoration: none;
+            }
+            .breadcrumb a:hover {
+                color: #0056b3;
+                text-decoration: underline;
+            }
+            .breadcrumb-item.active {
+                color: #6c757d;
+            }
+
+            .hero-section {
+                background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=1200&h=400&fit=crop') center/cover;
+                min-height: 300px;
+                color: white;
+                padding: 20px 0 40px 0;
+            }
+
+            .hero-title {
+                color: #ffffff;
+                font-size: 2.5rem;
+                font-weight: 700;
+                margin-bottom: 10px;
+                text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            }
+
+            .hero-subtitle {
+                color: rgba(255,255,255,0.9);
+                font-size: 1.1rem;
+                margin-bottom: 0;
+                text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            }
+
+            .hero-section .form-control {
+                background: rgba(255,255,255,0.9);
+                border: 1px solid rgba(255,255,255,0.3);
+            }
+
+            .hero-section .btn-outline-secondary {
+                border-color: rgba(255,255,255,0.5);
+                color: white;
+            }
+
+            .hero-section .btn-outline-secondary:hover {
+                background: rgba(255,255,255,0.2);
+                border-color: white;
+            }
+
+            .hero-section .btn-secondary {
+                background: rgba(255,255,255,0.2);
+                border-color: rgba(255,255,255,0.3);
+                color: white;
+            }
+
+            .hero-section .breadcrumb a {
+                color: rgba(255,255,255,0.9);
+                text-decoration: none;
+            }
+
+            .hero-section .breadcrumb a:hover {
+                color: white;
+                text-decoration: underline;
+            }
+
+            .hero-section .breadcrumb-item.active {
+                color: rgba(255,255,255,0.7);
+            }
+
+            .academic-paper-card {
+                border: 1px solid #e9ecef;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+
+            .academic-paper-card .card-title {
+                font-weight: 600;
+                color: #2c3e50;
+            }
+
+            .academic-paper-card .authors a {
+                font-weight: 500;
+                text-decoration: none;
+            }
+
+            .academic-paper-card .authors a:hover {
+                text-decoration: underline;
+            }
+
+            .keywords a {
+                text-decoration: none;
+                font-size: 0.8rem;
+            }
+
+            .keywords a:hover {
+                text-decoration: none;
+                opacity: 0.8;
+            }
+
+            .abstract-section p {
+                text-align: justify;
+            }
+
+            .publication-info {
+                border-left: 3px solid #007bff;
+                padding-left: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Hero Section (Header + Title) -->
+        <section class="hero-section">
+            <div class="container">
+                <!-- Header Row -->
+                <div class="row align-items-center py-3">
+                    <div class="col-md-6">
+                        <div class="logo">
+                            DergiPark
+                            <small class="text-muted d-block" style="font-size: 0.8rem;">AKADEMİK</small>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="d-flex justify-content-end align-items-center">
+                            <div class="input-group mr-3" style="max-width: 300px;">
+                                <input type="text" class="form-control form-control-sm" placeholder="Ara...">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary btn-sm" type="button">
+                                        <i class="fas fa-search"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <button class="btn btn-secondary btn-sm mr-2">Bülten</button>
+                            <div class="dropdown">
+                                <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown">
+                                    <i class="fas fa-globe"></i>
+                                </button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#">Türkçe</a>
+                                    <a class="dropdown-item" href="#">English</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Title Row -->
+                <div class="row mt-4">
+                    <div class="col-12">
+                        <h1 class="hero-title">Akademik Yayınlar</h1>
+                        <p class="hero-subtitle">Bilimsel dergi ve makaleler için kapsamlı platform</p>
+                        <nav aria-label="breadcrumb" class="mt-3">
+                            <ol class="breadcrumb bg-transparent mb-0">
+                                <li class="breadcrumb-item"><a href="#">Ana Sayfa</a></li>
+                                <li class="breadcrumb-item"><a href="#">Dergiler</a></li>
+                                <li class="breadcrumb-item"><a href="#">Sosyal Bilimler</a></li>
+                                <li class="breadcrumb-item"><a href="#">Eğitim</a></li>
+                                <li class="breadcrumb-item active">Makale Detayı</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Content -->
+        <div class="container mt-4">
+            <div class="row">
+                <!-- Left Column -->
+                <div class="col-md-6">
+                    <!-- Base/Cards Section -->
+                    <div class="mb-4">
+                        <h6 class="text-primary mb-3">
+                            <i class="fas fa-diamond text-primary mr-2"></i>base/Cards
+                        </h6>
+
+                        <div class="card card-featured position-relative">
+                            <span class="badge badge-primary">Featured</span>
+                            <img src="/placeholder.svg?height=200&width=350" class="card-img-top" alt="Fırat Üniversitesi">
+                            <div class="card-body">
+                                <h5 class="card-title text-primary">Card title</h5>
+                                <h6 class="card-subtitle mb-2 text-primary">Card subtitle</h6>
+                                <p class="card-text text-muted">
+                                    Some quick example text to build on the card title and make up the bulk of the card's content.
+                                </p>
+
+                                <!-- Action Buttons -->
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <button class="btn btn-link p-0"><i class="fas fa-eye"></i></button>
+                                    <button class="btn btn-link p-0"><i class="fas fa-download"></i></button>
+                                    <button class="btn btn-link p-0"><i class="fas fa-heart"></i></button>
+                                </div>
+
+                                <!-- Social Share Buttons -->
+                                <div class="social-buttons">
+                                    <a href="#" class="social-facebook"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="#" class="social-twitter"><i class="fab fa-twitter"></i></a>
+                                    <a href="#" class="social-linkedin"><i class="fab fa-linkedin-in"></i></a>
+                                    <a href="#" class="social-whatsapp"><i class="fab fa-whatsapp"></i></a>
+                                    <a href="#" class="social-email"><i class="fas fa-envelope"></i></a>
+                                    <a href="#" class="social-copy"><i class="fas fa-copy"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Example List Group -->
+                    <div class="mb-4">
+                        <h6 class="text-muted mb-3">
+                            <i class="fas fa-list mr-2"></i>Navigation Menu
+                        </h6>
+                        <div class="modern-list-group">
+                            <a href="#" class="list-group-item list-group-item-action active" onclick="setActiveLink(this)">
+                                <i class="fas fa-home mr-2"></i>Ana Sayfa
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action" onclick="setActiveLink(this)">
+                                <i class="fas fa-book mr-2"></i>Dergiler
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action" onclick="setActiveLink(this)">
+                                <i class="fas fa-graduation-cap mr-2"></i>Akademik Yayınlar
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action" onclick="setActiveLink(this)">
+                                <i class="fas fa-search mr-2"></i>Araştırma
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action" onclick="setActiveLink(this)">
+                                <i class="fas fa-users mr-2"></i>Yazarlar
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column -->
+                <div class="col-md-6">
+                    <!-- Authors Section -->
+                    <div class="mb-3">
+                        <div class="authors">
+                            <a href="#" class="text-primary mr-3">Harun Ekinci</a>
+                            <span class="text-muted">,</span>
+                            <a href="#" class="text-primary ml-1">Halil Suel</a>
+                        </div>
+                    </div>
+
+                    <!-- Academic Paper Section -->
+                    <div class="mb-4">
+        <div class="card academic-paper-card">
+            <div class="card-header bg-light border-bottom">
+                <div class="d-flex justify-content-between align-items-center">
+                    <span class="badge badge-secondary">ARAŞTIRMA MAKALESİ</span>
+                    <div class="d-flex align-items-center">
+                        <small class="text-muted mr-3">TR</small>
+                        <small class="text-primary mr-4">EN</small>
+                        <div class="file-formats">
+                            <span class="badge badge-danger mr-2"><i class="fas fa-file-pdf"></i> PDF</span>
+                            <span class="badge badge-warning mr-2"><i class="fas fa-quote-right"></i> BibTex</span>
+                            <span class="badge badge-info mr-2"><i class="fas fa-database"></i> RIS</span>
+                            <span class="badge badge-success"><i class="fas fa-link"></i> Kaynak Göster</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-body p-4">
+                <!-- Article Title -->
+                <h4 class="card-title text-dark mb-3" style="line-height: 1.4; font-weight: 600;">
+                    Yaban Keçisinin (Capra aegagrus, ERXLEBEN) Popülasyon Büyüklüğü ve Yapısı: Göller Yöresi Örneği
+                </h4>
+
+                <!-- Publication Info -->
+                <div class="publication-info mb-3">
+                    <small class="text-muted">
+                        <i class="fas fa-calendar-alt mr-1"></i>
+                        Yıl 2023, Cilt: 10 Sayı: 20, 40 - 46, 31.12.2023
+                    </small>
+                </div>
+
+                <!-- Authors -->
+                <div class="authors mb-4">
+                    <a href="#" class="text-primary mr-1">Harun Ekinci</a>
+                    <span class="text-muted">,</span>
+                    <a href="#" class="text-primary ml-1">Halil Suel</a>
+                </div>
+
+                <!-- Abstract Section -->
+                <div class="abstract-section mb-4">
+                    <h6 class="text-danger mb-3">Öz</h6>
+                    <p class="text-justify" style="font-size: 0.9rem; line-height: 1.6;">
+                        Bu makale kapsamında, Göller Yöresinde yer alan; Antalya, Isparta ve Burdur illerinde 2017 ve 2018 yıllarında yaban keçisi envanteri çalışması yapılmıştır. Yaban keçilerinin popülasyon durumu, büyüklüğü ve yapısının, popülasyon içinde bireylerin cinsiyet, yaş ve grup içinde popülasyon dağılımının, nasıl bir ilişkisinin olduğu, yoğunluğun neye göre şekillendiği ele alınmıştır. Yapılan çalışma sırasında habitatlarının göz önünde bulundurularak yoğun olarak gözlemlenebilirliği ve gözlemlenen yerlerin birbirleriyle yakınlık, benzerlik durumları da göz önünde bulundurulmuştur. Korunan alanlardaki yaban keçilerinin katım döneminde (çiftleşme dönemi) bireyleri gözlenebilmesi artığı için ve popülasyon boyutunu farklı avlak ve yaban hayatı geliştirme sahalarında kıyaslayabilmesi sebebiyle kış sayımlarında çalışması yapılmıştır. Çalışma alanında yer alan devlet avlakları, yaban hayatı geliştirme sahalarında kapsamlı bir arazi çalışması yapılmış olup bireylerin yaş dağılımının Göller Yöresi kapsamında popülasyon ilişkisi araştırılmıştır. Göller Yöresinde insanlar tarafından yoğun olarak kullanılan alanların popülasyon büyüklüğüne nasıl bir etkisi olduğu, etkinin olumsuz yönlerine karşı ne gibi önlemler alınması gerektiği, alınan önlemlerin sürdürülebilir bir şekilde olması gerektiği üzerinde durulmuştur. Ayrıca farklı alanlarda popülasyon yapısının nasıl olduğu incelenmiştir. Yaban keçilerinin günlük olarak yaşam aktivitelerinin gözlemlenebilirliği sürecin ön planda tutularak, doğru veri elde edilmesi kapsamında popülasyonlar arasında dinamik yapıda olanlarda çalışma yürütülmüştür. Yaban keçisi popülasyonların 2017-2018 yılları için envanter sonuçlarının benzer durumda olduğu söylenebilmektedir.
+                    </p>
+                </div>
+
+                <!-- Keywords -->
+                <div class="keywords-section mb-4">
+                    <h6 class="text-danger mb-3">Anahtar Kelimeler</h6>
+                    <div class="keywords">
+                        <a href="#" class="text-primary mr-2">Yaban Hayatı</a><span class="text-muted">,</span>
+                        <a href="#" class="text-primary mx-2">Jamovi</a><span class="text-muted">,</span>
+                        <a href="#" class="text-primary mx-2">Yaban Keçisi</a><span class="text-muted">,</span>
+                        <a href="#" class="text-primary mx-2">Popülasyon Büyüklüğü</a><span class="text-muted">,</span>
+                        <a href="#" class="text-primary mx-2">Popülasyon Yapısı</a><span class="text-muted">,</span>
+                        <a href="#" class="text-primary ml-2">Göller Yöresi</a>
+                    </div>
+                </div>
+
+                <!-- Supporting Institution -->
+                <div class="institution-section mb-4">
+                    <h6 class="text-danger mb-3">Destekleyen Kurum</h6>
+                    <p class="text-muted" style="font-size: 0.9rem;">
+                        Isparta Uygulamalı Bilimler Üniversitesi BAP Yönetim Birimi Başkanlığı - Doğa Koruma ve Milli Parklar 6. Bölge Müdürlüğü
+                    </p>
+                </div>
+
+                <!-- Project Number -->
+                <div class="project-section mb-4">
+                    <h6 class="text-danger mb-3">Proje Numarası</h6>
+                    <p class="text-muted" style="font-size: 0.9rem;">2019-YL1-0002</p>
+                </div>
+
+                <!-- Acknowledgments -->
+                <div class="acknowledgments-section">
+                    <h6 class="text-danger mb-3">Teşekkür</h6>
+                    <p class="text-muted" style="font-size: 0.9rem;">
+                        Desteklerinden dolayı Isparta Uygulamalı Bilimler Üniversitesi BAP Yönetim Birimi Başkanlığına – Doğa Koruma ve Milli Parklar 6. Bölge Müdürlüğüne teşekkür ederiz.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    <!-- Frame 30 Section -->
+                    <div class="mb-4">
+                        <h6 class="text-muted mb-3">Frame 30</h6>
+
+                        <!-- Accordion Top -->
+                        <div class="accordion-item">
+                            <button class="accordion-button" onclick="toggleAccordion('accordion1', this)">
+                                <i class="fas fa-chevron-right mr-2"></i>
+                                Accordion toggle top
+                            </button>
+                            <div id="accordion1" class="accordion-content">
+                                <p class="text-muted mb-0">
+                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Accordion Middle -->
+                        <div class="accordion-item">
+                            <button class="accordion-button" onclick="toggleAccordion('accordion2', this)">
+                                <i class="fas fa-chevron-right mr-2"></i>
+                                Accordion toggle middle
+                            </button>
+                            <div id="accordion2" class="accordion-content">
+                                <p class="text-muted mb-0">
+                                    Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Accordion Bottom -->
+                        <div class="accordion-item">
+                            <button class="accordion-button" onclick="toggleAccordion('accordion3', this)">
+                                <i class="fas fa-chevron-right mr-2"></i>
+                                Accordion toggle bottom
+                            </button>
+                            <div id="accordion3" class="accordion-content">
+                                <p class="text-muted mb-0">
+                                    You probably haven't heard of them accusamus labore sustainable VHS. Raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bootstrap 4 JS and dependencies -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+        <script>
+            function toggleAccordion(id, button) {
+                const element = document.getElementById(id);
+                const isOpen = element.classList.contains('show');
+
+                // Close all accordions
+                document.querySelectorAll('.accordion-content').forEach(content => {
+                    content.classList.remove('show');
+                });
+                document.querySelectorAll('.accordion-button').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+
+                // Toggle current accordion
+                if (!isOpen) {
+                    element.classList.add('show');
+                    button.classList.add('active');
+                }
+            }
+
+            function setActiveLink(clickedLink) {
+                // Tüm linklerden active class'ını kaldır
+                document.querySelectorAll('.list-group-item').forEach(link => {
+                    link.classList.remove('active');
+                });
+
+                // Tıklanan linke active class'ını ekle
+                clickedLink.classList.add('active');
+
+                // Sayfa yenilenmesini engelle
+                event.preventDefault();
+            }
+        </script>

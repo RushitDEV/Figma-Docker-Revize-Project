@@ -4,17 +4,1129 @@
 
 {% block body %}
 <style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    .logo {
+        color: #ffffff;
+        font-weight: bold;
+        font-size: 1.5rem;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+    .breadcrumb-bg {
+        background: linear-gradient(135deg, #dee2e6 0%, #ced4da 100%);
+        padding: 20px 0;
+    }
+    .card-featured {
+        border: none;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .card-featured .badge {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        z-index: 1;
+    }
+    .social-buttons a {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+        margin-right: 5px;
+        border-radius: 3px;
+        color: white;
+        text-decoration: none;
+    }
+    .social-facebook { background-color: #3b5998; }
+    .social-twitter { background-color: #1da1f2; }
+    .social-linkedin { background-color: #0077b5; }
+    .social-whatsapp { background-color: #25d366; }
+    .social-email { background-color: #34495e; }
+    .social-copy { background-color: #6c757d; }
+    .list-group-item {
+        border-left: none;
+        border-right: none;
+        border-top: none;
+        padding: 12px 15px;
+        transition: all 0.3s ease;
+        border-radius: 8px !important;
+        margin-bottom: 5px;
+        background: #f8f9fa;
+        color: #495057;
+        font-weight: 500;
+    }
+
+    .list-group-item:hover {
+        background: #e9ecef;
+        transform: translateX(5px);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .list-group-item.active {
+        background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+        color: white;
+        border-color: #007bff;
+        transform: translateX(5px);
+        box-shadow: 0 4px 12px rgba(0,123,255,0.3);
+    }
+
+    .list-group-item.active:hover {
+        background: linear-gradient(135deg, #0056b3 0%, #004085 100%);
+    }
+
+    .list-group-item::before {
+        content: '\f0da';
+        font-family: 'Font Awesome 5 Free';
+        font-weight: 900;
+        margin-right: 10px;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .list-group-item.active::before {
+        opacity: 1;
+    }
+
+    .modern-list-group {
+        border: none;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        border-radius: 10px;
+        overflow: hidden;
+        padding: 10px;
+    }
+    .accordion-item {
+        border: 1px solid #e9ecef;
+        border-radius: 8px;
+        margin-bottom: 10px;
+        overflow: hidden;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        transition: all 0.3s ease;
+    }
+    .accordion-item:hover {
+        box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    }
+    .accordion-button {
+        background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+        border: none;
+        color: white;
+        text-decoration: none;
+        padding: 15px 20px;
+        margin-bottom: 0;
+        width: 100%;
+        text-align: left;
+        font-weight: 500;
+        position: relative;
+        transition: all 0.3s ease;
+    }
+    .accordion-button:hover {
+        background: linear-gradient(135deg, #0056b3 0%, #004085 100%);
+        transform: translateY(-1px);
+    }
+    .accordion-button::after {
+        content: '\f107';
+        font-family: 'Font Awesome 5 Free';
+        font-weight: 900;
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        transition: transform 0.3s ease;
+    }
+    .accordion-button.active::after {
+        transform: translateY(-50%) rotate(180deg);
+    }
+    .accordion-content {
+        display: none;
+        padding: 20px;
+        background: #f8f9fa;
+        border-top: 1px solid #e9ecef;
+        animation: slideDown 0.3s ease;
+    }
+    .accordion-content.show {
+        display: block;
+    }
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            max-height: 0;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+        to {
+            opacity: 1;
+            max-height: 200px;
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+    }
+    .page-header-section {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        padding: 40px 0;
+        border-bottom: 1px solid #dee2e6;
+    }
+    .page-title {
+        color: #2c3e50;
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 10px;
+    }
+    .page-subtitle {
+        color: #6c757d;
+        font-size: 1.1rem;
+        margin-bottom: 0;
+    }
+    .breadcrumb a {
+        color: #007bff;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        padding: 5px 10px;
+        border-radius: 15px;
+        display: inline-block;
+    }
+
+    .breadcrumb a:hover {
+        color: #0056b3;
+        background: rgba(0,123,255,0.1);
+        text-decoration: none;
+    }
+
+    .breadcrumb-item a.active {
+        background: #007bff;
+        color: white !important;
+        font-weight: 600;
+        box-shadow: 0 2px 8px rgba(0,123,255,0.3);
+    }
+
+    .breadcrumb-item.active {
+        color: #6c757d;
+        font-weight: 600;
+    }
+
+    .hero-section {
+        background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=1200&h=400&fit=crop') center/cover;
+        min-height: 300px;
+        color: white;
+        padding: 20px 0 40px 0;
+    }
+
+    .hero-title {
+        color: #ffffff;
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 10px;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+
+    .hero-subtitle {
+        color: rgba(255,255,255,0.9);
+        font-size: 1.1rem;
+        margin-bottom: 0;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    }
+
+    .hero-section .form-control {
+        background: rgba(255,255,255,0.9);
+        border: 1px solid rgba(255,255,255,0.3);
+    }
+
+    .hero-section .btn-outline-secondary {
+        border-color: rgba(255,255,255,0.5);
+        color: white;
+    }
+
+    .hero-section .btn-outline-secondary:hover {
+        background: rgba(255,255,255,0.2);
+        border-color: white;
+    }
+
+    .hero-section .btn-secondary {
+        background: rgba(255,255,255,0.2);
+        border-color: rgba(255,255,255,0.3);
+        color: white;
+    }
+
+    .hero-section .breadcrumb a {
+        color: rgba(255,255,255,0.9);
+        text-decoration: none;
+        transition: all 0.3s ease;
+        padding: 5px 10px;
+        border-radius: 15px;
+        display: inline-block;
+    }
+
+    .hero-section .breadcrumb a:hover {
+        color: white;
+        background: rgba(255,255,255,0.1);
+        text-decoration: none;
+    }
+
+    .hero-section .breadcrumb-item a.active {
+        background: rgba(255,255,255,0.2);
+        color: white;
+        font-weight: 600;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+
+    .hero-section .breadcrumb-item.active {
+        color: rgba(255,255,255,0.7);
+        font-weight: 600;
+    }
+
+    .academic-paper-card {
+        border: 1px solid #e9ecef;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .academic-paper-card .card-title {
+        font-weight: 600;
+        color: #2c3e50;
+    }
+
+    .academic-paper-card .authors a {
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    .academic-paper-card .authors a:hover {
+        text-decoration: underline;
+    }
+
+    .keywords a {
+        text-decoration: none;
+        font-size: 0.8rem;
+    }
+
+    .keywords a:hover {
+        text-decoration: none;
+        opacity: 0.8;
+    }
+
+    .abstract-section p {
+        text-align: justify;
+    }
+
+    .publication-info {
+        border-left: 3px solid #007bff;
+        padding-left: 10px;
+    }
+
+    .bg-darker {
+        background-color: #1a1a1a !important;
+    }
+
+    .footer-link {
+        transition: color 0.3s ease;
+        text-decoration: none;
+    }
+
+    .footer-link:hover {
+        color: #007bff !important;
+        text-decoration: none;
+    }
+
+    .social-links a {
+        display: inline-block;
+        width: 35px;
+        height: 35px;
+        line-height: 35px;
+        text-align: center;
+        border-radius: 50%;
+        background: rgba(255,255,255,0.1);
+        transition: all 0.3s ease;
+    }
+
+    .social-links a:hover {
+        background: #007bff;
+        transform: translateY(-2px);
+        text-decoration: none;
+    }
+
+    .stat-item h4 {
+        font-weight: 700;
+        font-size: 1.8rem;
+    }
+
+    .newsletter .form-control {
+        background: rgba(255,255,255,0.1);
+        border: 1px solid rgba(255,255,255,0.2);
+        color: white;
+    }
+
+    .newsletter .form-control::placeholder {
+        color: rgba(255,255,255,0.6);
+    }
+
+    .newsletter .form-control:focus {
+        background: rgba(255,255,255,0.15);
+        border-color: #007bff;
+        color: white;
+        box-shadow: 0 0 0 0.2rem rgba(0,123,255,0.25);
+    }
+
+    footer .text-muted {
+        color: #adb5bd !important;
+    }
+
+    footer .footer-link {
+        color: #adb5bd !important;
+        transition: color 0.3s ease;
+        text-decoration: none;
+    }
+
+    footer .footer-link:hover {
+        color: #007bff !important;
+        text-decoration: none;
+    }
+
+    footer p, footer li, footer small {
+        color: #adb5bd !important;
+    }
+
+    footer h5, footer h6 {
+        color: #ffffff !important;
+    }
+
+    .newsletter .form-control {
+        background: rgba(255,255,255,0.1);
+        border: 1px solid rgba(255,255,255,0.3);
+        color: #ffffff !important;
+    }
+
+    .newsletter .form-control::placeholder {
+        color: rgba(255,255,255,0.7) !important;
+    }
+
+    .notification-btn {
+        position: relative;
+        background: rgba(255,255,255,0.1);
+        border: 1px solid rgba(255,255,255,0.3);
+        color: white;
+        width: 40px;
+        height: 32px;
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+    }
+
+    .notification-btn:hover {
+        background: rgba(255,255,255,0.2);
+        color: white;
+        text-decoration: none;
+    }
+
+    .notification-badge {
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        background: #dc3545;
+        color: white;
+        border-radius: 50%;
+        width: 18px;
+        height: 18px;
+        font-size: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+    }
 </style>
+</head>
+<body>
+<!-- Hero Section (Header + Title) -->
+<section class="hero-section">
+    <div class="container">
+        <!-- Header Row -->
+        <div class="row align-items-center py-3">
+            <div class="col-md-6">
+                <div class="logo">
+                    <img src="{{ asset('/image/dergipark_header.png') }}" height="70px">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="d-flex justify-content-end align-items-center">
+                    <!-- Notification Button -->
+                    <button class="notification-btn mr-3" title="Bildirimler">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </button>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+                    <!-- Login Button -->
+                    <button class="btn btn-secondary btn-sm mr-3">
+                        <i class="fas fa-user mr-1"></i>Giriş Yap
+                    </button>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>/home/harunkaraca/PhpstormProjects/30/06/dergipark.com/q/src/Controller/HomeController.php</code></li>
-        <li>Your template at <code>/home/harunkaraca/PhpstormProjects/30/06/dergipark.com/q/templates/home/index.html.twig</code></li>
-    </ul>
+                    <!-- Language Dropdown -->
+                    <div class="dropdown">
+                        <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown">
+                            <i class="fas fa-globe mr-1"></i>Dil
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a class="dropdown-item" href="#">
+                                <i class="fas fa-flag mr-2"></i>Türkçe
+                            </a>
+                            <a class="dropdown-item" href="#">
+                                <i class="fas fa-flag mr-2"></i>English
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Title Row -->
+        <div class="row mt-4">
+            <div class="col-12">
+                <h1 class="hero-title">Akademik Yayınlar</h1>
+                <p class="hero-subtitle">Bilimsel dergi ve makaleler için kapsamlı platform</p>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Main Content -->
+<div class="container mt-4">
+    <nav aria-label="breadcrumb" class="mt-3">
+        <ol class="breadcrumb bg-light p-3 rounded shadow-sm mb-0" style="border-left: 3px solid #007bff;">
+            <li class="breadcrumb-item"><a href="#" onclick="setBreadcrumbActive(this)" class="text-primary font-weight-500">Ana Sayfa</a></li>
+            <li class="breadcrumb-item"><a href="#" onclick="setBreadcrumbActive(this)" class="text-primary font-weight-500">Dergiler</a></li>
+            <li class="breadcrumb-item"><a href="#" onclick="setBreadcrumbActive(this)" class="text-primary font-weight-500">Sosyal Bilimler</a></li>
+            <li class="breadcrumb-item"><a href="#" onclick="setBreadcrumbActive(this)" class="text-primary font-weight-500">Eğitim</a></li>
+            <li class="breadcrumb-item"><a href="#" onclick="setBreadcrumbActive(this)" class="text-primary font-weight-500">Makale Detayı</a></li>
+        </ol>
+    </nav>
 </div>
+<div class="container mt-4">
+    <div class="row">
+        <!-- Left Column -->
+        <div class="col-md-4">
+            <!-- Combined Journal Cover & Article Files Section -->
+            <div class="mb-4">
+
+
+                <div class="card card-featured position-relative">
+                    <span class="badge badge-primary">Featured</span>
+                    <img src="{{ asset('/image/img_1.png') }}" class="card-img-top" alt="Fen ve Teknik Dergisi Kapağı" style="height: 700px; object-fit: cover;">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center mb-3">
+                            <a href="#" class="text-primary font-weight-bold text-decoration-none" onclick="downloadCover()">
+                                <i class="fas fa-download text-primary mr-2"></i>Kapak Resmi İndir
+                            </a>
+                        </div>
+
+                        <h6 class="card-subtitle mb-3 text-primary font-weight-bold">
+                            <i class="fas fa-file-alt mr-2"></i>MAKALE DOSYALARI
+                        </h6>
+
+                        <div class="mb-3">
+                            <div class="d-flex align-items-center justify-content-between p-2 bg-light rounded">
+                                <span class="text-dark font-weight-500">Tam Metin</span>
+                                <button class="btn btn-sm btn-outline-danger">
+                                    <i class="fas fa-file-pdf mr-1"></i>PDF
+                                </button>
+                            </div>
+                        </div>
+
+
+
+                        <!-- Action Buttons with Statistics -->
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <div class="text-center">
+                                <button class="btn btn-link p-0 text-primary d-block"><i class="fas fa-eye"></i></button>
+                                <small class="text-muted">546</small>
+                            </div>
+                            <div class="text-center">
+                                <button class="btn btn-link p-0 text-primary d-block"><i class="fas fa-download"></i></button>
+                                <small class="text-muted">708</small>
+                            </div>
+                            <div class="text-center">
+                                <button class="btn btn-link p-0 text-primary d-block"><i class="fas fa-heart"></i></button>
+                                <small class="text-muted">2</small>
+                            </div>
+                        </div>
+
+                        <!-- Social Share Buttons -->
+                        <div class="social-buttons">
+                            <a href="#" class="social-facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-linkedin"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-whatsapp"><i class="fab fa-whatsapp"></i></a>
+                            <a href="#" class="social-email"><i class="fas fa-envelope"></i></a>
+                            <a href="#" class="social-copy"><i class="fas fa-copy"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Example List Group -->
+            <div class="mb-4">
+                <h6 class="text-muted mb-3">
+                    <i class="fas fa-list mr-2"></i>DERGİ ANA SAYFASI
+                </h6>
+                <div class="modern-list-group">
+                    <a href="#" class="list-group-item list-group-item-action active" onclick="setActiveLink(this)">
+                        <i class="fas fa-book mr-2"></i>Cilt:9 Sayı:18
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action" onclick="setActiveLink(this)">
+                        <i class="fas fa-book mr-2"></i>Cilt:10 Sayı:19
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action" onclick="setActiveLink(this)">
+                        <i class="fas fa-book mr-2"></i>Cilt:10 Sayı:20
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action" onclick="setActiveLink(this)">
+                        <i class="fas fa-book mr-2"></i>Cilt:11 Sayı:21
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action" onclick="setActiveLink(this)">
+                        <i class="fas fa-book mr-2"></i>Cilt:11 Sayı:22
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Column -->
+        <div class="col-md-8">
+
+
+            <!-- Academic Paper Section -->
+            <div class="mb-4">
+                <div class="card academic-paper-card">
+                    <div class="card-header bg-light border-bottom">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="badge badge-secondary">    ARAŞTIRMA MAKALESİ</span>
+                            <div class="d-flex align-items-center">
+                                <a href="#" class="text-muted mr-3 text-decoration-none" onclick="switchLanguage('tr')" title="Türkçe versiyonu görüntüle">
+                                    <small class="font-weight-bold">TR</small>
+                                </a>
+                                <a href="#" class="text-primary mr-4 text-decoration-none" onclick="switchLanguage('en')" title="English version görüntüle">
+                                    <small class="font-weight-bold">EN</small>
+                                </a>
+                                <div class="file-formats">
+                                    <a href="#" class="badge badge-danger mr-2 text-decoration-none" onclick="downloadPDF()" title="PDF dosyasını indir">
+                                        <i class="fas fa-file-pdf"></i> PDF
+                                    </a>
+                                    <a href="#" class="badge badge-warning mr-2 text-decoration-none" onclick="downloadBibTex()" title="BibTeX formatında indir">
+                                        <i class="fas fa-quote-right"></i> BibTex
+                                    </a>
+                                    <a href="#" class="badge badge-info mr-2 text-decoration-none" onclick="downloadRIS()" title="RIS formatında indir">
+                                        <i class="fas fa-database"></i> RIS
+                                    </a>
+                                    <a href="#" class="badge badge-success text-decoration-none" onclick="showCitation()" title="Kaynak gösterme seçenekleri">
+                                        <i class="fas fa-link"></i> Kaynak Göster
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-body p-4">
+                        <!-- Article Title -->
+                        <h4 class="card-title text-dark mb-3" style="line-height: 1.4; font-weight: 600;">
+                            Yaban Keçisinin (Capra aegagrus, ERXLEBEN) Popülasyon Büyüklüğü ve Yapısı: Göller Yöresi Örneği
+                        </h4>
+
+                        <!-- Publication Info -->
+                        <div class="publication-info mb-3">
+                            <small class="text-muted">
+                                <i class="fas fa-calendar-alt mr-1"></i>
+                                Yıl 2023, Cilt: 10 Sayı: 20, 40 - 46, 31.12.2023
+                            </small>
+                        </div>
+
+                        <!-- Authors -->
+                        <div class="authors mb-4">
+                            <a href="#" class="text-primary mr-1">Harun Ekinci</a>
+                            <span class="text-muted">,</span>
+                            <a href="#" class="text-primary ml-1">Halil Suel</a>
+                        </div>
+
+                        <!-- Abstract Section -->
+                        <div class="abstract-section mb-4">
+                            <h6 class="text-danger mb-3">Öz</h6>
+                            <p class="text-justify" style="font-size: 0.9rem; line-height: 1.6;">
+                                Bu makale kapsamında, Göller Yöresinde yer alan; Antalya, Isparta ve Burdur illerinde 2017 ve 2018 yıllarında yaban keçisi envanteri çalışması yapılmıştır. Yaban keçilerinin popülasyon durumu, büyüklüğü ve yapısının, popülasyon içinde bireylerin cinsiyet, yaş ve grup içinde popülasyon dağılımının, nasıl bir ilişkisinin olduğu, yoğunluğun neye göre şekillendiği ele alınmıştır. Yapılan çalışma sırasında habitatlarının göz önünde bulundurularak yoğun olarak gözlemlenebilirliği ve gözlemlenen yerlerin birbirleriyle yakınlık, benzerlik durumları da göz önünde bulundurulmuştur. Korunan alanlardaki yaban keçilerinin katım döneminde (çiftleşme dönemi) bireyleri gözlenebilmesi artığı için ve popülasyon boyutunu farklı avlak ve yaban hayatı geliştirme sahalarında kıyaslayabilmesi sebebiyle kış sayımlarında çalışması yapılmıştır. Çalışma alanında yer alan devlet avlakları, yaban hayatı geliştirme sahalarında kapsamlı bir arazi çalışması yapılmış olup bireylerin yaş dağılımının Göller Yöresi kapsamında popülasyon ilişkisi araştırılmıştır. Göller Yöresinde insanlar tarafından yoğun olarak kullanılan alanların popülasyon büyüklüğüne nasıl bir etkisi olduğu, etkinin olumsuz yönlerine karşı ne gibi önlemler alınması gerektiği, alınan önlemlerin sürdürülebilir bir şekilde olması gerektiği üzerinde durulmuştur. Ayrıca farklı alanlarda popülasyon yapısının nasıl olduğu incelenmiştir. Yaban keçilerinin günlük olarak yaşam aktivitelerinin gözlemlenebilirliği sürecin ön planda tutularak, doğru veri elde edilmesi kapsamında popülasyonlar arasında dinamik yapıda olanlarda çalışma yürütülmüştür. Yaban keçisi popülasyonların 2017-2018 yılları için envanter sonuçlarının benzer durumda olduğu söylenebilmektedir.
+                            </p>
+                        </div>
+
+                        <!-- Keywords -->
+                        <div class="keywords-section mb-4">
+                            <h6 class="text-danger mb-3">Anahtar Kelimeler</h6>
+                            <div class="keywords">
+                                <a href="#" class="text-primary mr-2">Yaban Hayatı</a><span class="text-muted">,</span>
+                                <a href="#" class="text-primary mx-2">Jamovi</a><span class="text-muted">,</span>
+                                <a href="#" class="text-primary mx-2">Yaban Keçisi</a><span class="text-muted">,</span>
+                                <a href="#" class="text-primary mx-2">Popülasyon Büyüklüğü</a><span class="text-muted">,</span>
+                                <a href="#" class="text-primary mx-2">Popülasyon Yapısı</a><span class="text-muted">,</span>
+                                <a href="#" class="text-primary ml-2">Göller Yöresi</a>
+                            </div>
+                        </div>
+
+                        <!-- Supporting Institution -->
+                        <div class="institution-section mb-4">
+                            <h6 class="text-danger mb-3">Destekleyen Kurum</h6>
+                            <p class="text-muted" style="font-size: 0.9rem;">
+                                Isparta Uygulamalı Bilimler Üniversitesi BAP Yönetim Birimi Başkanlığı - Doğa Koruma ve Milli Parklar 6. Bölge Müdürlüğü
+                            </p>
+                        </div>
+
+                        <!-- Project Number -->
+                        <div class="project-section mb-4">
+                            <h6 class="text-danger mb-3">Proje Numarası</h6>
+                            <p class="text-muted" style="font-size: 0.9rem;">2019-YL1-0002</p>
+                        </div>
+
+                        <!-- Acknowledgments -->
+                        <div class="acknowledgments-section">
+                            <h6 class="text-danger mb-3">Teşekkür</h6>
+                            <p class="text-muted" style="font-size: 0.9rem;">
+                                Desteklerinden dolayı Isparta Uygulamalı Bilimler Üniversitesi BAP Yönetim Birimi Başkanlığına – Doğa Koruma ve Milli Parklar 6. Bölge Müdürlüğüne teşekkür ederiz.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Frame 30 Section -->
+            <div class="mb-4">
+                <h6 class="text-muted mb-3">Makale Detayları</h6>
+
+                <!-- Kaynakça Accordion -->
+                <div class="accordion-item">
+                    <button class="accordion-button" onclick="toggleAccordion('references', this)">
+                        <i class="fas fa-book mr-2"></i>
+                        Kaynakça
+                    </button>
+                    <div id="references" class="accordion-content">
+                        <div class="references-list">
+                            <ol class="list-unstyled">
+                                <li class="mb-3 small">
+                                    <span class="text-primary font-weight-bold">1.</span> Alkan, M. U. (2014). Antalya Bölgesinde Yaban Hayatı Açısından Av Turizmi Üzerine İncelemeler, Süleü İmam Üniversitesi Fen Bilimleri Enstitüsü, Yüks ek Lisans Tezi, 118s, Kahramanmaraş.
+                                </li>
+                                <li class="mb-3 small">
+                                    <span class="text-primary font-weight-bold">2.</span> Başkaya, Ş. (2000). Çengel Boynuzlu Dağ Keçisi Rupicapra rupicapra L.'nin Doğu Karadeniz Dağlarındaki Yayılışı, Grup Büyüklükleri ve Habitat Kulla nımı, Karadeniz Teknik Üniversitesi Fen Bilimleri Enstitüsü, Doktora Tezi, 128s, Trabzon.
+                                </li>
+                                <li class="mb-3 small">
+                                    <span class="text-primary font-weight-bold">3.</span> Çanakçıoğlu, H., Mol, T. (1996). Yaban Hayvanları Bilgisi. İstanbul Üniversitesi Orman Fakültesi Yayın No: 440, 550, İstanbul.
+                                </li>
+                                <li class="mb-3 small">
+                                    <span class="text-primary font-weight-bold">4.</span> Çelik, O. (1987). Anadolu'da (Kuçcük Asya'da) Avcılığın Tarihi. Uluslararası Sempozyum, Türkiye ve Balkan Ülkelerinde Yaban Hayatı, 18-20 Eylül, İstan bul.
+                                </li>
+                                <li class="mb-3 small">
+                                    <span class="text-primary font-weight-bold">5.</span> D.K.M.P. (2018). 2018-2019 Av Sezonu Merkez Av Komisyonu Kararları T.C. Tarım ve Orman Bakanlığı Doğa Koruma ve Milli Parklar Genel Müdürlüğü A vcılık ve Yaban Hayatı Şube Müdürlüğü, Ankara.
+                                </li>
+                                <li class="mb-3 small">
+                                    <span class="text-primary font-weight-bold">6.</span> D.K.M.P. (2019). Doğa koruma ve Milli Parklar 6. Bölge Müdürlüğü, http://bolge6.ormansu.gov.tr (Erişim Tarihi 16.03.2019).
+                                </li>
+                            </ol>
+                            <div class="text-center mt-3">
+                                <button class="btn btn-primary btn-sm">Tüm Kaynakçayı Göster</button>
+                            </div>
+                            <p class="text-muted small mt-2">Toplam <strong>45</strong> adet kaynakça vardır.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ayrıntılar Accordion -->
+                <div class="accordion-item">
+                    <button class="accordion-button" onclick="toggleAccordion('details', this)">
+                        <i class="fas fa-info-circle mr-2"></i>
+                        Ayrıntılar
+                    </button>
+                    <div id="details" class="accordion-content">
+                        <div class="article-details">
+                            <table class="table table-borderless table-sm">
+                                <tbody>
+                                <tr>
+                                    <td class="font-weight-bold text-muted" style="width: 30%;">Birincil Dil</td>
+                                    <td>Türkçe</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-weight-bold text-muted">Konular</td>
+                                    <td><a href="#" class="text-primary">Mühendislik</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="font-weight-bold text-muted">Bölüm</td>
+                                    <td><a href="#" class="text-primary">Araştırma Makalesi</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="font-weight-bold text-muted">Yazarlar</td>
+                                    <td>
+                                        <div class="mb-2">
+                                            <a href="#" class="text-primary font-weight-bold">Harun Ekinci</a>
+                                            <i class="fas fa-envelope text-muted ml-1" title="Corresponding Author"></i><br>
+                                            <small class="text-muted">ISPARTA UYGULAMALI BİLİMLER ÜNİVERSİTESİ</small><br>
+                                            <small class="text-primary">0000-0002-3224-6991</small><br>
+                                            <small class="text-muted">Türkiye</small>
+                                        </div>
+                                        <div>
+                                            <a href="#" class="text-primary font-weight-bold">Halil Suel</a><br>
+                                            <small class="text-muted">ISPARTA UYGULAMALI BİLİMLER ÜNİVERSİTESİ</small><br>
+                                            <small class="text-primary">0000-0003-3469-4819</small><br>
+                                            <small class="text-muted">Türkiye</small>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="font-weight-bold text-muted">Proje Numarası</td>
+                                    <td>2019-YL1-0002</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-weight-bold text-muted">Yayımlanma Tarihi</td>
+                                    <td>31 Aralık 2023</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-weight-bold text-muted">Yayımlandığı Sayı</td>
+                                    <td><a href="#" class="text-primary">Yıl 2023 Cilt: 10 Sayı: 20</a></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kaynak Göster Accordion -->
+                <div class="accordion-item">
+                    <button class="accordion-button" onclick="toggleAccordion('citation', this)">
+                        <i class="fas fa-quote-right mr-2"></i>
+                        Kaynak Göster
+                    </button>
+                    <div id="citation" class="accordion-content">
+                        <div class="citation-formats">
+                            <h6 class="text-primary mb-3">APA</h6>
+                            <div class="citation-box p-3 bg-light border-left border-primary">
+                                <p class="mb-0 small">
+                                    Ekinci, H., & Suel, H. (2023). Yaban Keçisinin (Capra aegagrus, ERXLEBEN) Popülasyon Büyüklüğü ve Yapısı: Göller Yöresi Örneği. <em>Science and Technique in the 21st Century</em>, 10(20), 40-46.
+                                </p>
+                            </div>
+                            <div class="mt-3">
+                                <button class="btn btn-outline-primary btn-sm mr-2">
+                                    <i class="fas fa-copy mr-1"></i>Kopyala
+                                </button>
+                                <button class="btn btn-outline-secondary btn-sm mr-2">
+                                    <i class="fas fa-download mr-1"></i>BibTeX
+                                </button>
+                                <button class="btn btn-outline-info btn-sm">
+                                    <i class="fas fa-database mr-1"></i>RIS
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="bg-dark text-light mt-5">
+    <div class="container py-5">
+        <div class="row">
+            <!-- DergiPark Info -->
+            <div class="col-lg-3 col-md-6 mb-4">
+                <h5 class="text-white mb-3">
+                    <i class="fas fa-graduation-cap mr-2"></i>DergiPark
+                </h5>
+                <p class="text-muted mb-3">
+                    Türkiye'nin en kapsamlı akademik dergi ve makale platformu. Bilimsel yayınlara ücretsiz erişim sağlayan ulusal akademik veri tabanı.
+                </p>
+                <div class="social-links">
+                    <a href="#" class="text-light mr-3"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="text-light mr-3"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-light mr-3"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="text-light mr-3"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-light"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="col-lg-2 col-md-6 mb-4">
+                <h6 class="text-white mb-3">Hızlı Erişim</h6>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><a href="#" class="text-muted footer-link">Ana Sayfa</a></li>
+                    <li class="mb-2"><a href="#" class="text-muted footer-link">Dergiler</a></li>
+                    <li class="mb-2"><a href="#" class="text-muted footer-link">Makaleler</a></li>
+                    <li class="mb-2"><a href="#" class="text-muted footer-link">Yazarlar</a></li>
+                    <li class="mb-2"><a href="#" class="text-muted footer-link">İstatistikler</a></li>
+                    <li class="mb-2"><a href="#" class="text-muted footer-link">Haberler</a></li>
+                </ul>
+            </div>
+
+            <!-- Academic Resources -->
+            <div class="col-lg-2 col-md-6 mb-4">
+                <h6 class="text-white mb-3">Akademik Kaynaklar</h6>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><a href="#" class="text-muted footer-link">Araştırma Makaleleri</a></li>
+                    <li class="mb-2"><a href="#" class="text-muted footer-link">Derleme Makaleleri</a></li>
+                    <li class="mb-2"><a href="#" class="text-muted footer-link">Kitap İncelemeleri</a></li>
+                    <li class="mb-2"><a href="#" class="text-muted footer-link">Konferans Bildirileri</a></li>
+                    <li class="mb-2"><a href="#" class="text-muted footer-link">Tez Özetleri</a></li>
+                    <li class="mb-2"><a href="#" class="text-muted footer-link">Editöryel</a></li>
+                </ul>
+            </div>
+
+            <!-- Support -->
+            <div class="col-lg-2 col-md-6 mb-4">
+                <h6 class="text-white mb-3">Destek</h6>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><a href="#" class="text-muted footer-link">Yardım Merkezi</a></li>
+                    <li class="mb-2"><a href="#" class="text-muted footer-link">SSS</a></li>
+                    <li class="mb-2"><a href="#" class="text-muted footer-link">İletişim</a></li>
+                    <li class="mb-2"><a href="#" class="text-muted footer-link">Geri Bildirim</a></li>
+                    <li class="mb-2"><a href="#" class="text-muted footer-link">Teknik Destek</a></li>
+                    <li class="mb-2"><a href="#" class="text-muted footer-link">Kullanım Kılavuzu</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact & Newsletter -->
+            <div class="col-lg-3 col-md-6 mb-4">
+                <h6 class="text-white mb-3">İletişim & Bülten</h6>
+                <div class="contact-info mb-3">
+                    <p class="text-muted mb-2">
+                        <i class="fas fa-envelope mr-2"></i>
+                        info@dergipark.org.tr
+                    </p>
+                    <p class="text-muted mb-2">
+                        <i class="fas fa-phone mr-2"></i>
+                        +90 312 XXX XX XX
+                    </p>
+                    <p class="text-muted mb-3">
+                        <i class="fas fa-map-marker-alt mr-2"></i>
+                        Ankara, Türkiye
+                    </p>
+                </div>
+
+                <div class="newsletter">
+                    <h6 class="text-white mb-2">Bülten Aboneliği</h6>
+                    <div class="input-group mb-3">
+                        <input type="email" class="form-control form-control-sm" placeholder="E-posta adresiniz">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary btn-sm" type="button">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <small class="text-muted">Yeni yayınlardan haberdar olun.</small>
+                </div>
+            </div>
+        </div>
+
+        <!-- Statistics Row -->
+        <div class="row border-top border-secondary pt-4 mt-4">
+            <div class="col-lg-12">
+                <div class="row text-center">
+                    <div class="col-md-3 mb-3">
+                        <div class="stat-item">
+                            <h4 class="text-primary mb-1">2,847</h4>
+                            <small class="text-muted">Aktif Dergi</small>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <div class="stat-item">
+                            <h4 class="text-success mb-1">156,432</h4>
+                            <small class="text-muted">Yayınlanan Makale</small>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <div class="stat-item">
+                            <h4 class="text-warning mb-1">89,234</h4>
+                            <small class="text-muted">Kayıtlı Yazar</small>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <div class="stat-item">
+                            <h4 class="text-info mb-1">1,234,567</h4>
+                            <small class="text-muted">Toplam İndirme</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom Footer -->
+    <div class="bg-darker py-3">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="text-muted mb-0">
+                        © 2024 DergiPark. Tüm hakları saklıdır.
+                    </p>
+                </div>
+                <div class="col-md-6 text-md-right">
+                    <div class="footer-links">
+                        <a href="#" class="text-muted mr-3">Gizlilik Politikası</a>
+                        <a href="#" class="text-muted mr-3">Kullanım Şartları</a>
+                        <a href="#" class="text-muted mr-3">Çerez Politikası</a>
+                        <a href="#" class="text-muted">Sitemap</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Bootstrap 4 JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+    function toggleAccordion(id, button) {
+        const element = document.getElementById(id);
+        const isOpen = element.classList.contains('show');
+
+        // Close all accordions
+        document.querySelectorAll('.accordion-content').forEach(content => {
+            content.classList.remove('show');
+        });
+        document.querySelectorAll('.accordion-button').forEach(btn => {
+            btn.classList.remove('active');
+        });
+
+        // Toggle current accordion
+        if (!isOpen) {
+            element.classList.add('show');
+            button.classList.add('active');
+        }
+    }
+
+    function setActiveLink(clickedLink) {
+        // Tüm linklerden active class'ını kaldır
+        document.querySelectorAll('.list-group-item').forEach(link => {
+            link.classList.remove('active');
+        });
+
+        // Tıklanan linke active class'ını ekle
+        clickedLink.classList.add('active');
+
+        // Sayfa yenilenmesini engelle
+        event.preventDefault();
+    }
+
+    function setBreadcrumbActive(clickedLink) {
+        // Tüm breadcrumb linklerinden active class'ını kaldır
+        document.querySelectorAll('.breadcrumb-item a').forEach(link => {
+            link.classList.remove('active');
+        });
+
+        // Tıklanan linke active class'ını ekle
+        clickedLink.classList.add('active');
+
+        // Sayfa yenilenmesini engelle
+        event.preventDefault();
+
+        // Tıklanan breadcrumb'ı konsola yazdır (isteğe bağlı)
+        console.log('Breadcrumb tıklandı:', clickedLink.textContent);
+    }
+
+    function downloadCover() {
+        // Kapak resmini indirme işlemi
+        const link = document.createElement('a');
+        link.href = 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-Px3Krmd74ouATPM6HpaNFWqmM4rCsq.png';
+        link.download = 'fen-ve-teknik-dergi-kapagi.png';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+
+        // Kullanıcıya bilgi ver
+        alert('Kapak resmi indiriliyor...');
+
+        // Sayfa yenilenmesini engelle
+        event.preventDefault();
+    }
+
+    function switchLanguage(lang) {
+        if (lang === 'tr') {
+            alert('Türkçe versiyona geçiliyor...');
+            // Türkçe içerik gösterme işlemi
+        } else if (lang === 'en') {
+            alert('Switching to English version...');
+            // İngilizce içerik gösterme işlemi
+        }
+        event.preventDefault();
+    }
+
+    function downloadPDF() {
+        // PDF indirme işlemi
+        alert('PDF dosyası indiriliyor...');
+        // Gerçek uygulamada PDF dosyasının linkini kullanın
+        const link = document.createElement('a');
+        link.href = '#'; // Gerçek PDF URL'si buraya gelecek
+        link.download = 'yaban-kecisi-populasyon-makalesi.pdf';
+        // link.click(); // Gerçek dosya olduğunda aktif edin
+        event.preventDefault();
+    }
+
+    function downloadBibTex() {
+        // BibTeX indirme işlemi
+        const bibTexContent = `@article{ekinci2023yaban,
+  title={Yaban Keçisinin (Capra aegagrus, ERXLEBEN) Popülasyon Büyüklüğü ve Yapısı: Göller Yöresi Örneği},
+  author={Ekinci, Harun and Suel, Halil},
+  journal={Science and Technique in the 21st Century},
+  volume={10},
+  number={20},
+  pages={40--46},
+  year={2023}
+}`;
+
+        const blob = new Blob([bibTexContent], { type: 'text/plain' });
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = 'ekinci2023yaban.bib';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+
+        alert('BibTeX dosyası indiriliyor...');
+        event.preventDefault();
+    }
+
+    function downloadRIS() {
+        // RIS indirme işlemi
+        const risContent = `TY  - JOUR
+T1  - Yaban Keçisinin (Capra aegagrus, ERXLEBEN) Popülasyon Büyüklüğü ve Yapısı: Göller Yöresi Örneği
+AU  - Ekinci, Harun
+AU  - Suel, Halil
+JO  - Science and Technique in the 21st Century
+VL  - 10
+IS  - 20
+SP  - 40
+EP  - 46
+PY  - 2023
+ER  -`;
+
+        const blob = new Blob([risContent], { type: 'text/plain' });
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = 'ekinci2023yaban.ris';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+
+        alert('RIS dosyası indiriliyor...');
+        event.preventDefault();
+    }
+
+    function showCitation() {
+        // Kaynak gösterme accordion'unu aç
+        const citationAccordion = document.getElementById('citation');
+        const citationButton = document.querySelector('[onclick="toggleAccordion(\'citation\', this)"]');
+
+        // Önce tüm accordion'ları kapat
+        document.querySelectorAll('.accordion-content').forEach(content => {
+            content.classList.remove('show');
+        });
+        document.querySelectorAll('.accordion-button').forEach(btn => {
+            btn.classList.remove('active');
+        });
+
+        // Citation accordion'unu aç
+        citationAccordion.classList.add('show');
+        citationButton.classList.add('active');
+
+        // Citation bölümüne scroll yap
+        citationAccordion.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+        event.preventDefault();
+    }
+</script>
 {% endblock %}
