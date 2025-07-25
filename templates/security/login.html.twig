@@ -3,32 +3,329 @@
 {% block title %}Log in!{% endblock %}
 
 {% block body %}
-<form method="post">
-    {% if error %}
-        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-    {% endif %}
 
-    {% if app.user %}
-        <div class="mb-3">
-            You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
+
+
+    <style>
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: calc(100vh - 200px); /* Header ve footer'dan sonra kalan alana göre ayarlandı, gerekirse bu değeri ayarlayabilirsiniz */
+            padding: 20px;
+            box-sizing: border-box;
+            background-color: #f8f0e3; /* Resimdeki açık krem rengi */
+        }
+
+        .login-card {
+            background-color: #fff; /* Beyaz kart arkaplanı */
+            padding: 40px;
+            border-radius: 12px; /* Daha yumuşak köşeler */
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* Hafif gölge */
+            max-width: 450px; /* Kartın maksimum genişliği */
+            width: 100%; /* Responsive olması için */
+            text-align: center; /* Başlık ve formun ortalanması için */
+        }
+
+        .login-card .h3 {
+            color: #343a40; /* Koyu gri başlık */
+            margin-bottom: 2rem; /* Başlık alt boşluğu */
+            font-weight: 600; /* Daha kalın başlık */
+        }
+
+        .login-card label {
+            text-align: left; /* Etiketleri sola hizala */
+            display: block; /* Her etiketin ayrı satırda olması için */
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #555;
+        }
+
+        .login-card .form-control {
+            margin-bottom: 1.5rem; /* Inputlar arası boşluk */
+            border-radius: 8px; /* Input köşelerini yuvarla */
+            border: 1px solid #ced4da; /* Hafif kenarlık */
+            padding: 12px 15px; /* Daha iyi iç boşluk */
+            font-size: 1rem;
+        }
+
+        .login-card .form-control:focus {
+            border-color: #007bff; /* Odaklandığında mavi kenarlık */
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Hafif odak gölgesi */
+        }
+
+        .login-card .checkbox {
+            margin-top: -0.5rem; /* Checkbox'ı yukarı taşı */
+            margin-bottom: 1.5rem;
+            text-align: left; /* Checkbox metnini sola hizala */
+        }
+
+        .login-card .btn-primary {
+            background-color: #007bff; /* Mavi buton */
+            border-color: #007bff;
+            padding: 12px 25px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 8px; /* Buton köşelerini yuvarla */
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+            width: 100%; /* Tam genişlikte buton */
+        }
+
+        .login-card .btn-primary:hover {
+            background-color: #0056b3; /* Hover'da daha koyu mavi */
+            border-color: #004085;
+        }
+
+        .login-card .alert {
+            margin-bottom: 1.5rem; /* Alert mesajı alt boşluğu */
+            padding: 1rem;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            text-align: left; /* Alert metnini sola hizala */
+        }
+
+        /* Responsive Düzeltmeler (isteğe bağlı) */
+        @media (max-width: 576px) {
+            .login-card {
+                padding: 25px;
+                border-radius: 8px;
+            }
+            .login-card .h3 {
+                font-size: 1.5rem;
+            }
+            .login-card .form-control,
+            .login-card .btn-primary {
+                padding: 10px 15px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+
+    <section class="hero-section">
+        <div class="container">
+            <!-- Header Row -->
+            <div class="row align-items-center py-3">
+                <div class="col-md-6">
+                    <img src="{{ asset('/image/dergipark_header.png') }}" height="70px" alt="logo">
+                </div>
+                <div class="col-md-6">
+                    <div class="d-flex justify-content-end align-items-center">
+                        <!-- Notification Button -->
+                        <button class="notification-btn mr-3" title="Bildirimler">
+                            <i class="fas fa-bell"></i>
+                            <span class="notification-badge">3</span>
+                        </button>
+
+                        <!-- Login Button -->
+                        <button class="btn btn-secondary btn-sm mr-3">
+                            <a href="http://localhost/register" style="color: white"><i class="fas fa-user mr-1" style="color: white"></i>Kayıt Ol</a>
+                        </button>
+
+                        <!-- Language Dropdown -->
+                        <div class="dropdown">
+                            <button class="btn btn-outline-light btn-sm dropdown-toggle" type="button" data-toggle="dropdown" style="border-radius: 6px; font-weight: 600;">
+                                <i class="fas fa-globe mr-1"></i>Dil
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-flag mr-2"></i>Türkçe
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-flag mr-2"></i>English
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Title Row -->
+            <div class="row mt-3">
+                <div class="col-12">
+                    <h1 class="hero-title">Giriş yap</h1>
+                    <p class="hero-subtitle"></p>
+                </div>
+            </div>
         </div>
-    {% endif %}
+    </section>
 
-    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-    <label for="inputEmail">Email</label>
-    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
-    <label for="inputPassword">Password</label>
-    <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
-    <input type="hidden" name="_csrf_token" data-controller="csrf-protection" value="{{ csrf_token('authenticate') }}">
 
-    <div class="checkbox mb-3">
-        <label>
-            <input type="checkbox" name="_remember_me"> Remember me
-        </label>
+    <div class="login-container"> {# Yeni bir sarmalayıcı div ekledim #}
+        <div class="login-card"> {# Login formunu bu kart içine aldım #}
+            <form method="post">
+                {% if error %}
+                    <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                {% endif %}
+
+                {% if app.user %}
+                    <div class="mb-3">
+                        You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
+                    </div>
+                {% endif %}
+
+                <h1 class="h3 mb-3 font-weight-normal">Giriş Yap</h1> {# Başlığı Türkçe yaptım #}
+                <label for="inputEmail">E-posta</label> {# Etiketi Türkçe yaptım #}
+                <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
+
+                <label for="inputPassword">Parola</label> {# Etiketi Türkçe yaptım #}
+                <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+
+                <input type="hidden" name="_csrf_token" data-controller="csrf-protection" value="{{ csrf_token('authenticate') }}">
+
+                <div class="checkbox mb-3">
+                    <label>
+                        <input type="checkbox" name="_remember_me"> Beni Hatırla
+                    </label> {# Etiketi Türkçe yaptım #}
+                </div>
+
+                <button class="btn btn-lg btn-primary" type="submit">
+                    Giriş Yap
+                </button> {# Buton metnini Türkçe yaptım #}
+                <button class="btn btn-lg btn-primary" type="submit">
+                    <a href="http://localhost/register" style="color: white">Kayıt ol</a>
+                </button> {# Buton metnini Türkçe yaptım #}
+            </form>
+        </div>
     </div>
 
-    <button class="btn btn-lg btn-primary" type="submit">
-        Sign in
-    </button>
-</form>
+
+
+
+
+    <footer class="bg-dark text-light mt-5">
+        <div class="container py-5">
+            <div class="row">
+                <!-- DergiPark Info -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <img src="{{ asset('/image/dergipark_header.png') }}" height="50px" style="margin-bottom: 50px" alt="logo">
+
+                    <p class="text-muted mb-3">
+                        Türkiye'nin en kapsamlı akademik dergi ve makale platformu. Bilimsel yayınlara ücretsiz erişim sağlayan ulusal akademik veri tabanı.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="text-light"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-light"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-light"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="text-light"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-light"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h6 class="text-white mb-3">Hızlı Erişim</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="footer-link">Ana Sayfa</a></li>
+                        <li class="mb-2"><a href="#" class="footer-link">Dergiler</a></li>
+                        <li class="mb-2"><a href="#" class="footer-link">Makaleler</a></li>
+                        <li class="mb-2"><a href="#" class="footer-link">Yazarlar</a></li>
+                        <li class="mb-2"><a href="#" class="footer-link">İstatistikler</a></li>
+                        <li class="mb-2"><a href="#" class="footer-link">Haberler</a></li>
+                    </ul>
+                </div>
+
+                <!-- Academic Resources -->
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h6 class="text-white mb-3">Akademik Kaynaklar</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="footer-link">Araştırma Makaleleri</a></li>
+                        <li class="mb-2"><a href="#" class="footer-link">Derleme Makaleleri</a></li>
+                        <li class="mb-2"><a href="#" class="footer-link">Kitap İncelemeleri</a></li>
+                        <li class="mb-2"><a href="#" class="footer-link">Konferans Bildirileri</a></li>
+                        <li class="mb-2"><a href="#" class="footer-link">Tez Özetleri</a></li>
+                        <li class="mb-2"><a href="#" class="footer-link">Editöryel</a></li>
+                    </ul>
+                </div>
+
+                <!-- Support -->
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h6 class="text-white mb-3">Destek</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="footer-link">Yardım Merkezi</a></li>
+                        <li class="mb-2"><a href="#" class="footer-link">SSS</a></li>
+                        <li class="mb-2"><a href="#" class="footer-link">İletişim</a></li>
+                        <li class="mb-2"><a href="#" class="footer-link">Geri Bildirim</a></li>
+                        <li class="mb-2"><a href="#" class="footer-link">Teknik Destek</a></li>
+                        <li class="mb-2"><a href="#" class="footer-link">Kullanım Kılavuzu</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact & Newsletter -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h6 class="text-white mb-3">İletişim & Bülten</h6>
+                    <div class="contact-info mb-3">
+                        <p class="text-muted mb-2">
+                            <i class="fas fa-envelope mr-2"></i>
+                            info@dergipark.org.tr
+                        </p>
+                        <p class="text-muted mb-2">
+                            <i class="fas fa-phone mr-2"></i>
+                            +90 312 XXX XX XX
+                        </p>
+                        <p class="text-muted mb-3">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            Ankara, Türkiye
+                        </p>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <!-- Statistics Row -->
+            <div class="row border-top border-secondary pt-4 mt-4">
+                <div class="col-lg-12">
+                    <div class="row text-center">
+                        <div class="col-md-3 mb-3">
+                            <div class="stat-item">
+                                <h4 class="mb-1">2,847</h4>
+                                <small class="text-muted">Aktif Dergi</small>
+                            </div>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <div class="stat-item">
+                                <h4 class="mb-1">156,432</h4>
+                                <small class="text-muted">Yayınlanan Makale</small>
+                            </div>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <div class="stat-item">
+                                <h4 class="mb-1">89,234</h4>
+                                <small class="text-muted">Kayıtlı Yazar</small>
+                            </div>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <div class="stat-item">
+                                <h4 class="mb-1">1,234,567</h4>
+                                <small class="text-muted">Toplam İndirme</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Footer -->
+        <div class="bg-darker py-3">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+
+
+                        <p class="text-muted mb-0">
+                            © 2024 DergiPark. Tüm hakları saklıdır.
+                        </p>
+                    </div>
+                    <div class="col-md-6 text-md-right">
+                        <div class="footer-links">
+                            <a href="#" class="text-muted mr-3 footer-link">Gizlilik Politikası</a>
+                            <a href="#" class="text-muted mr-3 footer-link">Kullanım Şartları</a>
+                            <a href="#" class="text-muted mr-3 footer-link">Çerez Politikası</a>
+                            <a href="#" class="text-muted footer-link">Sitemap</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
 {% endblock %}

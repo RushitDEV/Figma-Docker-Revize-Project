@@ -10,7 +10,7 @@
             <!-- Header Row -->
             <div class="row align-items-center py-3">
                 <div class="col-md-6">
-                    <img src="{{ asset('/image/dergipark_header.png') }}" height="70px">
+                    <img src="{{ asset('/image/dergipark_header.png') }}" height="70px" alt="logo">
                 </div>
                 <div class="col-md-6">
                     <div class="d-flex justify-content-end align-items-center">
@@ -22,7 +22,7 @@
 
                         <!-- Login Button -->
                         <button class="btn btn-secondary btn-sm mr-3">
-                            <i class="fas fa-user mr-1"></i>Giriş Yap
+                            <a href="http://localhost/login" style="color: white"><i class="fas fa-user mr-1" style="color: white"></i>Giriş Yap</a>
                         </button>
 
                         <!-- Language Dropdown -->
@@ -44,7 +44,7 @@
             </div>
 
             <!-- Title Row -->
-            <div class="row mt-3">
+            <div class="row mt-5">
                 <div class="col-12">
                     <h1 class="hero-title">21. Yüzyılda Fen ve Teknik</h1>
                     <p class="hero-subtitle"></p>
@@ -76,7 +76,7 @@
 
                     <div class="card card-featured position-relative">
                         <span class="badge badge-primary">Featured</span>
-                        <img src="{{ asset('/image/img_1.png') }}" class="card-img-top" alt="Fen ve Teknik Dergisi Kapağı" style="height: 500px; object-fit: cover;">
+                        <img src="{{ asset('/image/img_1.png') }}" class="card-img-top" alt="Fen ve Teknik Dergisi Kapağı" style="height: 500px; object-fit: cover; padding: 20px; width: 200;">
                         <div class="card-body">
                             <div class="d-flex align-items-center mb-3">
                                 <a href="#" class="text-primary font-weight-bold text-decoration-none" onclick="downloadCover()">
@@ -483,13 +483,14 @@
                                     </p>
                                 </div>
                                 <div class="mt-3">
-                                    <button class="btn btn-outline-primary btn-sm mr-2">
+                                    {# Kopyalanacak metni bir data-text niteliğine veya gizli bir div'e koyabilirsiniz #}
+                                    <button class="btn btn-outline-primary btn-sm mr-2" onclick="copyToClipboard(this)" data-text="SAAA   ASSSSS.">
                                         <i class="fas fa-copy mr-1"></i>Kopyala
                                     </button>
-                                    <button class="btn btn-outline-secondary btn-sm mr-2">
+                                    <button class="btn btn-outline-secondary btn-sm mr-2" onclick="downloadBibtex(this)" data-bibtex-content="@article{example, title={Title of Article}, author={Author, Name}}">
                                         <i class="fas fa-download mr-1"></i>BibTeX
                                     </button>
-                                    <button class="btn btn-outline-info btn-sm">
+                                    <button class="btn btn-outline-info btn-sm" onclick="downloadRis(this)" data-ris-content="TY - JOUR%0AAU - Author, Name%0ATY - Article%0ETI - Title of Article%0ER1 - Journal Name%0EY1 - 2023%0EP1 - 1-10%0ER - DOI:10.1234/example%0EL1 - URL:http://example.com%0ER2 - Abstract of the article.%0EER - ">
                                         <i class="fas fa-database mr-1"></i>RIS
                                     </button>
                                 </div>
@@ -507,7 +508,7 @@
             <div class="row">
                 <!-- DergiPark Info -->
                 <div class="col-lg-3 col-md-6 mb-4">
-                    <img src="{{ asset('/image/dergipark_header.png') }}" height="50px" style="margin-bottom: 50px">
+                    <img src="{{ asset('/image/dergipark_header.png') }}" height="50px" style="margin-bottom: 50px" alt="logo">
 
                     <p class="text-muted mb-3">
                         Türkiye'nin en kapsamlı akademik dergi ve makale platformu. Bilimsel yayınlara ücretsiz erişim sağlayan ulusal akademik veri tabanı.
@@ -578,18 +579,7 @@
                         </p>
                     </div>
 
-                    <div class="newsletter">
-                        <h6 class="text-white mb-2">Bülten Aboneliği</h6>
-                        <div class="input-group mb-3">
-                            <input type="email" class="form-control form-control-sm" placeholder="E-posta adresiniz">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary btn-sm" type="button">
-                                    <i class="fas fa-paper-plane"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <small class="text-muted">Yeni yayınlardan haberdar olun.</small>
-                    </div>
+
                 </div>
             </div>
 
@@ -874,6 +864,87 @@ ER  -`;
             // yukarıdaki kod yeterli olacaktır.
         }
         });
+
+        /**
+         * Verilen butondaki data-text niteliğindeki metni panoya kopyalar.
+         * @param {HTMLElement} buttonElement - Tıklanan buton elementi.
+         */
+        function copyToClipboard(buttonElement) {
+            const textToCopy = buttonElement.dataset.text; // data-text niteliğinden metni al
+            if (!textToCopy) {
+                console.warn("Kopyalanacak metin bulunamadı (data-text niteliği eksik).");
+                return;
+            }
+
+            navigator.clipboard.writeText(textToCopy)
+                .then(() => {
+                    alert("Metin panoya kopyalandı!");
+                    console.log("Panoya kopyalandı:", textToCopy);
+                    // İsteğe bağlı: Buton metnini kısa süreliğine "Kopyalandı!" olarak değiştirme
+                    const originalText = buttonElement.innerHTML;
+                    buttonElement.innerHTML = '<i class="fas fa-check mr-1"></i>Kopyalandı!';
+                    setTimeout(() => {
+                        buttonElement.innerHTML = originalText;
+                    }, 2000);
+                })
+                .catch(err => {
+                    console.error("Metin kopyalanırken hata oluştu:", err);
+                    alert("Metin kopyalanırken bir hata oluştu.");
+                });
+        }
+
+        /**
+         * Verilen butondaki data-bibtex-content niteliğindeki BibTeX içeriğini bir .bib dosyası olarak indirir.
+         * @param {HTMLElement} buttonElement - Tıklanan buton elementi.
+         */
+        function downloadBibtex(buttonElement) {
+            const bibtexContent = buttonElement.dataset.bibtexContent; // data-bibtex-content niteliğinden içeriği al
+            if (!bibtexContent) {
+                console.warn("BibTeX içeriği bulunamadı (data-bibtex-content niteliği eksik).");
+                return;
+            }
+
+            const filename = "reference.bib"; // İndirilecek dosya adı
+            const blob = new Blob([bibtexContent], { type: "text/plain;charset=utf-8" });
+            const link = document.createElement("a");
+            link.href = URL.createObjectURL(blob);
+            link.download = filename;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            URL.revokeObjectURL(link.href); // Bellek sızıntısını önlemek için URL'i serbest bırak
+            alert("BibTeX dosyası indiriliyor...");
+            console.log(filename + " indirildi.");
+        }
+
+        /**
+         * Verilen butondaki data-ris-content niteliğindeki RIS içeriğini bir .ris dosyası olarak indirir.
+         * @param {HTMLElement} buttonElement - Tıklanan buton elementi.
+         */
+        function downloadRis(buttonElement) {
+            const risContent = buttonElement.dataset.risContent; // data-ris-content niteliğinden içeriği al
+            if (!risContent) {
+                console.warn("RIS içeriği bulunamadı (data-ris-content niteliği eksik).");
+                return;
+            }
+
+            const filename = "reference.ris"; // İndirilecek dosya adı
+            // RIS formatı genellikle CRLF (%0A) ile yeni satırları temsil eder,
+            // ancak bazı uygulamalar doğrudan \n bekleyebilir. Tarayıcıda indirirken
+            // doğrudan URL'den kaynaklanan kodlamaya dikkat edin.
+            const decodedRisContent = decodeURIComponent(risContent); // URL encode edilmiş metni çöz
+
+            const blob = new Blob([decodedRisContent], { type: "text/plain;charset=utf-8" });
+            const link = document.createElement("a");
+            link.href = URL.createObjectURL(blob);
+            link.download = filename;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            URL.revokeObjectURL(link.href);
+            alert("RIS dosyası indiriliyor...");
+            console.log(filename + " indirildi.");
+        }
 
 
 
