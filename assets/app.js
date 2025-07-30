@@ -20,6 +20,7 @@ import './styles/components/fonts.css';
 import './styles/components/root.css';
 import './styles/components/list_group.css';
 import './styles/components/footer.css';
+import './styles/components/breadcrumb.css';
 
 
 console.log('This log comes from assets/app.js - welcome to AssetMapper! 🎉');

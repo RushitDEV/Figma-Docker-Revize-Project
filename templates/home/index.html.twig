@@ -7,8 +7,15 @@
     {# Header componenti #}
     {% include 'partials/header.html.twig' %}
 
+
     <div class="container mt-4">
         <div class="row">
+
+            <div class="col-md-8">
+                <section>
+                    {% include 'partials/breadcrumb.html.twig' %}
+                </section>
+            </div>
 
             <div class="col-md-8">
                 <section>
@@ -103,6 +110,16 @@
                 button.innerHTML = '<i class="fas fa-copy mr-1"></i> Kopyala';
             }, 1500);
         }
+
+        // app.js
+        $('#collapseOne').on('show.bs.collapse', function () {
+            $('.show-bibliography-btn').fadeIn();
+        });
+
+        $('#collapseOne').on('hide.bs.collapse', function () {
+            $('.show-bibliography-btn').fadeOut();
+        });
+
     </script>
 
 {% endblock %}
