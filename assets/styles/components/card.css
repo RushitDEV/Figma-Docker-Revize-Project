@@ -1,0 +1,12 @@
+/* ===================
+  Card Styles
+  =================== */
+.card-header {
+    background: var(--light-color) !important;
+    border-bottom: 1px solid var(--border-color) !important;
+    padding: 20px 24px !important;
+}
+
+.card-body {
+    padding: 24px !important;
+}

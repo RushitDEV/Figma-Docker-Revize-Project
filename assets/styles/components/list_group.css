@@ -1,0 +1,75 @@
+/* Liste Grubu Öğeleri (Makale Dosyaları, Dergi Ana Sayfası vb.) */
+.list-group-item {
+    border: 1px solid var(--border-color);
+    padding: 16px 20px;
+    transition: all 0.3s ease;
+    border-radius: 6px !important;
+    margin-bottom: 8px;
+    background: white;
+    color: var(--text-secondary);
+    font-weight: 500;
+    font-size: 14px;
+    box-shadow: 0 2px 4px rgba(139, 69, 19, 0.08); /* Kahve tonunda gölge */
+    position: relative;
+    overflow: hidden;
+}
+
+/* Liste öğesinin solundaki renkli çubuk */
+.list-group-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 3px;
+    /* Bu çubuğun rengini primary-color'dan alması mantıklı, çünkü bu bir vurgu. */
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
+    transform: scaleY(0); /* Başlangıçta gizli */
+    transition: transform 0.3s ease;
+}
+
+.list-group-item:hover {
+    background: white;
+    transform: translateX(8px);
+    box-shadow: 0 4px 16px rgba(139, 69, 19, 0.15); /* Kahve tonunda gölge */
+    border-color: var(--primary-color);
+}
+
+.list-group-item:hover::before {
+    transform: scaleY(1); /* Hover'da görünür */
+}
+
+/* Aktif liste öğesi */
+.list-group-item.active {
+    /* Aktif liste öğesi de primary-color paletini kullanmalı */
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
+    color: white; /* Metin rengi beyaz */
+    transform: translateX(8px);
+    box-shadow: 0 6px 20px rgba(139, 69, 19, 0.3);
+    border-color: var(--primary-color);
+}
+
+.list-group-item.active::before {
+    display: none; /* Aktifken çubuk görünmez */
+}
+
+.list-group-item i {
+    margin-right: 12px;
+    width: 18px;
+    text-align: center;
+    color: var(--text-primary); /* İkon rengi varsayılan olarak metin rengini alsın */
+}
+/* Aktif listede ikon rengi beyaz olsun */
+.list-group-item.active i {
+    color: white;
+}
+
+
+.modern-list-group {
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 16px rgba(139, 69, 19, 0.08);
+    border-radius: 8px;
+    overflow: hidden;
+    padding: 16px;
+    background: white;
+}

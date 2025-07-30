@@ -1,0 +1,70 @@
+/* Genel kart yapısı */
+.academic-paper-card {
+    border: 1px solid #e1e1e1;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    background-color: #fff;
+}
+
+/* Kart başlığı */
+.academic-paper-card .card-header {
+    background-color: #f8f9fa;
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid #dee2e6;
+}
+
+/* Dil seçim ve format butonları */
+.academic-paper-card .file-formats a {
+    font-size: 0.75rem;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+}
+
+/* Makale başlığı */
+.academic-paper-card .card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #343a40;
+}
+
+/* Yayın bilgisi */
+.academic-paper-card .publication-info small {
+    font-size: 0.85rem;
+    color: #6c757d;
+}
+
+/* Yazar bağlantıları */
+.academic-paper-card .authors a {
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+/* Alt başlıklar (Öz, Anahtar Kelimeler, vb.) */
+.academic-paper-card h6 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #c0392b;
+}
+
+/* Paragraflar */
+.academic-paper-card p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #4a4a4a;
+}
+
+/* Anahtar kelime bağlantıları */
+.academic-paper-card .keywords a {
+    font-size: 0.85rem;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.academic-paper-card .keywords a:hover {
+    text-decoration: underline;
+}
+
+/* Teşekkür ve diğer açıklama kutuları */
+.academic-paper-card .text-muted {
+    color: #6c757d !important;
+}

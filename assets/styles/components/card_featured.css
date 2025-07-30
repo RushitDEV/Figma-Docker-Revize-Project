@@ -1,0 +1,106 @@
+/* Varsayılan Renk Değerleri */
+:root {
+    --primary-color: #8B4513;         /* SaddleBrown */
+    --primary-light: #A0522D;         /* Sienna */
+    --border-color: #ddd;
+    --text-dark: #343a40;
+    --text-muted: #6c757d;
+    --bg-light: #f9f9f9;
+}
+
+/* Ana Kart */
+.card-featured {
+    position: relative;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 10px rgba(139, 69, 19, 0.1);
+    transition: all 0.3s ease;
+    overflow: hidden;
+    padding: 1.5rem;
+}
+
+.card-featured:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 24px rgba(139, 69, 19, 0.25);
+    border-color: var(--primary-color);
+}
+
+/* Rozet / Badge */
+.card-featured .badge {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+    color: #fff;
+    padding: 0.35rem 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+}
+
+/* Başlık */
+.card-featured h4,
+.card-featured .card-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 0.75rem;
+    line-height: 1.4;
+}
+
+/* Metin Paragrafları */
+.card-featured p {
+    font-size: 0.92rem;
+    line-height: 1.65;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+}
+
+/* Alt Başlıklar */
+.card-featured h6 {
+    font-size: 1rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+/* Yazarlar */
+.card-featured .authors a {
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: var(--primary-color);
+}
+
+.card-featured .authors a:hover {
+    text-decoration: underline;
+}
+
+/* Anahtar Kelimeler */
+.card-featured .keywords a {
+    font-size: 0.8rem;
+    margin-right: 0.3rem;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.card-featured .keywords a:hover {
+    text-decoration: underline;
+}
+
+/* Dosya Formatları */
+.card-featured .file-formats a {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 0.3rem 0.6rem;
+    margin-right: 0.4rem;
+    border-radius: 3px;
+    color: #fff;
+}
+
+.card-featured .badge-danger { background-color: #dc3545; }
+.card-featured .badge-warning { background-color: #ffc107; color: #212529; }
+.card-featured .badge-info { background-color: #17a2b8; }
+.card-featured .badge-success { background-color: #28a745; }

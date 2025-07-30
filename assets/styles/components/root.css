@@ -1,0 +1,43 @@
+:root {
+    /* Renk Paleti Tanımlamaları */
+    /* --primary-color artık açık kahverengi/bej tonunu temsil edecek.
+       Bu, akademik bir tema için daha uygun.
+       --primary-dark ve --primary-light bu paleti destekleyecek. */
+    --primary-color: #0d0dac; /* Rustik Kahverengi / Ten rengi: Ana vurgu rengi */
+    --primary-dark: #8B4513; /* Daha koyu toprak tonu */
+    --primary-light: #D2B48C; /* Daha açık bej / kum rengi */
+
+    --secondary-color: #CD853F; /* Bronz: İkincil vurgu rengi (önceki tanımınız) */
+    --secondary-dark: #B8860B; /* Altın rengi */
+    --secondary-light: #DEB887; /* Açık bronz */
+
+    --accent-color: #D2691E; /* Çikolata Kahve: Üçüncül vurgu rengi */
+    --accent-dark: #A0522D; /* Daha koyu çikolata */
+    --accent-light: #F4A460; /* Açık turuncu/şeftali */
+
+    /* Başarılı/Uyarı/Tehlike renkleri için daha genel ve belirgin renkler tanımlayabiliriz
+       veya mevcut toprak tonu paletinden uygun olanları seçebiliriz.
+       Şu anki tanımlarınız zaten toprak tonlarında olduğu için iyi. */
+    --success-color: #28a745; /* Yeşil: Başarı mesajları veya onaylar için */
+    --warning-color: #ffc107; /* Sarı: Uyarılar için */
+    --danger-color: #dc3545; /* Kırmızı: Tehlike/hata mesajları için */
+    --info-color: #17a2b8; /* Mavi: Bilgi mesajları için */
+
+    --dark-color: #3E2723; /* Koyu kahve */
+    --light-color: #e8e5e0; /* Çok açık bej / neredeyse beyaz arka plan */
+
+    --text-primary: #3E2723; /* Koyu metin */
+    --text-secondary: #232222; /* Orta koyu metin */
+    --border-color: #D7CCC8; /* Açık sınır rengi */
+
+    /* Gri tonları (mevcut tanımlarınızla uyumlu) */
+    --gray-100: #FDF5E6;
+    --gray-200: #F5F5DC;
+    --gray-300: #E6D3C7;
+    --gray-400: #D7CCC8;
+    --gray-500: #BCAAA4;
+    --gray-600: #8D6E63;
+    --gray-700: #6D4C41;
+    --gray-800: #5D4037;
+    --gray-900: #3E2723;
+}

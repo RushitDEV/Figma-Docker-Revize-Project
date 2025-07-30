@@ -1,0 +1,61 @@
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--gray-200);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-color) 100%);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.text-secondary-custom {
+    color: var(--secondary-color) !important;
+}
+
+.text-accent {
+    color: var(--accent-color) !important;
+}
+
+.bg-primary-light {
+    background: rgba(139, 69, 19, 0.1) !important;
+}
+
+.bg-secondary-light {
+    background: rgba(205, 133, 63, 0.1) !important;
+}
+
+.bg-accent-light {
+    background: rgba(210, 105, 30, 0.1) !important;
+}
+
+.border-primary {
+    border-color: var(--primary-color) !important;
+}
+
+.border-secondary {
+    border-color: var(--secondary-color) !important;
+}
+
+.border-accent {
+    border-color: var(--accent-color) !important;
+}
+
+.fa-download{
+    color:#2b437c;
+}
+
+.fa-eye{
+    color: black;
+}

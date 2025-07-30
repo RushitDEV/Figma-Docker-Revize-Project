@@ -1,0 +1,40 @@
+<header class="bg-white shadow-sm">
+    <div class="container py-3">
+        <div class="row align-items-center">
+            <!-- Logo -->
+            <div class="col-md-6 col-8">
+
+                    <img src="{{ asset('image/dergipark_header.png') }}" alt="DergiPark Logo" height="60">
+            </div>
+
+            <!-- Sağ taraftaki butonlar -->
+            <div class="col-md-6 col-4">
+                <div class="d-flex justify-content-end align-items-center gap-3">
+
+                    <!-- Bildirim butonu -->
+                    <button class="btn position-relative" title="Bildirimler" style="font-size: 1.2rem;">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge badge-danger position-absolute top-0 start-100 translate-middle p-1 rounded-circle">3</span>
+                    </button>
+
+                    <!-- Giriş yap -->
+                    <a href="http://localhost/login" class="btn btn-secondary btn-sm">
+                        <i class="fas fa-user mr-1"></i> Giriş Yap
+                    </a>
+
+                    <!-- Dil seçimi -->
+                    <div class="dropdown">
+                        <button class="btn btn-light btn-sm dropdown-toggle" data-toggle="dropdown">
+                            <i class="fas fa-globe"></i> Dil
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a class="dropdown-item" href="#"><i class="fas fa-flag mr-2"></i> Türkçe</a>
+                            <a class="dropdown-item" href="#"><i class="fas fa-flag mr-2"></i> English</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
