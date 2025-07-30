@@ -24,7 +24,7 @@
     --info-color: #17a2b8; /* Mavi: Bilgi mesajları için */
 
     --dark-color: #3E2723; /* Koyu kahve */
-    --light-color: #e8e5e0; /* Çok açık bej / neredeyse beyaz arka plan */
+    --light-color: rgba(91, 143, 143, 0.05); /* Çok açık bej / neredeyse beyaz arka plan */
 
     --text-primary: #3E2723; /* Koyu metin */
     --text-secondary: #232222; /* Orta koyu metin */

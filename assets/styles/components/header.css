@@ -1,59 +1,94 @@
-/* ===================
-   Header Styles
-   =================== */
-.notification-btn {
+/* --- HEADER --- */
+header {
+    background-image: url('/assets/image/img_2.png'); /* Arka plan görselin */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-bottom: 4px solid #0d47a1;
     position: relative;
-    background: rgba(255,255,255,0.2);
-    border: 1px solid rgba(255,255,255,0.3);
-    color: white;
-    width: 44px;
-    height: 36px;
-    border-radius: 6px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
+    padding: 20px 0;
 }
 
-.notification-btn:hover {
-    background: rgba(255,255,255,0.3);
-    color: white;
-    text-decoration: none;
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-}
-
-.notification-badge {
-    position: absolute;
-    top: -6px;
-    right: -6px;
-    background: linear-gradient(135deg, var(--danger-color) 0%, #D2691E 100%);
-    color: white;
-    border-radius: 50%;
-    width: 18px;
-    height: 18px;
-    font-size: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    border: 2px solid white;
-    box-shadow: 0 1px 4px rgba(160, 82, 45, 0.4);
-}
-
-.btn-secondary {
-    background: rgba(255,255,255,0.2);
-    border: 1px solid rgba(255,255,255,0.3);
-    color: white;
+/* --- HEADER BUTTONLAR --- */
+header .btn,
+.btn-secondary.header-button,
+.btn-light.header-button,
+.notification-btn,
+.btn-language {
+    height: 34px;
+    padding: 0 10px;
+    font-size: 0.875rem;
     border-radius: 6px;
     font-weight: 600;
-    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    color: #fff;
+    background-color: #6c757d;
+    border: 1px solid rgba(255,255,255,0.3);
 }
 
-.btn-secondary:hover {
-    background: rgba(255,255,255,0.3);
-    border-color: rgba(255,255,255,0.5);
-    color: white;
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+header .btn:hover,
+.btn-secondary.header-button:hover,
+.notification-btn:hover,
+.btn-language:hover {
+    background-color: #495057;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.btn-language {
+    border: none;
+}
+
+
+/* --- BOTTOM HEADER --- */
+.bottom-header {
+    position: relative;
+    height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url('/assets/image/img_2.png'), linear-gradient(to right, #cfd8dc, #e0f7fa); /* Arka plan deseni + renk */
+    background-size: cover;
+    background-position: center;
+}
+
+.bottom-header .overlay {
+    background-color: rgba(255, 255, 255, 0.15); /* ← %65 opaklık */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 0;
+}
+
+
+.bottom-header-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #0c0c0c;
+    margin: 0;
+    text-align: center;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+    max-width: 100%;
+}
+
+.bottom-header .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+    .bottom-header {
+        height: 160px;
+    }
+    .bottom-header-title {
+        font-size: 2rem;
+    }
 }

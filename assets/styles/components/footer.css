@@ -2,20 +2,20 @@
    Footer Styles
    =================== */
 .footer-link {
-    transition: all 0.3s ease;
-    text-decoration: none;
-    font-weight: 500;
-    position: relative;
+    transition: all 0.3s ease;  /* Geçiş efekti */
+    text-decoration: none;      /* Alt çizgi kaldırıldı */
+    font-weight: 500;           /* Yazı kalınlığı */
+    position: relative;         /* Konumlandırma */
 }
 
 .footer-link::after {
-    content: '';
-    position: absolute;
-    bottom: -1px;
-    left: 0;
-    width: 0;
-    height: 1px;
-    background: var(--primary-light);
+    content: ''; /* İçerik boş, sadece görsel efekt için */
+    position: absolute; /* Konumlandırma */
+    bottom: -1px; /* Alt kenara hizalama */
+    left: 0; /* Sol kenara hizalama */
+    width: 0; /* Başlangıçta genişlik 0 */
+    height: 1px; /* Çizgi yüksekliği */
+    background: var(--primary-light);  /* Çizgi rengi */
     transition: width 0.3s ease;
 }
 
@@ -24,7 +24,7 @@
 }
 
 .footer-link:hover {
-    color: var(--primary-light) !important;
+    color: var(--primary-light) !important; /* Hover'da renk değişimi */
     text-decoration: none;
 }
 
@@ -35,13 +35,17 @@
     line-height: 40px;
     text-align: center;
     border-radius: 6px;
-    background: rgba(255,255,255,0.1);
-    transition: all 0.3s ease;
-    margin-right: 8px;
+    background: #e2e5e8 !important;    /* Gri arka plan */
+    color: #285a8c !important;         /* Beyaz ikon rengi */
+    font-size: 18px;                   /* İkon boyutu */
+    transition: all 0.3s ease;             /* Geçiş efekti */
+    margin-right: 8px;                  /* Sağ boşluk */
+    box-shadow: 0 2px 6px rgba(139, 69, 19, 0.1); /* Hafif gölge */
+    overflow: hidden;
 }
 
 .social-links a:hover {
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%); /* Hover'da renk geçişi */
     transform: translateY(-2px);
     text-decoration: none;
     box-shadow: 0 4px 12px rgba(139, 69, 19, 0.4);
@@ -52,7 +56,7 @@ footer .footer-link,
 footer p,
 footer li,
 footer small {
-    color: var(--gray-400) !important;
+    color: var(--gray-400) !important; /* Gri renk */
 }
 
 footer h5,

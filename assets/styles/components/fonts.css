@@ -13,7 +13,7 @@ body {
     font-size: 14px;
     line-height: 1.7;
     color: var(--text-secondary);
-    background-color: var(--light-color);
+    background-color: #f8f9fa;
     font-weight: 400;
 }
 

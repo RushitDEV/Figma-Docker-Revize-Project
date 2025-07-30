@@ -1,106 +1,123 @@
-/* Varsayılan Renk Değerleri */
-:root {
-    --primary-color: #8B4513;         /* SaddleBrown */
-    --primary-light: #A0522D;         /* Sienna */
-    --border-color: #ddd;
-    --text-dark: #343a40;
-    --text-muted: #6c757d;
-    --bg-light: #f9f9f9;
+/* ===================
+  Card Styles
+  =================== */
+.card-header {
+    background: var(--light-color) !important;
+    border-bottom: 1px solid var(--border-color) !important;
+    padding: 20px 24px !important;
 }
 
-/* Ana Kart */
+.card-body {
+    padding: 24px !important;
+}
+
+
 .card-featured {
-    position: relative;
-    border: 1px solid var(--border-color);
-    border-radius: 10px;
-    background-color: #fff;
-    box-shadow: 0 4px 10px rgba(139, 69, 19, 0.1);
-    transition: all 0.3s ease;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
     overflow: hidden;
-    padding: 1.5rem;
+    background-color: #fff;
 }
 
-.card-featured:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 10px 24px rgba(139, 69, 19, 0.25);
-    border-color: var(--primary-color);
-}
-
-/* Rozet / Badge */
-.card-featured .badge {
+.card-featured .badge-primary {
     position: absolute;
-    top: 1rem;
-    left: 1rem;
-    background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
-    color: #fff;
-    padding: 0.35rem 0.75rem;
-    font-size: 0.75rem;
-    font-weight: 600;
-    border-radius: 4px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+    top: 16px;
+    left: 16px;
+    background-color: #007bff;
+    color: white;
+    padding: 6px 12px;
+    font-size: 12px;
+    border-radius: 12px;
+    z-index: 2;
 }
 
-/* Başlık */
-.card-featured h4,
-.card-featured .card-title {
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: var(--text-dark);
-    margin-bottom: 0.75rem;
-    line-height: 1.4;
+.card-featured img.card-img-top {
+    width: 100%;
+    max-height: 500px;
+    object-fit: cover;
+    padding: 20px;
+    border-radius: 10px;
 }
 
-/* Metin Paragrafları */
-.card-featured p {
-    font-size: 0.92rem;
-    line-height: 1.65;
-    color: var(--text-muted);
-    margin-bottom: 1rem;
-}
-
-/* Alt Başlıklar */
-.card-featured h6 {
-    font-size: 1rem;
-    color: var(--primary-color);
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-}
-
-/* Yazarlar */
-.card-featured .authors a {
-    font-weight: 500;
-    font-size: 0.9rem;
-    color: var(--primary-color);
-}
-
-.card-featured .authors a:hover {
+.card-body a.text-primary:hover {
     text-decoration: underline;
 }
 
-/* Anahtar Kelimeler */
-.card-featured .keywords a {
-    font-size: 0.8rem;
-    margin-right: 0.3rem;
+.card-body h6.card-subtitle i {
+    margin-right: 6px;
+}
+
+.card-body .bg-light {
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.card-body .bg-light:hover {
+    background-color: #f1f1f1;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.btn-outline-danger {
+    transition: background-color 0.2s ease;
+}
+
+.btn-outline-danger:hover {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+.d-flex.justify-content-between .btn-link {
+    font-size: 18px;
     color: #007bff;
+    transition: transform 0.2s ease;
+}
+
+.d-flex.justify-content-between .btn-link:hover {
+    transform: scale(1.2);
+}
+
+.social-buttons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    margin: 0 6px;
+    font-size: 16px;
+    color: white;
+    border-radius: 50%;
     text-decoration: none;
+    transition: transform 0.2s ease;
 }
 
-.card-featured .keywords a:hover {
-    text-decoration: underline;
+.social-facebook { background-color: #3b5998; }
+.social-twitter { background-color: #1da1f2; }
+.social-linkedin { background-color: #0077b5; }
+.social-whatsapp { background-color: #25d366; }
+.social-email { background-color: #6c757d; }
+.social-copy { background-color: #17a2b8; }
+
+.social-buttons a:hover {
+    transform: scale(1.1);
+    opacity: 0.85;
 }
 
-/* Dosya Formatları */
-.card-featured .file-formats a {
-    display: inline-block;
-    font-size: 0.75rem;
-    font-weight: 500;
-    padding: 0.3rem 0.6rem;
-    margin-right: 0.4rem;
-    border-radius: 3px;
-    color: #fff;
+.featured-cover {
+    height: 470px;
+    width: 200px;
+    object-fit: cover;
+    padding: 20px;
+    margin: 10px auto;
+    display: block;
 }
 
-.card-featured .badge-danger { background-color: #dc3545; }
-.card-featured .badge-warning { background-color: #ffc107; color: #212529; }
-.card-featured .badge-info { background-color: #17a2b8; }
-.card-featured .badge-success { background-color: #28a745; }
+.card-img-featured {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    object-fit: contain;
+    border-radius: 4px;
+}
+
+

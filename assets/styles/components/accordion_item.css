@@ -1,81 +1,100 @@
-/* Akordiyon Öğeleri */
 .accordion-item {
-    border: 1px solid var(--border-color);
-    border-radius: 6px;
-    margin-bottom: 12px;
+    margin-bottom: 1rem;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 2px 8px rgba(139, 69, 19, 0.08); /* Kahve tonunda gölge */
-    transition: all 0.3s ease;
-    background: white;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
 }
 
-.accordion-item:hover {
-    box-shadow: 0 4px 16px rgba(139, 69, 19, 0.15);
-    transform: translateY(-1px);
-    border-color: var(--primary-color);
-}
-
-/* Akordiyon Butonu (Başlığı) */
 .accordion-button {
-    /* Başlık rengi için primary-color paletini kullan */
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
-    border: none;
-    color: white; /* Metin rengi beyaz */
-    text-decoration: none;
-    padding: 16px 20px;
-    margin-bottom: 0;
     width: 100%;
     text-align: left;
+    padding: 12px 20px;
     font-weight: 600;
-    font-size: 15px;
-    position: relative;
-    transition: all 0.3s ease;
+    font-size: 1rem;
+    color: #343a40;
+    background-color: #f8f9fa;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .accordion-button:hover {
-    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-color) 100%);
+    background-color: #e2e6ea;
 }
 
-.accordion-button::after {
-    content: '\f107'; /* Font Awesome ikon kodu */
-    font-weight: 900;
-    position: absolute;
-    right: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    transition: transform 0.3s ease;
-    font-size: 14px;
-}
-
-.accordion-button.active::after {
-    transform: translateY(-50%) rotate(180deg);
+.accordion-button i {
+    margin-right: 8px;
 }
 
 .accordion-content {
-    display: none;
-    padding: 20px;
-    background: var(--light-color); /* İçerik arka planı açık bej */
-    animation: slideDown 0.3s ease;
-    border-top: 1px solid var(--border-color);
+    padding: 16px 20px;
+    background-color: #fff;
 }
 
-.accordion-content.show {
-    display: block;
+.references-list li {
+    line-height: 1.6;
+    border-bottom: 1px solid #f1f1f1;
+    padding-bottom: 8px;
+    margin-bottom: 12px;
 }
 
-@keyframes slideDown {
-    from {
-        opacity: 0;
-        max-height: 0;
-        padding-top: 0;
-        padding-bottom: 0;
-    }
-    to {
-        opacity: 1;
-        max-height: 400px;
-        padding-top: 20px;
-        padding-bottom: 20px;
-    }
+.bibliography-container.collapsed {
+    max-height: 300px;
+    overflow-y: auto;
 }
 
+.bibliography-container::-webkit-scrollbar {
+    width: 6px;
+}
+.bibliography-container::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 3px;
+}
 
+#toggleBibliographyButton {
+    transition: all 0.2s ease;
+}
+#toggleBibliographyButton:hover {
+    transform: scale(1.03);
+}
+
+.article-details table {
+    width: 100%;
+    font-size: 0.95rem;
+}
+
+.article-details td {
+    padding: 6px 8px;
+    vertical-align: top;
+}
+
+.article-details .font-weight-bold {
+    color: #6c757d;
+}
+
+.article-details a:hover {
+    text-decoration: underline;
+}
+
+.citation-box {
+    border-left: 4px solid #007bff;
+    background-color: #f8f9fa;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    border-radius: 4px;
+}
+
+.citation-formats h6 {
+    font-weight: bold;
+}
+
+.citation-formats .btn {
+    margin-bottom: 5px;
+    transition: all 0.2s ease;
+}
+
+.citation-formats .btn:hover {
+    transform: translateY(-1px);
+    opacity: 0.9;
+}

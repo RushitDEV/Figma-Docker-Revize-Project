@@ -42,4 +42,67 @@
     {# Footer componenti #}
     {% include 'partials/footer.html.twig' %}
 
+
+    <script>
+        function toggleAccordion(id, button) {
+            const content = document.getElementById(id);
+
+            // Kapalıysa aç
+            if (content.style.display === "none" || !content.style.display) {
+                content.style.display = "block";
+                button.classList.add("active");
+            } else {
+                content.style.display = "none";
+                button.classList.remove("active");
+            }
+        }
+
+        // Sayfa yüklendiğinde tüm içerikler kapalı başlasın
+        document.addEventListener("DOMContentLoaded", function () {
+            const contents = document.querySelectorAll(".accordion-content");
+            contents.forEach(content => {
+                content.style.display = "none";
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const toggleButton = document.getElementById("toggleBibliographyButton");
+            const bibliographyContainer = document.getElementById("bibliographyContent");
+
+            if (toggleButton && bibliographyContainer) {
+                toggleButton.addEventListener("click", function () {
+                    const isCollapsed = bibliographyContainer.classList.contains("collapsed");
+
+                    if (isCollapsed) {
+                        bibliographyContainer.classList.remove("collapsed");
+                        toggleButton.innerText = "Kaynakçayı Gizle";
+                    } else {
+                        bibliographyContainer.classList.add("collapsed");
+                        toggleButton.innerText = "Tüm Kaynakçayı Göster";
+                    }
+                });
+            }
+        });
+    </script>
+    <script>
+        function copyToClipboard(button) {
+            const text = button.getAttribute("data-text");
+            if (!text) return;
+
+            const tempInput = document.createElement("textarea");
+            tempInput.value = text;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand("copy");
+            document.body.removeChild(tempInput);
+
+            // Basit bildirim
+            button.innerHTML = '<i class="fas fa-check text-success mr-1"></i> Kopyalandı';
+            setTimeout(() => {
+                button.innerHTML = '<i class="fas fa-copy mr-1"></i> Kopyala';
+            }, 1500);
+        }
+    </script>
+
 {% endblock %}
