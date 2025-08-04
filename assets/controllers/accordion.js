@@ -1,112 +1,168 @@
-// assets/app.js
+// assets/app.js (veya assets/js/article.js)
 
-// CSS for bibliography-container.collapsed, added in previous step's style block
+// Eğer Bootstrap JS kullanmıyorsanız bu event listenerlar önemlidir.
+// Bootstrap JS kullanılıyorsa, collapse/toggle işlemleri otomatik halledilir.
+// Bu örnek, Bootstrap JS'in varlığını varsayarak veya onun yerine geçecek şekilde yazılmıştır.
 
 document.addEventListener('DOMContentLoaded', function() {
-    // "Tüm Kaynakçayı Göster" butonu için işlevsellik
-    const bibliographyContent = document.getElementById('bibliographyContent');
-    const toggleButton = document.getElementById('toggleBibliographyButton');
 
-    // Başlangıçta buton metnini ve listenin durumunu ayarla
-    // HTML'de 'collapsed' sınıfı zaten varsa, buton 'Tüm Kaynakçayı Göster' olmalı.
-    if (bibliographyContent && toggleButton) { // Null kontrolü ekle
-        if (bibliographyContent.classList.contains('collapsed')) {
-            toggleButton.textContent = 'Tüm Kaynakçayı Göster';
+    // --- 1. Kaynakça Göster/Gizle İşlevi ---
+    const bibliographyContainer = document.getElementById('bibliographyContent');
+    const toggleBibliographyButton = document.getElementById('toggleBibliographyButton');
+
+    if (bibliographyContainer && toggleBibliographyButton) {
+        // Başlangıçta 5 maddeden fazlası varsa kısalt
+        const listItems = bibliographyContainer.querySelectorAll('ol li');
+        const initialVisibleCount = 5; // İlk başta gösterilecek madde sayısı
+
+        if (listItems.length > initialVisibleCount) {
+            // Sadece ilk X maddeyi göster, diğerlerini gizle
+            for (let i = initialVisibleCount; i < listItems.length; i++) {
+                listItems[i].style.display = 'none';
+            }
+            // Başlangıçta buton metnini ayarla
+            toggleBibliographyButton.innerHTML = '<i class="fas fa-book mr-2"></i> Tüm Kaynakçayı Göster';
+            bibliographyContainer.classList.add('collapsed'); // Sadece CSS tarafından gizleme/gösterme için kullanılır.
         } else {
-            toggleButton.textContent = 'Kaynakçayı Gizle';
+            // Eğer 5'ten az madde varsa butonu gizle, çünkü tümü zaten görünüyor
+            toggleBibliographyButton.style.display = 'none';
         }
 
-        toggleButton.addEventListener('click', function() {
-            bibliographyContent.classList.toggle('collapsed');
-            if (bibliographyContent.classList.contains('collapsed')) {
-                toggleButton.textContent = 'Tüm Kaynakçayı Göster';
+
+        toggleBibliographyButton.addEventListener('click', function() {
+            const isCollapsed = bibliographyContainer.classList.contains('collapsed');
+
+            if (isCollapsed) {
+                // Gizliyse göster
+                listItems.forEach(item => item.style.display = 'block');
+                bibliographyContainer.classList.remove('collapsed');
+                toggleBibliographyButton.innerHTML = '<i class="fas fa-book mr-2"></i> Kaynakçayı Daralt';
             } else {
-                toggleButton.textContent = 'Kaynakçayı Gizle';
+                // Görünürse gizle (sadece ilk X maddeyi göster)
+                for (let i = initialVisibleCount; i < listItems.length; i++) {
+                    listItems[i].style.display = 'none';
+                }
+                bibliographyContainer.classList.add('collapsed');
+                toggleBibliographyButton.innerHTML = '<i class="fas fa-book mr-2"></i> Tüm Kaynakçayı Göster';
             }
         });
     }
 
+    // --- 2. Kopyalama İşlevi ---
+    const copyButtons = document.querySelectorAll('.copy-btn');
+    const copyToast = document.getElementById('copyToast');
+    const toastInstance = copyToast ? new bootstrap.Toast(copyToast) : null; // Bootstrap Toast'ı kullan
 
-    // Kopyala Butonu İşlevselliği
-    document.querySelectorAll('.copy-btn').forEach(button => {
+    copyButtons.forEach(button => {
         button.addEventListener('click', function() {
-            const textToCopy = this.dataset.text;
+            const textToCopy = this.dataset.text; // `data-text` özelliğinden metni al
+
             if (navigator.clipboard && navigator.clipboard.writeText) {
-                navigator.clipboard.writeText(textToCopy).then(() => {
-                    $('#copyToast').toast('show'); // Bootstrap Toast'ı göster
-                }).catch(err => {
-                    console.error('Kopyalama başarısız oldu:', err);
-                    alert('Kopyalama başarısız oldu. Lütfen manuel olarak kopyalayın.');
-                });
+                // Modern Clipboard API kullan
+                navigator.clipboard.writeText(textToCopy)
+                    .then(() => {
+                        console.log('Metin panoya kopyalandı:', textToCopy);
+                        if (toastInstance) {
+                            toastInstance.show(); // Toast mesajını göster
+                        }
+                    })
+                    .catch(err => {
+                        console.error('Metin kopyalanamadı:', err);
+                        alert('Metin kopyalanamadı. Lütfen manuel olarak kopyalayın.');
+                    });
             } else {
-                // Geriye dönük uyumluluk (eski tarayıcılar için)
-                const textarea = document.createElement('textarea');
-                textarea.value = textToCopy;
-                textarea.style.position = 'fixed'; // Ekran dışına taşı
-                textarea.style.top = 0;
-                textarea.style.left = 0;
-                textarea.style.width = '1px';
-                textarea.style.height = '1px';
-                textarea.style.opacity = 0;
-                document.body.appendChild(textarea);
-                textarea.focus();
-                textarea.select();
+                // Eski tarayıcılar için yedekleme (execCommand artık önerilmez)
+                const textArea = document.createElement('textarea');
+                textArea.value = textToCopy;
+                textArea.style.position = 'fixed'; // Ekran dışına taşı
+                textArea.style.left = '-9999px';
+                document.body.appendChild(textArea);
+                textArea.focus();
+                textArea.select();
                 try {
-                    const successful = document.execCommand('copy');
-                    if (successful) {
-                        $('#copyToast').toast('show'); // Bootstrap Toast'ı göster
-                    } else {
-                        alert('Kopyalama başarısız oldu. Lütfen manuel olarak kopyalayın.');
+                    document.execCommand('copy');
+                    console.log('Metin panoya kopyalandı (execCommand):', textToCopy);
+                    if (toastInstance) {
+                        toastInstance.show(); // Toast mesajını göster
                     }
                 } catch (err) {
-                    console.error('Kopyalama başarısız oldu:', err);
-                    alert('Kopyalama başarısız oldu. Lütfen manuel olarak kopyalayın.');
+                    console.error('Metin kopyalanamadı (execCommand):', err);
+                    alert('Metin kopyalanamadı. Lütfen manuel olarak kopyalayın.');
+                } finally {
+                    document.body.removeChild(textArea);
                 }
-                document.body.removeChild(textarea);
             }
         });
     });
 
-    // BibTeX İndirme İşlevselliği
-    document.querySelectorAll('.bibtex-btn').forEach(button => {
+    // --- 3. İndirme İşlevleri (BibTeX ve RIS) ---
+    const bibtexButtons = document.querySelectorAll('.bibtex-btn');
+    const risButtons = document.querySelectorAll('.ris-btn');
+
+    bibtexButtons.forEach(button => {
         button.addEventListener('click', function() {
-            const bibtexContent = this.dataset.bibtexContent;
-            const blob = new Blob([bibtexContent], { type: 'text/plain' });
-            const a = document.createElement('a');
-            a.href = URL.createObjectURL(blob);
-            a.download = 'citation.bib';
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
+            const content = this.dataset.bibtexContent;
+            const filename = 'citation.bib';
+            downloadFile(content, filename, 'application/x-bibtex');
         });
     });
 
-    // RIS İndirme İşlevselliği
-    document.querySelectorAll('.ris-btn').forEach(button => {
+    risButtons.forEach(button => {
         button.addEventListener('click', function() {
-            const risContent = this.dataset.risContent.replace(/%0A/g, '\n'); // URL kodlamasını düzelt
-            const blob = new Blob([risContent], { type: 'text/plain' });
-            const a = document.createElement('a');
-            a.href = URL.createObjectURL(blob);
-            a.download = 'citation.ris';
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
+            const content = this.dataset.risContent;
+            const filename = 'citation.ris';
+            downloadFile(content, filename, 'application/x-research-info-systems');
         });
     });
 
-    // Bootstrap Toast'ı jQuery kullanarak başlatmak için (eğer jQuery ve Bootstrap JS yüklüyse)
-    // $('#copyToast').toast({ delay: 3000 }); // Artık her kopyalamada gösterildiği için başlatmaya gerek yok.
+    function downloadFile(content, filename, mimeType) {
+        const blob = new Blob([content], { type: mimeType });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url); // Bellek sızıntılarını önle
+    }
 
-    // Akordeon başlıklarına tıklama efekti (active-header sınıfı için)
-    document.querySelectorAll('.accordion-custom .card-header button').forEach(button => {
-        button.addEventListener('click', function() {
-            // Tüm header'lardan active-header'ı kaldır
-            document.querySelectorAll('.accordion-custom .card-header button').forEach(headerBtn => {
-                headerBtn.classList.remove('active-header');
+    // --- 4. Accordion Başlık Aktivasyonu (Bootstrap ile Entegre) ---
+    // Eğer Bootstrap JS kullanıyorsanız, Bootstrap'ın kendi event'lerini dinlemek daha iyidir.
+    // Varsayılan olarak ilk kart 'show' ve 'active-header' sınıfına sahip.
+    // Diğer kartlar açıldığında 'active-header' sınıfını yönetelim.
+    const accordion = document.getElementById('articleAccordion');
+
+    if (accordion) {
+        accordion.addEventListener('show.bs.collapse', function(event) {
+            // Açılacak kartın başlığını bul
+            const targetHeader = event.target.previousElementSibling;
+            if (targetHeader) {
+                targetHeader.querySelector('.btn').classList.add('active-header');
+            }
+
+            // Diğer tüm başlıkların active-header sınıfını kaldır
+            const allHeaders = accordion.querySelectorAll('.card-header');
+            allHeaders.forEach(header => {
+                if (header !== targetHeader) {
+                    header.querySelector('.btn').classList.remove('active-header');
+                }
             });
-            // Tıklanan butona active-header ekle
-            this.classList.add('active-header');
         });
-    });
+
+        accordion.addEventListener('hide.bs.collapse', function(event) {
+            // Kapanacak kartın başlığından active-header sınıfını kaldır
+            const targetHeader = event.target.previousElementSibling;
+            if (targetHeader) {
+                targetHeader.querySelector('.btn').classList.remove('active-header');
+            }
+        });
+    }
+
+    // Başlangıçta aktif olan başlığa 'active-header' sınıfını ekle
+    // Twig'de `active-header` zaten var, bu sadece JS ile senkronize etmek için.
+    const initialActiveButton = document.querySelector('#headingOne .btn');
+    if (initialActiveButton) {
+        initialActiveButton.classList.add('active-header');
+    }
 });

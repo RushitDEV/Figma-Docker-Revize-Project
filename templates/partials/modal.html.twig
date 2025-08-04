@@ -1,0 +1,51 @@
+{# templates/base.html.twig (veya modalın görünmesini istediğiniz herhangi bir Twig dosyası) #}
+
+{# ... Mevcut Twig kodunuz ... #}
+
+<div class="modal fade" id="notificationModal" tabindex="-1" aria-labelledby="notificationModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="notificationModalLabel">Bildirimler</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
+            </div>
+            <div class="modal-body">
+                <p>Henüz okunmamış bildiriminiz bulunmamaktadır.</p>
+                {# Buraya gerçek bildirimleriniz dinamik olarak eklenebilir #}
+                <div class="list-group">
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h6 class="mb-1">Yeni Makale Yayımlandı</h6>
+                            <small class="text-muted">3 gün önce</small>
+                        </div>
+                        <p class="mb-1 small">"21. Yüzyılda Fen ve Teknik" başlıklı yeni bir makale yayımlandı.</p>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h6 class="mb-1">Profil Güncellemesi</h6>
+                            <small class="text-muted">1 hafta önce</small>
+                        </div>
+                        <p class="mb-1 small">Profil bilgileriniz güncellendi.</p>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h6 class="mb-1">Yorumunuz Cevaplandı</h6>
+                            <small class="text-muted">2 hafta önce</small>
+                        </div>
+                        <p class="mb-1 small">"X Makalesi"ne yaptığınız yoruma cevap verildi.</p>
+                    </a>
+                    {# Daha fazla bildirim öğesi buraya gelebilir #}
+                </div>
+                <div class="text-center mt-3">
+                    <a href="#" class="btn btn-link btn-sm">Tüm Bildirimleri Gör</a>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+                <button type="button" class="btn btn-primary">Tümünü Okundu İşaretle</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{# ... Diğer betik importlarınız, örneğin {{ importmap('app.js') }} #}

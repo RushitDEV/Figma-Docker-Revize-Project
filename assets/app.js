@@ -16,7 +16,7 @@ import './styles/components/hero_section.css';
 import './styles/components/card_featured.css';
 import './styles/components/accordion_item.css';
 import './styles/components/bibliography.css';
-import './styles/components/scrollbar.css';
+//import './styles/components/scrollbar.css';
 import './styles/components/social_buttons.css';
 import './styles/components/social_links.css';
 import './styles/components/list_group.css';
@@ -30,4 +30,5 @@ console.log('AssetMapper loaded successfully! 🎉');
 
 
 import './controllers/accordion.js';
+import './controllers/header.js';
 
