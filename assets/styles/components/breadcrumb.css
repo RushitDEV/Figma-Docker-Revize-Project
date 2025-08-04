@@ -40,3 +40,42 @@
     font-weight: 700;
     color: #212529;
 }
+/* ================================
+   Responsive Enhancements for Breadcrumb
+   ================================ */
+
+@media (max-width: 768px) {
+    .custom-breadcrumb .breadcrumb {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none; /* Firefox */
+    }
+
+    .custom-breadcrumb .breadcrumb::-webkit-scrollbar {
+        display: none; /* Chrome, Safari */
+    }
+
+    .custom-breadcrumb .breadcrumb-item {
+        white-space: nowrap;
+        flex: 0 0 auto;
+    }
+
+    .custom-breadcrumb {
+        overflow-x: auto;
+        white-space: nowrap;
+        padding-bottom: 0.25rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .custom-breadcrumb {
+        font-size: 0.85rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .custom-breadcrumb .breadcrumb-item + .breadcrumb-item::before {
+        margin: 0 0.3rem;
+    }
+}

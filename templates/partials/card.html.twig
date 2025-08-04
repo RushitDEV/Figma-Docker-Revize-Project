@@ -1,34 +1,31 @@
-
 <div class="col-md-12">
-
     <div class="card card-featured position-relative">
         <img src="{{ asset('/image/dergi.jpg') }}" alt="Kapak" class="card-img-featured">
         <div class="card-body">
+            <!-- Download Button -->
             <div class="d-flex align-items-center mb-3">
-                <a href="#" class="text-primary font-weight-bold text-decoration-none" onclick="downloadCover()">
+                <a href="#" class="text-primary font-weight-bold" onclick="downloadCover()">
                     <i class="fas fa-download text-primary mr-2"></i>Kapak Resmi İndir
                 </a>
             </div>
 
+            <!-- Makale Dosyaları -->
             <h6 class="card-subtitle mb-3 text-primary font-weight-bold">
                 <i class="fas fa-file-alt mr-2"></i>MAKALE DOSYALARI
             </h6>
 
             <div class="mb-3">
-                <div class="d-flex align-items-center justify-content-between p-3 bg-light rounded" style="border-radius: 6px !important; border: 1px solid var(--border-color);">
-                    <span class="text-dark font-weight-600">Tam Metin</span>
+                <div class="d-flex align-items-center justify-content-between p-3 bg-light rounded" style="border-radius: 6px !important; border: 1px solid #dee2e6;">
+                    <span class="text-dark font-weight-bold">Tam Metin</span>
                     <button class="btn btn-sm btn-outline-danger">
                         <i class="fas fa-file-pdf mr-1"></i>PDF
                     </button>
                 </div>
             </div>
 
-
-
-            <!-- Action Buttons with Statistics -->
+            <!-- Stats Buttons -->
             <div class="d-flex justify-content-between align-items-center mb-3">
-
-                    <div class="text-center">
+                <div class="text-center">
                     <button class="btn btn-link p-0 text-primary d-block"><i class="fas fa-eye"></i></button>
                     <small class="text-muted">546</small>
                 </div>
@@ -42,19 +39,18 @@
                 </div>
             </div>
 
-           <div class="col-md-12"> <!-- Social Share Buttons -->
-                <div class="social-buttons col-md-12 d-flex justify-content-center">
-                    <a href="#" class="social-facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social-twitter"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="social-linkedin"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#" class="social-whatsapp"><i class="fab fa-whatsapp"></i></a>
-                    <a href="#" class="social-email"><i class="fas fa-envelope"></i></a>
+            <!-- Social Share Buttons -->
+            <div class="col-md-12">
+                <div class="social-buttons d-flex justify-content-center">
+                    <a href="#" class="social-facebook mr-2"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-twitter mr-2"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-linkedin mr-2"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-whatsapp mr-2"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#" class="social-email mr-2"><i class="fas fa-envelope"></i></a>
                     <a href="#" class="social-copy"><i class="fas fa-copy"></i></a>
                 </div>
-           </div>
+            </div>
 
         </div>
     </div>
-
-
 </div>

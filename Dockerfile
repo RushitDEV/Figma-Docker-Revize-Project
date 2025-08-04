@@ -1,23 +1,57 @@
-FROM php:8.3-fpm
+# Use the official PHP 8.3 FPM image based on Alpine
+FROM php:8.4-fpm-alpine
 
-# Gerekli PHP eklentilerini kuruyoruz
-RUN apt-get update && apt-get install -y libpng-dev libjpeg-dev libfreetype6-dev libxml2-dev zip git
+# Define PHPIZE_DEPS
+ENV PHPIZE_DEPS="autoconf dpkg-dev dpkg file g++ gcc libc-dev make pkgconf re2c"
 
-# PHP için gerekli eklentileri kuruyoruz
-RUN docker-php-ext-configure gd --with-freetype --with-jpeg
-RUN docker-php-ext-install gd pdo pdo_mysql xml
+# Install system dependencies including PHPIZE_DEPS and Nginx
+RUN apk add --no-cache \
+    postgresql-dev \
+    libpq \
+    libzip-dev \
+    zip \
+    unzip \
+    git \
+    oniguruma-dev \
+    icu-dev \
+    libxml2-dev \
+    libpng-dev \
+    libjpeg-turbo-dev \
+    freetype-dev \
+    linux-headers \
+    nginx \
+    $PHPIZE_DEPS
 
-# Composer kurulumu
+# Install PHP extensions
+RUN docker-php-ext-install pdo pdo_pgsql zip gd intl mbstring opcache bcmath soap xml pcntl
+
+# Install redis extension using pecl
+RUN pecl install redis && docker-php-ext-enable redis
+
+# Install APCu
+RUN pecl install apcu \
+    && docker-php-ext-enable apcu
+
+# Install Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-# Çalışma dizinini ayarlıyoruz
+# Copy custom php.ini
+COPY docker/php.ini /usr/local/etc/php/conf.d/
+
+# Copy Nginx configuration
+COPY docker/nginx/http.d /etc/nginx/http.d
+COPY docker/php-fpm.conf /usr/local/etc/php-fpm.conf
+# Set working directory
 WORKDIR /var/www/html
 
-# Proje dosyalarını kopyalamadan önce composer.json ve composer.lock'ı kopyalıyoruz
-COPY composer.json composer.lock ./
+# Copy application files
+COPY . .
+ENV COMPOSER_ALLOW_SUPERUSER=1
 
-# Symfony ve diğer bağımlılıkların kurulumu
-RUN composer install --no-scripts --no-autoloader
+# Set permissions
+RUN chown -R www-data:www-data /var/www/html \
+    && chown www-data:www-data /var/log \
+    && chmod 666 /var/log/*
 
-# Diğer proje dosyalarını kopyalıyoruz
-COPY . /var/www/html
+# Start Nginx and PHP-FPM
+CMD ["sh", "-c", "nginx && php-fpm"]

@@ -64,3 +64,75 @@ footer h6 {
     color: #ffffff !important;
     font-weight: 600;
 }
+@media (max-width: 767.98px) {
+    footer .social-links {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    footer .social-links a {
+        margin: 5px;
+    }
+
+    footer .contact-info p {
+        font-size: 14px;
+    }
+
+    footer .stat-item h4 {
+        font-size: 20px;
+    }
+
+    footer .stat-item small {
+        font-size: 13px;
+    }
+
+    footer .row.text-center > div {
+        margin-bottom: 20px;
+    }
+
+    footer .col-md-3 {
+        text-align: center;
+    }
+
+    footer .col-lg-3,
+    footer .col-lg-2 {
+        text-align: center;
+    }
+
+    footer ul {
+        padding-left: 0;
+    }
+
+    footer .footer-link {
+        display: inline-block;
+    }
+}
+
+@media (max-width: 575.98px) {
+    footer img {
+        margin-bottom: 20px !important;
+    }
+
+    footer .stat-item h4 {
+        font-size: 18px;
+    }
+
+    footer .stat-item small {
+        font-size: 12px;
+    }
+
+    footer .container {
+        padding: 0 15px;
+    }
+
+    footer .contact-info p,
+    footer p.text-muted {
+        text-align: center;
+    }
+
+    footer h6 {
+        font-size: 16px;
+        margin-top: 20px;
+    }
+}
+

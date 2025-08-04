@@ -1,76 +1,277 @@
-.modern-accordion .card {
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    margin-bottom: 10px;
-    background-color: #fff;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+/* styles.css */
+
+/* Custom Accordion Styles */
+.custom-accordion {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
 }
 
-.modern-accordion .card-header {
-    background-color: #f8f9fa;
+.custom-accordion .card {
+    border: none;
+    border-bottom: 1px solid #e9ecef;
+    border-radius: 0;
+}
+
+.custom-accordion .card:last-child {
     border-bottom: none;
-    padding: 0;
-    border-radius: 6px 6px 0 0;
 }
 
-.modern-accordion .custom-toggle {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    padding: 10px 16px; /* Daha az padding = daha küçük kutular */
-    font-weight: 600;
-    font-size: 17px; /* Yazı büyütüldü */
-    color: #333;
-    text-align: left;
-    background-color: transparent;
+.custom-accordion .card-header {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-bottom: 1px solid #dee2e6;
+    transition: all 0.3s ease;
+}
+
+.custom-accordion .card-header:hover {
+    background: linear-gradient(135deg, #e9ecef 0%, #dee2e6 100%);
+}
+
+.custom-accordion .btn-link {
+    color: #495057;
+    text-decoration: none;
+    font-weight: 500;
     border: none;
+    outline: none !important;
+    box-shadow: none !important;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.custom-accordion .btn-link:hover,
+.custom-accordion .btn-link:focus {
+    color: #007bff;
     text-decoration: none;
-    transition: background-color 0.2s;
 }
 
-.modern-accordion .custom-toggle:hover,
-.modern-accordion .custom-toggle:focus {
-    background-color: #f0f0f0;
-    text-decoration: none;
-}
-
-.modern-accordion .card-body {
-    padding: 14px 18px; /* Daha kompakt içerik alanı */
-    font-size: 16px;
-    color: #444;
-    line-height: 1.6;
-    background-color: #fff;
-    border-top: 1px solid #eee;
-    border-radius: 0 0 6px 6px;
-}
-
-.show-bibliography-btn {
-    background-color: #0d47a1;
+.custom-accordion .btn-link:not(.collapsed) {
+    color: #007bff;
+    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
     color: white;
-    border: none;
-    padding: 10px 24px;
-    font-size: 1rem;
-    font-weight: 600;
-    border-radius: 999px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    width: 100%;
-    max-width: 300px;
-    transition: all 0.2s ease;
-    white-space: nowrap;
-    text-align: center;
+}
+
+.custom-accordion .btn-link:not(.collapsed):hover {
+    background: linear-gradient(135deg, #0056b3 0%, #004085 100%);
+}
+
+.custom-accordion .btn-link::after {
+    content: '\f107';
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: transform 0.3s ease;
+}
+
+.custom-accordion .btn-link.collapsed::after {
+    transform: translateY(-50%) rotate(-90deg);
+}
+
+/* Card Body Styles */
+.custom-accordion .card-body {
+    padding: 1.5rem;
+    background: #ffffff;
+}
+
+/* Reference List Styles */
+.custom-accordion ol.list-unstyled li {
+    padding-left: 0;
+    line-height: 1.6;
+    border-bottom: 1px solid #f8f9fa;
+    padding-bottom: 0.75rem;
+}
+
+.custom-accordion ol.list-unstyled li:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+/* Bibliography Button */
+.show-bibliography-btn {
+    border-radius: 25px;
+    padding: 0.5rem 1.5rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: 2px solid #007bff;
 }
 
 .show-bibliography-btn:hover {
-    background-color: #08306b;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+}
+
+/* Table Responsive Styles */
+.table-responsive {
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.detail-label {
+    width: 30%;
+    min-width: 120px;
+    vertical-align: top;
+    padding-top: 0.75rem !important;
+}
+
+/* Citation Box */
+.citation-box {
+    border-radius: 8px;
+    border-left: 4px solid #007bff !important;
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+}
+
+.citation-text {
+    font-family: 'Georgia', serif;
+    line-height: 1.6;
+}
+
+/* Button Styles */
+.copy-btn, .bibtex-btn, .ris-btn {
+    border-radius: 20px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.copy-btn:hover, .bibtex-btn:hover, .ris-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Toast Styles */
+.toast {
+    min-width: 300px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.toast-header {
+    background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+    color: white;
+    border-bottom: none;
+}
+
+.toast-header .close {
+    color: white;
+    opacity: 0.8;
+}
+
+.toast-body {
+    background: #ffffff;
+    color: #495057;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .custom-accordion .btn-link {
+        padding-left: 1rem !important;
+        padding-right: 3rem !important;
+        font-size: 0.9rem;
+    }
+
+    .custom-accordion .card-body {
+        padding: 1rem;
+    }
+
+    .detail-label {
+        width: 40%;
+        font-size: 0.8rem;
+    }
+
+    .table td {
+        padding: 0.5rem;
+        font-size: 0.85rem;
+    }
+
+    .citation-box {
+        padding: 1rem !important;
+    }
+
+    .btn-sm {
+        font-size: 0.8rem;
+        padding: 0.25rem 0.75rem;
+    }
+
+    .toast-container {
+        right: 10px !important;
+        left: 10px !important;
+        top: 10px !important;
+    }
+
+    .toast {
+        min-width: auto;
+        width: 100%;
+    }
 }
 
 @media (max-width: 576px) {
-    .show-bibliography-btn {
-        padding: 8px 16px;
-        font-size: 0.9rem;
-        max-width: 90%;
+    .custom-accordion .btn-link {
+        font-size: 0.85rem;
+        padding-left: 0.75rem !important;
+        padding-right: 2.5rem !important;
+    }
+
+    .detail-label {
+        width: 100%;
+        display: block;
+        margin-bottom: 0.25rem;
+        border-bottom: 1px solid #dee2e6;
+        padding-bottom: 0.25rem;
+    }
+
+    .table td:first-child {
+        border-bottom: 1px solid #dee2e6;
+        padding-bottom: 0.25rem;
+        font-weight: 600;
+    }
+
+    .table td:last-child {
+        padding-top: 0.25rem;
+    }
+
+    .d-flex.flex-wrap > .btn {
+        flex: 1;
+        margin-right: 0.25rem !important;
+        margin-bottom: 0.5rem !important;
+        min-width: calc(50% - 0.125rem);
+    }
+
+    .d-flex.flex-wrap > .btn:nth-child(even) {
+        margin-right: 0 !important;
+    }
+}
+
+/* Animation */
+.collapse {
+    transition: height 0.35s ease;
+}
+
+/* Accessibility */
+.btn:focus {
+    outline: 2px solid #007bff;
+    outline-offset: 2px;
+}
+
+/* Print Styles */
+@media print {
+    .custom-accordion .btn-link::after {
+        display: none;
+    }
+
+    .collapse:not(.show) {
+        display: block !important;
+        height: auto !important;
+    }
+
+    .show-bibliography-btn,
+    .copy-btn,
+    .bibtex-btn,
+    .ris-btn {
+        display: none;
+    }
+
+    .toast-container {
+        display: none;
     }
 }

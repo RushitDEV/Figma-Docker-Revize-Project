@@ -22,5 +22,12 @@ import './styles/components/social_links.css';
 import './styles/components/list_group.css';
 import './styles/components/footer.css';
 import './styles/components/breadcrumb.css';
+import './styles/components/academic_paper_card.css';
+
+
 
 console.log('AssetMapper loaded successfully! 🎉');
+
+
+import './controllers/accordion.js';
+

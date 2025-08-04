@@ -128,3 +128,14 @@
     background-color: #e2e6ea;
     text-decoration: none;
 }
+
+/* Bootstrap 5’te olan translate-middle yerine */
+.translate-middle-custom {
+    transform: translate(50%, -50%);
+}
+
+/* start-100 ve top-0 yerine */
+.badge-custom-position {
+    top: 0;
+    right: 0;
+}

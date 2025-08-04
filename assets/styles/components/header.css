@@ -1,6 +1,6 @@
 /* --- HEADER --- */
 header {
-    background-image: url('/assets/image/img_2.png'); /* Arka plan görselin */
+    background-image: url('/assets/image/background.png'); /* Arka plan görselin */
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -49,7 +49,7 @@ header .btn:hover,
     display: flex;
     align-items: center;
     justify-content: center;
-    background: url('/assets/image/img_2.png'), linear-gradient(to right, #cfd8dc, #e0f7fa); /* Arka plan deseni + renk */
+    background: url('/assets/image/background.png'), linear-gradient(to right, #cfd8dc, #e0f7fa); /* Arka plan deseni + renk */
     background-size: cover;
     background-position: center;
 }
@@ -90,5 +90,38 @@ header .btn:hover,
     }
     .bottom-header-title {
         font-size: 2rem;
+    }
+}
+/* ================================
+   Responsive Fix: Hamburger Menü Sağda (Bootstrap 4)
+   ================================ */
+@media (max-width: 767.98px) {
+    header .row.align-items-center {
+        flex-wrap: nowrap;
+    }
+
+    header .col-6.d-md-none {
+        display: flex !important;
+        justify-content: flex-end !important;
+        align-items: center;
+    }
+
+    header .col-6.d-md-none .btn {
+        margin-left: auto;
+    }
+
+    #mobileMenu .btn,
+    #mobileMenu a,
+    #mobileMenu .dropdown {
+        width: 100%;
+        text-align: right;
+    }
+
+    #mobileMenu .dropdown-menu {
+        text-align: right;
+    }
+
+    .bottom-header-title {
+        font-size: 1.4rem;
     }
 }

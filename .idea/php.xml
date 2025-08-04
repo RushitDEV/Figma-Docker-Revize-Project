@@ -148,7 +148,7 @@
       <path value="$PROJECT_DIR$/vendor/symfony/options-resolver" />
     </include_path>
   </component>
-  <component name="PhpProjectSharedConfiguration" php_language_level="8.2" />
+  <component name="PhpProjectSharedConfiguration" php_language_level="8.4" />
   <component name="PhpStan">
     <PhpStan_settings>
       <phpstan_by_interpreter asDefaultInterpreter="true" interpreter_id="ac1435c2-0170-443f-a7fc-6c3343f19019" timeout="60000" />
