@@ -2,20 +2,20 @@
    Footer Styles
    =================== */
 .footer-link {
-    transition: all 0.3s ease;  /* Geçiş efekti */
-    text-decoration: none;      /* Alt çizgi kaldırıldı */
-    font-weight: 500;           /* Yazı kalınlığı */
-    position: relative;         /* Konumlandırma */
+    transition: all 0.3s ease;
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
 }
 
 .footer-link::after {
-    content: ''; /* İçerik boş, sadece görsel efekt için */
-    position: absolute; /* Konumlandırma */
-    bottom: -1px; /* Alt kenara hizalama */
-    left: 0; /* Sol kenara hizalama */
-    width: 0; /* Başlangıçta genişlik 0 */
-    height: 1px; /* Çizgi yüksekliği */
-    background: var(--primary-light);  /* Çizgi rengi */
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--primary-light);
     transition: width 0.3s ease;
 }
 
@@ -24,8 +24,17 @@
 }
 
 .footer-link:hover {
-    color: var(--primary-light) !important; /* Hover'da renk değişimi */
+    color: var(--primary-light) !important;
     text-decoration: none;
+}
+
+/* Sosyal medya ikonlarının kapsayıcısı için güncellenmiş stil */
+.social-links {
+    /* İkonların yan yana ve ortalanması için flexbox kullanıldı */
+    display: flex;
+    justify-content: center; /* İkonları yatayda ortala */
+    align-items: center;     /* İkonları dikeyde ortala */
+    flex-wrap: wrap;         /* Gerekirse yeni satıra geçmesini sağla */
 }
 
 .social-links a {
@@ -35,17 +44,18 @@
     line-height: 40px;
     text-align: center;
     border-radius: 6px;
-    background: #e2e5e8 !important;    /* Gri arka plan */
-    color: #285a8c !important;         /* Beyaz ikon rengi */
-    font-size: 18px;                   /* İkon boyutu */
-    transition: all 0.3s ease;             /* Geçiş efekti */
-    margin-right: 8px;                  /* Sağ boşluk */
-    box-shadow: 0 2px 6px rgba(139, 69, 19, 0.1); /* Hafif gölge */
+    background: #e2e5e8 !important;
+    color: #285a8c !important;
+    font-size: 18px;
+    transition: all 0.3s ease;
+    /* Yan yana durmaları için sağ ve sol boşluk eklendi */
+    margin: 0 4px; /* İkonlar arasında eşit boşluk bırakmak için */
+    box-shadow: 0 2px 6px rgba(139, 69, 19, 0.1);
     overflow: hidden;
 }
 
 .social-links a:hover {
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%); /* Hover'da renk geçişi */
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
     transform: translateY(-2px);
     text-decoration: none;
     box-shadow: 0 4px 12px rgba(139, 69, 19, 0.4);
@@ -56,7 +66,7 @@ footer .footer-link,
 footer p,
 footer li,
 footer small {
-    color: var(--gray-400) !important; /* Gri renk */
+    color: var(--gray-400) !important;
 }
 
 footer h5,
@@ -68,6 +78,7 @@ footer h6 {
     footer .social-links {
         text-align: center;
         margin-top: 20px;
+        /* Flexbox ile zaten ortalanacağı için bu satır gereksiz hale geldi */
     }
 
     footer .social-links a {
@@ -135,4 +146,3 @@ footer h6 {
         margin-top: 20px;
     }
 }
-

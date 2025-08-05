@@ -1,6 +1,6 @@
 /* --- HEADER --- */
 header {
-    background-image: url('../../../assets/image/background.png'); /* Arka plan görselin */
+    background-image: url('../../../assets/image/background.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -9,10 +9,12 @@ header {
     padding: 20px 0;
 }
 
+
+
+
 /* --- HEADER BUTTONLAR --- */
 header .btn,
 .btn-secondary.header-button,
-.btn-light.header-button,
 .notification-btn,
 .btn-language {
     height: 34px;
@@ -41,7 +43,6 @@ header .btn:hover,
     border: none;
 }
 
-
 /* --- BOTTOM HEADER --- */
 .bottom-header {
     position: relative;
@@ -54,16 +55,14 @@ header .btn:hover,
 }
 
 .bottom-header .overlay {
-    background-color: rgba(255, 255, 255, 0.10); /* ← %65 opaklık */
+    background-color: rgba(255, 255, 255, 0.50);
     width: 100%;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 30px 0;
-
 }
-
 
 .bottom-header-title {
     font-size: 1.75rem;
@@ -83,18 +82,9 @@ header .btn:hover,
     padding: 0 15px;
 }
 
-/* Responsive */
-@media (min-width: 768px) {
-    .bottom-header {
-        height: 160px;
-    }
-    .bottom-header-title {
-        font-size: 2rem;
-    }
-}
-/* ================================
-   Responsive Fix: Hamburger Menü Sağda (Bootstrap 4)
-   ================================ */
+/* --- RESPONSIVE DÜZENLEMELER --- */
+
+/* Responsive - Mobil Menü */
 @media (max-width: 767.98px) {
     header .row.align-items-center {
         flex-wrap: nowrap;
@@ -119,6 +109,27 @@ header .btn:hover,
 
     #mobileMenu .dropdown-menu {
         text-align: right;
+    }
+
+    #mobileMenu .nav-link {
+        border-bottom: 1px solid #e9ecef;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        color: #333;
+    }
+
+    #mobileMenu .nav-link:hover {
+        background-color: #f8f9fa;
+    }
+
+    #mobileMenu .dropdown-menu {
+        position: static !important;
+        float: none;
+        width: auto !important;
+        margin-top: 0;
+        border: none;
+        box-shadow: none;
+        background-color: #f1f1f1;
     }
 
     .bottom-header-title {

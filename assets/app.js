@@ -30,5 +30,5 @@ console.log('AssetMapper loaded successfully! 🎉');
 
 
 import './controllers/accordion.js';
-import './controllers/header.js';
+import './controllers/language.js';
 

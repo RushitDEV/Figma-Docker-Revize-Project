@@ -1,3 +1,7 @@
+{#
+Bu dosya, daha önce paylaşılan CSS koduyla tam uyumlu bir footer (altbilgi)
+oluşturmak için güncellenmiş Twig şablonudur.
+#}
 <!-- Footer -->
 <footer class="bg-dark text-light mt-5">
     <div class="container py-5">
@@ -9,12 +13,15 @@
                 <p class="text-muted mb-3">
                     Türkiye'nin en kapsamlı akademik dergi ve makale platformu. Bilimsel yayınlara ücretsiz erişim sağlayan ulusal akademik veri tabanı.
                 </p>
-                <div class="social-links">
-                    <a href="#" class="text-light"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="text-light"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="text-light"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#" class="text-light"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="text-light"><i class="fab fa-youtube"></i></a>
+                <!-- Sosyal medya ikonlarının kapsayıcısı -->
+                <!-- CSS kodunuzla uyum sağlaması için "social-links" sınıfı ve Bootstrap'ın flexbox sınıfları kullanıldı. -->
+                <div class="social-links d-flex align-items-center mb-3">
+                    <!-- İkonlar için text-light sınıfı kaldırıldı, çünkü CSS kodunuz renkleri zaten belirliyor -->
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
 
@@ -74,8 +81,6 @@
                         Ankara, Türkiye
                     </p>
                 </div>
-
-
             </div>
         </div>
 
@@ -111,6 +116,4 @@
             </div>
         </div>
     </div>
-
-
 </footer>
