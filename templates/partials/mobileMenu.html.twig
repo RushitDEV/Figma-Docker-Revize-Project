@@ -1,0 +1,56 @@
+<div class="col-6 col-lg-3 d-flex justify-content-end align-items-center">
+    <button class="btn btn-secondary hamburger-btn" type="button" data-toggle="collapse" data-target="#mobileMenu" aria-controls="mobileMenu" aria-expanded="false" aria-label="Menüyü Aç">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+    </button>
+</div>
+
+
+<div class="collapse d-lg-none mt-3" id="mobileMenu">
+    <div class="mobile-menu-content">
+        <div class="mobile-nav mb-3">
+            <a class="mobile-nav-link" href="/">Ana Sayfa</a>
+            <div class="mobile-dropdown">
+                <button class="mobile-nav-link mobile-dropdown-toggle" type="button" data-toggle="collapse" data-target="#mobileDergilerMenu" aria-expanded="false">
+                    Dergiler <i class="fas fa-chevron-down float-right"></i>
+                </button>
+                <div class="collapse mobile-dropdown-content" id="mobileDergilerMenu">
+                    <a class="mobile-dropdown-item" href="/dergiler/fen-bilimleri">Fen Bilimleri</a>
+                    <a class="dropdown-item" href="/dergiler/muhendislik">Mühendislik</a>
+                    <a class="dropdown-item" href="/dergiler/tip">Tıp</a>
+                    <hr class="mobile-divider">
+                    <a class="mobile-dropdown-item" href="/dergiler/tumu">Tüm Dergiler</a>
+                </div>
+            </div>
+            <a class="mobile-nav-link" href="/makaleler">Makaleler</a>
+            <a class="mobile-nav-link" href="/yazarlar">Yazarlar</a>
+            <a class="mobile-nav-link" href="/istatistikler">İstatistikler</a>
+            <a class="mobile-nav-link" href="/hakkimizda">Hakkımızda</a>
+            <a class="mobile-nav-link" href="/iletisim">İletişim</a>
+
+            <hr class="my-2">
+            <div class="mobile-actions">
+                <button class="btn btn-secondary btn-sm d-flex align-items-center justify-content-center position-relative header-button w-100 mb-2">
+                    <i class="fas fa-bell mr-1"></i> Bildirimler
+                    <span class="badge badge-danger position-absolute badge-custom-position translate-middle-custom p-1 rounded-circle">3</span>
+                </button>
+
+                <a href="#" class="btn btn-secondary btn-sm d-flex align-items-center header-button w-100 mb-2">
+                    <i class="fas fa-user mr-1"></i> Giriş Yap
+                </a>
+
+                <div class="dropdown w-100">
+                    <button class="btn btn-light btn-sm header-button dropdown-toggle w-100" type="button" id="mobileLanguageDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-globe mr-1"></i> Dil
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right w-100" aria-labelledby="mobileLanguageDropdown">
+                        <a class="dropdown-item d-flex align-items-center" href="/lang/tr">🇹🇷 Türkçe</a>
+                        <a class="dropdown-item d-flex align-items-center" href="/lang/en">🇬🇧 English</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

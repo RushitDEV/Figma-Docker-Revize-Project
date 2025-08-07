@@ -25,20 +25,29 @@ return [
     '@hotwired/turbo' => [
         'version' => '8.0.13',
     ],
-    'bootstrap' => [
-        'version' => '5.3.7',
-    ],
-    '@popperjs/core' => [
-        'version' => '2.11.8',
-    ],
-    'bootstrap/dist/css/bootstrap.min.css' => [
-        'version' => '5.3.7',
-        'type' => 'css',
-    ],
     'jquery' => [
-        'version' => '3.7.1',
+        'version' => '3.6.0',
     ],
     'stimulus' => [
         'version' => '3.2.2',
+    ],
+    'accordion' => [
+        'path' => './assets/controllers/accordion.js',
+    ],
+    'card' => [
+        'path' => './assets/controllers/card.js',
+    ],
+    'header' => [
+        'path' => './assets/controllers/header.js',
+    ],
+    'bootstrap' => [
+        'version' => '4.6.2',
+    ],
+    'popper.js' => [
+        'version' => '1.16.1',
+    ],
+    'bootstrap/dist/css/bootstrap.min.css' => [
+        'version' => '4.6.2',
+        'type' => 'css',
     ],
 ];

@@ -1,0 +1,128 @@
+/* Hamburger butonu için stiller */
+.hamburger-btn {
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    cursor: pointer;
+    position: relative; /* Animasyon için konumlandırma */
+    z-index: 1051; /* Menünün üstünde görünmesi için */
+}
+
+.hamburger-line {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: #343a40; /* Koyu gri renk */
+    transition: all 0.3s ease-in-out;
+}
+
+/* Menü açıldığında hamburger butonunun animasyonu */
+.hamburger-btn[aria-expanded="true"] .hamburger-line:nth-child(2) {
+    opacity: 0;
+}
+.hamburger-btn[aria-expanded="true"] .hamburger-line:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+.hamburger-btn[aria-expanded="true"] .hamburger-line:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+
+#mobileMenu.collapse {
+    position: fixed;
+    top: 0;
+    right: 0; /* Menünün sağa dayalı olmasını sağlar */
+    width: 80%; /* Ekran genişliğinin %80'ini kaplar */
+    height: 100%; /* Hâlâ tüm yüksekliği kaplıyor ama siz bunu da ayarlayabilirsiniz */
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 20px;
+    box-shadow: -4px 0 12px rgba(0, 0, 0, 0.1);
+    z-index: 1050;
+    overflow-y: auto;
+    transform: translateX(100%); /* Başlangıçta ekranın sağından dışarıda tutar */
+    transition: transform 0.3s ease-in-out;
+}
+#mobileMenu.collapse.show {
+    transform: translateX(0); /* Menüyü ekrana getirir */
+}
+
+/* Kapatma butonunu da menünün yeni konumuna göre ayarlayalım */
+.close-btn {
+    top: 15px;
+    left: 20px; /* Butonu sola taşır */
+    /* ... diğer stiller ... */
+}
+
+/* Mobil menü içeriği */
+.mobile-menu-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* Mobil navigasyon linkleri için stiller */
+.mobile-nav-link {
+    display: block;
+    padding: 15px;
+    text-decoration: none;
+    color: #495057;
+    border-bottom: 1px solid #e9ecef;
+    font-size: 1.1em;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+.mobile-nav-link:hover {
+    background-color: #f8f9fa;
+}
+
+/* Açılır menü (Dropdown) butonu */
+.mobile-dropdown-toggle {
+    width: 100%;
+    text-align: left;
+    border: none;
+    background-color: transparent;
+}
+
+.mobile-dropdown-content {
+    background-color: #e9ecef;
+    padding: 10px 0;
+}
+
+.mobile-dropdown-item {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #495057;
+}
+
+.mobile-dropdown-item:hover {
+    background-color: #dee2e6;
+}
+
+/* Mobil menüdeki buton grubu */
+.mobile-actions {
+    margin-top: auto; /* Butonları en alta iter */
+    padding-top: 20px;
+    border-top: 1px solid #dee2e6;
+}
+
+/* Özelleştirilmiş bildirim ikonu rozeti */
+.badge-custom-position {
+    right: 15px;
+    top: -5px;
+}
+.translate-middle-custom {
+    transform: translate(50%, -50%);
+}
+/* Ekran genişliği 992 pikselden büyük olduğunda hamburger butonunu gizle */
+@media (min-width: 992px) {
+    .hamburger-btn {
+        display: none;
+    }
+}

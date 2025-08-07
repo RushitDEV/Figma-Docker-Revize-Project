@@ -1,5 +1,6 @@
 /* styles.css */
 
+
 /* Custom Accordion Styles */
 .custom-accordion {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -249,7 +250,6 @@
 
 /* Accessibility */
 .btn:focus {
-    outline: 2px solid #007bff;
     outline-offset: 2px;
 }
 

@@ -1,46 +1,70 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">
-            <img src="{{ asset('path/to/your/logo.png') }}" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
-            DergiPark
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+<div class="row align-items-center w-100">
+    <div class="col-6 col-lg-3">
+        <span><img src="{{ asset('/image/logo.png') }}" alt="DergiPark Logo" height="60" width="200px"></span>
+    </div>
+
+    <div class="col-lg-6 d-none d-lg-block">
+        <nav class="navbar navbar-expand p-0">
+            <ul class="navbar-nav mx-auto">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Anasayfa</a>
+                    <a class="nav-link" href="#">Ana Sayfa</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Hakkında
+                    <a class="nav-link dropdown-toggle" href="#" id="journalsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Dergiler
                     </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
-                        <li><a class="dropdown-item" href="#">Misyon</a></li>
-                        <li><a class="dropdown-item" href="#">Vizyon</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#">Ekip</a></li>
-                    </ul>
+                    <div class="dropdown-menu" aria-labelledby="journalsDropdown">
+                        <a class="dropdown-item" href="/dergiler/fen-bilimleri">Fen Bilimleri</a>
+                        <a class="dropdown-item" href="/dergiler/muhendislik">Mühendislik</a>
+                        <a class="dropdown-item" href="/dergiler/tip">Tıp</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="/dergiler/tumu">Tüm Dergiler</a>
+                    </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Araştırmacılar</a>
-                </li>
-            </ul>
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarLanguageDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Türkçe
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarLanguageDropdown">
-                        <li><a class="dropdown-item" href="#">English</a></li>
-                        <li><a class="dropdown-item" href="#">Español</a></li>
-                    </ul>
+                    <a class="nav-link" href="/makaleler">Makaleler</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Giriş</a>
+                    <a class="nav-link" href="/yazarlar">Yazarlar</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/istatistikler">İstatistikler</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/hakkimizda">Hakkımızda</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/iletisim">İletişim</a>
                 </li>
             </ul>
+        </nav>
+    </div>
+
+    <div class="col-lg-3 d-none d-lg-block">
+        <div class="d-flex justify-content-end align-items-center">
+            <button class="btn btn-sm d-flex align-items-center justify-content-center position-relative header-button ml-2">
+                <i class="fas fa-bell"></i>
+            </button>
+
+            <a href="#" class="btn btn-sm d-flex align-items-center header-button ml-2">
+                Giriş
+            </a>
+
+            <div class="dropdown ml-2">
+                <button class="btn btn-sm header-button dropdown-toggle" type="button" id="languageDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-globe mr-1"></i> Dil
+                </button>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="languageDropdown">
+                    <a class="dropdown-item d-flex align-items-center" href="/lang/tr">🇹🇷 Türkçe</a>
+                    <a class="dropdown-item d-flex align-items-center" href="/lang/en">🇬🇧 English</a>
+                </div>
+            </div>
         </div>
     </div>
-</nav>
+
+
+
+
+    {{ include('partials/mobileMenu.html.twig') }}
+
+</div>

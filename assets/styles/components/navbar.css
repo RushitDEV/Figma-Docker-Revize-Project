@@ -1,80 +1,68 @@
-/* Custom CSS for the navbar */
-
-/* General Navbar styling */
-.navbar-dark.bg-dark {
-    /* Retool's dark theme */
-    background-color: #121212 !important;
-    border-bottom: 1px solid #333;
+/* Navigasyon menüsünü içeren ana container */
+header > .container.py-3 {
+    padding: 1.5rem 2rem;  /*BU KALDIRALLABİLİRR*/
+    margin-top: 0; /* Üst boşluğu kaldırdım */
+    margin-bottom: 0; /* Alt boşluğu kaldırdım */
 }
 
-.navbar-brand {
-    font-weight: 700;
-    font-size: 1.5rem;
-    color: #fff !important;
+/* ======================== */
+/* Masaüstü Navigasyon     */
+/* ======================== */
+
+.navbar-nav {
+    display: flex;
+    justify-content: center;
+    gap: 1rem; /* Önceki 1.25rem yerine daha büyük bir değer */
+    font-size: 16px;
 }
 
-.nav-link {
+.navbar-nav .nav-link {
     font-weight: 500;
-    color: #a0a0a0 !important;
-    transition: color 0.3s ease;
-}
-
-.nav-link:hover {
-    color: #fff !important;
-}
-
-/* DergiPark's dropdown menus */
-.dropdown-menu {
-    background-color: #fff;
-    border: 1px solid #e0e0e0;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-.dropdown-item {
-    color: #333;
-}
-
-.dropdown-item:hover {
-    background-color: #f5f5f5;
-    color: #000;
-}
-
-/* Styling for the login/signup buttons, similar to Retool */
-.ms-auto .nav-link {
-    border: 1px solid transparent;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    margin-left: 1rem;
+    color: #000000;
+    padding: 0.75rem 0 !important;
+    position: relative;
     transition: all 0.3s ease;
+    white-space: nowrap;
 }
 
-.ms-auto .nav-link:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    border-color: #555;
+
+/* Eğer navigasyon linklerinin altındaki mavi çizgiyi tamamen kaldırmak istiyorsanız,
+   aşağıdaki iki bloğu silebilir veya yorum satırı yapabilirsiniz. */
+.navbar-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
 }
 
-/* Example for an active state */
-.nav-link.active {
-    color: #0d6efd !important; /* A bootstrap blue */
+
+
+
+.header-button { /* Tüm butonlar için ortak sınıf */
+    height: 30px;
+    padding: 10px;
+    font-weight: 600;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+
+    /* Tüm butonlar için ortak arka plan ve metin rengi */
+    background-color: rgba(255, 255, 255, 0.75); /* Beyaz arka plan */
+    color: #000000;            /* Siyah metin rengi */
+    border-color: #dee2e6;     /* Hafif gri kenarlık */
 }
 
-/* Mobile responsive styles */
-@media (max-width: 991.98px) {
-    .navbar-toggler {
-        border-color: rgba(255, 255, 255, 0.1);
-    }
-    .navbar-toggler-icon {
-        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-    }
-    .navbar-collapse {
-        background-color: #222;
-        padding: 1rem;
-    }
-    .navbar-nav {
-        flex-direction: column;
-    }
-    .ms-auto .nav-link {
-        margin-left: 0;
-        margin-top: 0.5rem;
-    }
+/* Hover efekti (tüm butonlar için geçerli) */
+.header-button:hover {
+    background-color: #f8f9fa; /* Hover'da hafif gri arka plan */
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0 0, 0, 0.1);
 }
+

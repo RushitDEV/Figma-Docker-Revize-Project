@@ -23,6 +23,11 @@ import './styles/components/list_group.css';
 import './styles/components/footer.css';
 import './styles/components/breadcrumb.css';
 import './styles/components/academic_paper_card.css';
+import './styles/components/bottom_header.css';
+import './styles/components/navbar.css';
+import './styles/components/mobileMenu.css';
+import './styles/components/cardmodal.css';
+
 
 
 
@@ -30,5 +35,7 @@ console.log('AssetMapper loaded successfully! 🎉');
 
 
 import './controllers/accordion.js';
-import './controllers/language.js';
+import './controllers/card.js';
+import './controllers/modal.js';
+import './controllers/list_group.js';
 

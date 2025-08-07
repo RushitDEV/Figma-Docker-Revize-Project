@@ -1,85 +1,102 @@
+/* assets/styles/dergi_ana_sayfa.css */
 
 
-:root {
-    --primary-color: #2671b1;
-    --primary-light: #6ca9e0;
-    --border-color: #d1d1d1;
-    --text-secondary: #333;
-    --text-primary: #2671b1;
+
+
+
+
+
+
+
+
+
+/* Dergi Navigasyon Bölümü */
+.dergi-side-section {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
-/* Liste Öğesi */
-.list-group-item {
-    position: relative;
-    display: block;
-    border: 1px solid var(--border-color, #d1d1d1);
-    padding: 1rem 1.25rem;
-    margin-bottom: 0.75rem;
-    font-size: 0.95rem;
-    font-weight: 500;
-    border-radius: 6px !important;
-    background-color: #ffffff;
-    color: var(--text-secondary, #333);
+
+.side-item {
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 2px 6px rgba(139, 69, 19, 0.06); /* Hafif kahve gölge */
-    overflow: hidden;
+    border-radius: 4px;
+    margin: 2px 0;
 }
 
-/* Sol Çubuk (Hover'da Görünür) */
-.list-group-item::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 4px;
-    height: 100%;
-    background: linear-gradient(135deg, var(--primary-color, #2671b1), var(--primary-light, #6ca9e0));
-    transform: scaleY(0);
-    transform-origin: top;
-    transition: transform 0.3s ease;
-    border-radius: 0 4px 4px 0;
+.side-item:last-of-type {
+    border-bottom: none;
 }
 
-.list-group-item:hover {
-    transform: translateX(6px);
-    border-color: var(--primary-color, #2671b1);
-    box-shadow: 0 4px 14px rgba(139, 69, 19, 0.15);
-    background-color: #fdfdfd;
+.side-item:hover {
+    color: #4a90e2;
+    background-color: #f8f9fa;
+    padding-left: 15px;
 }
 
-.list-group-item:hover::before {
-    transform: scaleY(1);
+.side-item.active {
+    background-color: #e3f2fd;
+    color: #4a90e2;
+    font-weight: 600;
+    border-left: 4px solid #4a90e2;
+    padding-left: 15px;
 }
 
-/* Aktif Liste Öğesi */
-.list-group-item.active {
-    background: linear-gradient(135deg, var(--primary-color, #2671b1), var(--primary-light, #6ca9e0));
-    color: #fff;
-    border-color: var(--primary-color, #2671b1);
-    transform: translateX(6px);
-    box-shadow: 0 6px 20px rgba(139, 69, 19, 0.25);
+
+
+.cilt-sayi-list {
+    margin-top: 10px;
 }
 
-.list-group-item.active::before {
-    display: none;
+.cilt-item {
+    padding: 10px 15px;
+    margin: 5px 0;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    color: #666;
 }
 
-/* Iconlar */
-.list-group-item i {
-    margin-right: 12px;
-    width: 18px;
-    text-align: center;
-    color: var(--text-primary, #2671b1);
+.cilt-item:hover {
+    background-color: #f0f0f0;
+    color: #333;
 }
 
-.list-group-item.active i {
-    color: #fff;
+.cilt-item.active {
+    background-color: #e3f2fd;
+    color: #4a90e2;
+    font-weight: 500;
 }
 
-/* Liste Kutusunun Kendisi */
-.modern-list-group {
-    border: 1px solid var(--border-color, #d1d1d1);
-    background-color: #fff;
-    border-radius: 10px;
-    padding: 1.5rem;
-    box-shadow: 0 6px 18px rgba(139, 69, 19, 0.08);
+
+
+/* Responsive Tasarım */
+@media (max-width: 768px) {
+    .dergi-ana-sayfa {
+        max-width: 100%;
+        padding: 10px;
+    }
+
+    .makale-stats {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .social-share-section {
+        gap: 8px;
+    }
+
+    .social-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
+    }
 }
+
+/* Font Awesome ikonları için (eğer CDN kullanıyorsanız) */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');

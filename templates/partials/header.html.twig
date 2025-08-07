@@ -1,85 +1,21 @@
-
-
 <header>
+
+
+
     <div class="container py-3">
-        <div class="row align-items-center">
-            <!-- Logo -->
-            <div class="col-6 col-md-6">
-                <img src="{{ asset('/image/logo.png') }}" alt="DergiPark Logo" height="60">
-            </div>
+        <div class="asd">
+            <div class="row align-items-center">
 
-            <!-- Hamburger Menü Butonu (Sadece Mobilde) -->
-            <div class="col-6 d-md-none text-right">
-                <button class="btn btn-secondary" type="button" data-toggle="collapse" data-target="#mobileMenu" aria-controls="mobileMenu" aria-expanded="false" aria-label="Menüyü Aç">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </div>
 
-            <!-- Masaüstü Menüsü -->
-            <div class="col-md-6 d-none d-md-block">
-                <div class="d-flex justify-content-end align-items-center">
-                    <!-- Bildirim Butonu -->
-                    <button class="btn btn-secondary btn-sm d-flex align-items-center justify-content-center position-relative header-button ml-2">
-                        <i class="fas fa-bell"></i>
-                    </button>
-
-                    <!-- Giriş Yap -->
-                    <a href="#" class="btn btn-secondary btn-sm d-flex align-items-center header-button ml-2">
-                        <i class="fas fa-user mr-1"></i> Giriş Yap
-                    </a>
-
-                    <!-- Dil Butonu -->
-                    <div class="dropdown ml-2">
-                        <button class="btn btn-light btn-sm header-button dropdown-toggle" type="button" id="languageDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-globe mr-1"></i> Dil
-                        </button>
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="languageDropdown">
-                            <a class="dropdown-item d-flex align-items-center" href="/lang/tr">🇹🇷 Türkçe</a>
-                            <a class="dropdown-item d-flex align-items-center" href="/lang/en">🇬🇧 English</a>
-                        </div>
-                    </div>
-                </div>
+                {{ include('partials/navbar.html.twig') }}
             </div>
         </div>
 
-        <!-- Mobil Menü -->
-        <div class="collapse d-md-none mt-3" id="mobileMenu">
-            <div class="d-flex flex-column align-items-end">
-                <!-- Bildirim Butonu -->
-                <button class="btn btn-secondary btn-sm d-flex align-items-center justify-content-center position-relative header-button w-100 mb-2">
-                    <i class="fas fa-bell mr-1"></i> Bildirimler
-                    <span class="badge badge-danger position-absolute badge-custom-position translate-middle-custom p-1 rounded-circle">3</span>
-                </button>
 
-                <!-- Giriş Yap -->
-                <a href="#" class="btn btn-secondary btn-sm d-flex align-items-center header-button w-100 mb-2">
-                    <i class="fas fa-user mr-1"></i> Giriş Yap
-                </a>
+        {{ include('partials/bottom_header.html.twig') }}
 
-                <!-- Dil Butonu -->
-                <div class="dropdown w-100">
-                    <button class="btn btn-light btn-sm header-button dropdown-toggle w-100" type="button" id="mobileLanguageDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-globe mr-1"></i> Dil
-                    </button>
-                    <div class="dropdown-menu dropdown-menu-right w-100" aria-labelledby="mobileLanguageDropdown">
-                        <a class="dropdown-item d-flex align-items-center" href="/lang/tr">🇹🇷 Türkçe</a>
-                        <a class="dropdown-item d-flex align-items-center" href="/lang/en">🇬🇧 English</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+
+
+
     </div>
-
-    <!-- Bottom Header -->
-    <div class="container">
-        <div class="bottom-header">
-            <div class="overlay">
-                <div class="container text-center py-4">
-                    <h2 class="bottom-header-title">21. Yüzyılda Fen ve Teknik</h2>
-                </div>
-            </div>
-        </div>
-    </div>
-
 </header>
-

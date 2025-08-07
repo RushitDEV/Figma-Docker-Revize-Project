@@ -1,0 +1,73 @@
+/* Resmin varsayılan stilini düzenliyoruz */
+/* Mevcut .card-img-featured stilinize dokunmadan yeni bir sınıf ekliyoruz */
+.buyutulebilir-resim {
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.buyutulebilir-resim:hover {
+    opacity: 0.8; /* Üzerine gelindiğinde hafif şeffaflık efekti */
+}
+
+/* Modal Arkaplanı */
+.modal {
+    display: none; /* Varsayılan olarak gizli */
+    position: fixed; /* Ekranın her yerini kaplaması için */
+    z-index: 1050; /* Diğer her şeyin (menü, navbar vb.) üstünde olması için yüksek bir değer */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Gerekirse kaydırma çubuğu */
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.9); /* Siyah, %90 şeffaf arkaplan */
+}
+
+/* Modal İçeriği (Büyük Resim) */
+.modal-resim {
+    margin: auto;
+    display: block;
+    width: auto;
+    max-width: 80%;       /* Ekran genişliğinin en fazla %80'i */
+    max-height: 80vh;      /* Ekran yüksekliğinin en fazla %80'i */
+    margin-top: 20vh;      /* Dikeyde ortalamak için üstten boşluk */
+    animation-name: zoom;
+    animation-duration: 0.6s;
+    height: 600px;
+
+}
+
+/* Animasyon (İsteğe Bağlı) */
+@keyframes zoom {
+    from {transform:scale(0.5)}
+    to {transform:scale(1)}
+}
+
+/* Kapatma Düğmesi */
+.kapat-butonu {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.kapat-butonu:hover,
+.kapat-butonu:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Responsive Düzenlemeler */
+@media (max-width: 768px) {
+    .modal-resim {
+        max-width: 95%;      /* Mobil cihazlarda daha geniş görünmesi için */
+        max-height: 85vh;     /* Yüksekliği de artır */
+        margin-top: 20vh;      /* Dikeyde ortalamak için üstten boşluk */
+
+    }
+}

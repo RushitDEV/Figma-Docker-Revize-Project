@@ -1,45 +1,35 @@
 <div class="col-md-12">
     <div class="card card-featured position-relative">
-        <img src="{{ asset('/image/dergi.jpg') }}" alt="Kapak" class="card-img-featured">
+        <img src="{{ asset('/image/dergi.jpg') }}" alt="Kapak" class="card-img-featured buyutulebilir-resim">
         <div class="card-body">
-            <!-- Download Button -->
-            <div class="d-flex align-items-center mb-3">
-                <a href="#" class="text-primary font-weight-bold" onclick="downloadCover()">
-                    <i class="fas fa-download text-primary mr-2"></i>Kapak Resmi İndir
-                </a>
-            </div>
 
-            <!-- Makale Dosyaları -->
             <h6 class="card-subtitle mb-3 text-primary font-weight-bold">
-                <i class="fas fa-file-alt mr-2"></i>MAKALE DOSYALARI
+                <a href="https://dergipark.org.tr/tr/pub/fenveteknik/issue/79903/1304396"> Makalenin Tamamını İncelemek için tıkla</a>
             </h6>
 
-            <div class="mb-3">
-                <div class="d-flex align-items-center justify-content-between p-3 bg-light rounded" style="border-radius: 6px !important; border: 1px solid #dee2e6;">
-                    <span class="text-dark font-weight-bold">Tam Metin</span>
-                    <button class="btn btn-sm btn-outline-danger">
-                        <i class="fas fa-file-pdf mr-1"></i>PDF
+            <div class="indir">
+                <div class="dropdown mb-3">
+                    <button class="btn btn-outline-primary dropdown-toggle" type="button" id="downloadDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Farklı Formatlarda İndir
                     </button>
+                    <div class="dropdown-menu" aria-labelledby="downloadDropdown">
+                        <a class="dropdown-item" href="{{ asset('/files/sample.pdf') }}" download>
+                            <i class="fas fa-file-pdf text-danger mr-2"></i>PDF İndir
+                        </a>
+                        <a class="dropdown-item" href="{{ asset('/files/sample.bib') }}" download>
+                            <i class="fas fa-code text-success mr-2"></i>BibTeX İndir
+                        </a>
+                        <a class="dropdown-item" href="{{ asset('/files/sample.ris') }}" download>
+                            <i class="fas fa-file-alt text-info mr-2"></i>RIS İndir
+                        </a>
+
+                    </div>
                 </div>
             </div>
 
-            <!-- Stats Buttons -->
-            <div class="d-flex justify-content-between align-items-center mb-3">
-                <div class="text-center">
-                    <button class="btn btn-link p-0 text-primary d-block"><i class="fas fa-eye"></i></button>
-                    <small class="text-muted">546</small>
-                </div>
-                <div class="text-center">
-                    <button class="btn btn-link p-0 text-primary d-block"><i class="fas fa-download"></i></button>
-                    <small class="text-muted">708</small>
-                </div>
-                <div class="text-center">
-                    <button class="btn btn-link p-0 text-primary d-block"><i class="fas fa-heart" style="color: red"></i></button>
-                    <small class="text-muted">2</small>
-                </div>
+            <div class="share">
+                <h6>SOSYAL MEDYADA PAYLAŞ</h6>
             </div>
-
-            <!-- Social Share Buttons -->
             <div class="col-md-12">
                 <div class="social-buttons d-flex justify-content-center">
                     <a href="#" class="social-facebook mr-2"><i class="fab fa-facebook-f"></i></a>
@@ -50,7 +40,12 @@
                     <a href="#" class="social-copy"><i class="fas fa-copy"></i></a>
                 </div>
             </div>
-
         </div>
     </div>
 </div>
+
+<div id="modal" class="modal">
+    <span class="kapat-butonu">&times;</span>
+    <img class="modal-resim" id="buyuk-resim">
+</div>
+
