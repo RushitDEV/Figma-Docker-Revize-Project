@@ -1,52 +1,51 @@
 <div class="col-6 col-lg-3 d-flex justify-content-end align-items-center">
-    <button class="btn btn-secondary hamburger-btn" type="button" data-toggle="collapse" data-target="#mobileMenu" aria-controls="mobileMenu" aria-expanded="false" aria-label="Menüyü Aç">
+    <button class="btn btn-secondary hamburger-btn" type="button" data-toggle="collapse" data-target="#mobileMenu" aria-controls="mobileMenu" aria-expanded="false" aria-label="{{ 'mobile_menu.open'|trans }}">
         <span class="hamburger-line"></span>
         <span class="hamburger-line"></span>
         <span class="hamburger-line"></span>
     </button>
 </div>
 
-
 <div class="collapse d-lg-none mt-3" id="mobileMenu">
     <div class="mobile-menu-content">
         <div class="mobile-nav mb-3">
-            <a class="mobile-nav-link" href="/">Ana Sayfa</a>
+            <a class="mobile-nav-link" href="/">{{ 'navbar.home'|trans }}</a>
             <div class="mobile-dropdown">
                 <button class="mobile-nav-link mobile-dropdown-toggle" type="button" data-toggle="collapse" data-target="#mobileDergilerMenu" aria-expanded="false">
-                    Dergiler <i class="fas fa-chevron-down float-right"></i>
+                    {{ 'navbar.journals'|trans }} <i class="fas fa-chevron-down float-right"></i>
                 </button>
                 <div class="collapse mobile-dropdown-content" id="mobileDergilerMenu">
-                    <a class="mobile-dropdown-item" href="/dergiler/fen-bilimleri">Fen Bilimleri</a>
-                    <a class="dropdown-item" href="/dergiler/muhendislik">Mühendislik</a>
-                    <a class="dropdown-item" href="/dergiler/tip">Tıp</a>
+                    <a class="mobile-dropdown-item" href="/dergiler/fen-bilimleri">{{ 'navbar.dropdown.journals.science'|trans }}</a>
+                    <a class="dropdown-item" href="/dergiler/muhendislik">{{ 'navbar.dropdown.journals.engineering'|trans }}</a>
+                    <a class="dropdown-item" href="/dergiler/tip">{{ 'navbar.dropdown.journals.medicine'|trans }}</a>
                     <hr class="mobile-divider">
-                    <a class="mobile-dropdown-item" href="/dergiler/tumu">Tüm Dergiler</a>
+                    <a class="mobile-dropdown-item" href="/dergiler/tumu">{{ 'navbar.dropdown.journals.all'|trans }}</a>
                 </div>
             </div>
-            <a class="mobile-nav-link" href="/makaleler">Makaleler</a>
-            <a class="mobile-nav-link" href="/yazarlar">Yazarlar</a>
-            <a class="mobile-nav-link" href="/istatistikler">İstatistikler</a>
-            <a class="mobile-nav-link" href="/hakkimizda">Hakkımızda</a>
-            <a class="mobile-nav-link" href="/iletisim">İletişim</a>
+            <a class="mobile-nav-link" href="/makaleler">{{ 'navbar.articles'|trans }}</a>
+            <a class="mobile-nav-link" href="/yazarlar">{{ 'navbar.authors'|trans }}</a>
+            <a class="mobile-nav-link" href="/istatistikler">{{ 'navbar.stats'|trans }}</a>
+            <a class="mobile-nav-link" href="/hakkimizda">{{ 'navbar.about'|trans }}</a>
+            <a class="mobile-nav-link" href="/iletisim">{{ 'navbar.contact'|trans }}</a>
 
             <hr class="my-2">
             <div class="mobile-actions">
                 <button class="btn btn-secondary btn-sm d-flex align-items-center justify-content-center position-relative header-button w-100 mb-2">
-                    <i class="fas fa-bell mr-1"></i> Bildirimler
+                    <i class="fas fa-bell mr-1"></i> {{ 'header.notifications'|trans }}
                     <span class="badge badge-danger position-absolute badge-custom-position translate-middle-custom p-1 rounded-circle">3</span>
                 </button>
 
                 <a href="#" class="btn btn-secondary btn-sm d-flex align-items-center header-button w-100 mb-2">
-                    <i class="fas fa-user mr-1"></i> Giriş Yap
+                    <i class="fas fa-user mr-1"></i> {{ 'navbar.signIn'|trans }}
                 </a>
 
                 <div class="dropdown w-100">
                     <button class="btn btn-light btn-sm header-button dropdown-toggle w-100" type="button" id="mobileLanguageDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-globe mr-1"></i> Dil
+                        <i class="fas fa-globe mr-1"></i> {{ 'header.language'|trans }}
                     </button>
                     <div class="dropdown-menu dropdown-menu-right w-100" aria-labelledby="mobileLanguageDropdown">
-                        <a class="dropdown-item d-flex align-items-center" href="/lang/tr">🇹🇷 Türkçe</a>
-                        <a class="dropdown-item d-flex align-items-center" href="/lang/en">🇬🇧 English</a>
+                        <a class="dropdown-item d-flex align-items-center" href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')|merge({'_locale': 'tr'})) }}">🇹🇷 Türkçe</a>
+                        <a class="dropdown-item d-flex align-items-center" href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')|merge({'_locale': 'en'})) }}">🇬🇧 English</a>
                     </div>
                 </div>
             </div>

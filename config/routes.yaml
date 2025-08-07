@@ -3,3 +3,8 @@ controllers:
         path: ../src/Controller/
         namespace: App\Controller
     type: attribute
+_locale_switcher:
+    path: '/lang/{_locale}'
+    controller: 'App\\Controller\\HomeController::switchLocale'
+    requirements:
+        _locale: 'tr|en'

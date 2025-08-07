@@ -1,0 +1,150 @@
+# translations/messages.tr.yaml
+# Genel sayfa çevirileri
+navbar:
+    home: Anasayfa
+    journals: Dergiler
+    articles: Makaleler
+    authors: Yazarlar
+    stats: İstatistikler
+    about: Hakkımızda
+    contact: İletişim
+    signIn: Giriş Yap
+    dropdown:
+        journals:
+            all: Tüm Dergiler
+            science: Fen Bilimleri
+            engineering: Mühendislik
+            medicine: Tıp
+footer:
+    dergipark:
+        slogan1: "Türkiye'nin en kapsamlı akademik dergi ve makale platformu."
+        slogan2: "Bilimsel yayınlara ücretsiz erişim sağlayan ulusal akademik veri tabanı."
+    quick_links:
+        title: Hızlı Erişim
+        home: Anasayfa
+        journals: Dergiler
+        articles: Makaleler
+        authors: Yazarlar
+        stats: İstatistikler
+        news: Haberler
+    academic_resources:
+        title: Akademik Kaynaklar
+        research_articles: Araştırma Makaleleri
+        review_articles: Derleme Makaleleri
+        book_reviews: Kitap İncelemeleri
+        conference_papers: Bildiriler
+        thesis_abstracts: Tez Özetleri
+        editorial: Editöre Mektup
+    support:
+        title: Destek
+        help_center: Yardım Merkezi
+        faq: Sıkça Sorulan Sorular
+        contact: İletişim
+        feedback: Geri Bildirim
+        tech_support: Teknik Destek
+        user_manual: Kullanım Kılavuzu
+    contact:
+        title: "İletişim & Bülten"
+    stats:
+        active_journals: Aktif Dergi
+        published_articles: Yayımlanmış Makale
+        registered_authors: Kayıtlı Yazar
+        total_downloads: Toplam İndirme
+header:
+    language: Dil
+    notifications: Bildirimler
+article:
+    references: Kaynaklar
+    show_all_references: Tüm Kaynakları Göster
+    total_references: "Toplam %count% kaynak bulunmaktadır."
+    details: Detaylar
+    primary_language: Ana Dil
+    primary_language_value: Türkçe
+    topics: Konular
+    topic:
+        science: Fen
+        technology: Teknoloji
+        engineering: Mühendislik
+    section: Bölüm
+    section_value: Araştırma Makalesi
+    authors: Yazarlar
+    country: Türkiye
+    project_number: Proje Numarası
+    publication_date: Yayımlanma Tarihi
+    publication_issue: Yayımlanma Sayısı
+    publication_issue_value: Cilt 10, Sayı 2
+    cite: Atıf Yap
+    citation:
+        apa: APA
+    copy: Kopyala
+    bibtex: BibTeX
+    ris: RIS
+    full_article_link: "Makalenin Tamamını İncelemek için tıkla"
+    download_formats: "Farklı Formatlarda İndir"
+    download_pdf: "PDF İndir"
+    download_bibtex: "BibTeX İndir"
+    download_ris: "RIS İndir"
+    share_social_media: "SOSYAL MEDYADA PAYLAŞ"
+    reference_1: "Alkan, M. U. (2014). Investigations on Hunting Tourism in the Antalya Region in terms of Wildlife, Sütçü İmam University Graduate School of Natural and Applied Sciences, Master's Thesis, 118p, Kahramanmaraş."
+    reference_2: "Başkaya, Ş. (2000). The Distribution, Group Sizes and Habitat Use of the Bezoar Ibex Rupicapra rupicapra L.’nin Doğu Karadeniz Dağlarındaki Yayılışı, Grup Büyüklükleri ve Habitat Kullanımı, Karadeniz Technical University Graduate School of Natural and Applied Sciences, PhD Thesis, 121p, Trabzon."
+    reference_3: "Çanakçioğlu, H., Mol, T., (1996). Wildlife Knowledge. Istanbul University Faculty of Forestry Publication No: 440, 550, Istanbul."
+    reference_4: "Çelik, O. (1987). The History of Hunting in Anatolia (Asia Minor). International Symposium, Wildlife in Turkey and Balkan Countries, 16-20 September, Istanbul."
+    reference_5: "D.K.M.P. (2018). 2018-2019 Hunting Season Central Hunting Commission Decisions T.C. Ministry of Agriculture and Forestry, General Directorate of Nature Conservation and National Parks, Hunting and Wildlife Branch Directorate, Ankara."
+    reference_6: "D.K.M.P. (2019). Nature Conservation and National Parks 6th Regional Directorate, http://bolge6.ormansu.gov.tr (Access Date 16.03.2019)."
+    reference_7: "D.K.M.P. (2023). Nature Conservation and National Parks 6th Regional Directorate Archive."
+    reference_8: "Demirsoy, A. (1992). Basic Rules of Life – Vertebrates (Reptiles, Birds and Mammals), Meteksan A.Ş., 942, Ankara."
+    reference_9: "Ekinci, H. (2019). Genetic variation of the wild goat (Capra aegagrus Erxleben, 1777); The sample of Lakes District, Süleyman Demirel University, Graduate School of Natural and Applied Sciences, Master's Thesis, Isparta."
+    reference_10: "Ertuğrul, T. E. (2009). Comparison of Alternative Observation Techniques in the Inventory of Wild Goat Capra aegagrus Erxleben 1777, Süleyman Demirel University Graduate School of Natural and Applied Sciences, Master's Thesis, 30p, Isparta."
+    reference_11: "Gündoğdu, E. (2006). Population Ecology of Wild Goat Capra aegagrus Erxleben 1777 in Isparta Region, Süleyman Demirel University Graduate School of Natural and Applied Sciences, PhD Thesis, 113p, Isparta."
+    reference_12: "Gündoğdu, E. (2011). Population size, structure and behaviours of wild goat in Cehennemdere Wildlife Improvement Area. Asian Journal of Animal and Veterinary Advances, 6(6), 555-563."
+    reference_13: "Gündoğdu, E., Oğurlu, İ. (2009). The distribution of Wild Goat Capra aegagrus Erxleben 1877 and population characteristics in Isparta, Turkey. Journal of Animal and Veterinary Advances, 8(11), 2318-2324."
+    reference_14: "Harison, D. L., Bates P. J. J. (1991). The Mammals of Arabiü, Harrison Zoological Museum Publication, 354, Kent-England."
+    reference_15: "Huş, Ş. (1963). Wildlife Knowledge, Istanbul University Faculty of Forestry Publication No: 91, 300, Istanbul."
+    reference_16: "Huş, Ş. (1974). Wildlife and Hunting, Istanbul University Faculty of Forestry Publication No: 202, 406, Istanbul."
+    reference_17: "I.U.C.N. (2018). IUCN Red List of Threatened Species www.redlist.org (accessed 30 June 2008)."
+    reference_18: "İnaç, S. (1994). Research on Conservation and Breeding Possibilities of Wild Goat Naturally Living in Antalya-Düzlerçamı Adana Pozantı and Kayseri-Yahyalı Forests, Istanbul University Graduate School of Natural and Applied Sciences, PhD Thesis, 83p, Istanbul. (Unpublished)."
+    reference_19: "Kence, A., Özüt, D., Balkız, Ö. (2002). Armenian Mouflon Survey in Eastern Turkey and Nakhticevan, Caprinae News, Canada."
+    reference_20: "Korshunov, V. M. (1994). Ecology of the Bearded Goat Capra aegagrus Erxleben 1777’ in Turkmenistan. Biogeography and Ecology of Turkmenistan, 231-246, Netherlands."
+    reference_21: "Macar, O. (2004). Studies on the Capra aegagrus Erxleben 1777 (Wild Goat) Population in Köprülü Canyon National Park, Hacettepe University Graduate School of Natural and Applied Sciences, Master's Thesis, 55p, Ankara."
+    reference_22: "Masetti, M. (2009). The wild goats Capra aegagrus Erxleben 1777 of the Mediterranean Sea and the Eastern Atlantic Ocean islands, Laboratories of Anthropology and Ethnology, Department of Evolutionistic Biology, University of Florence, Via del Proconsolo 12-50122 Florence, Italy."
+    reference_23: "Nicholson, M. C., Husband, T. P. (1992). Diurnal Behavior of the Agrimi Capra aegagrus, Journal of Mammalogy, 73;1, Baltimore."
+    reference_24: "O.G.M., (2019). General Directorate of Forestry, http://www.ogm.gov.tr (Access Date 15.03.2019)."
+    reference_25: "Oğurlu, İ. (1988). Arrangement of wildlife habitats in managed forests. Journal of the Faculty of Forestry Istanbul University, 38(2), 120-135."
+    reference_26: "Oğurlu, İ. (2001). Wildlife Ecology. Süleyman Demirel University Faculty of Forestry Publications, No:4. Publication No: 19, Isparta."
+    reference_27: "Oğurlu, İ. (2003). Wildlife Inventory. T.C. Ministry of Environment and Forestry General Directorate of Nature Conservation and National Parks Hunting and Wildlife Department Publications, 208, Ankara."
+    reference_28: "Oğurlu, İ. (2008). On the Management of Our Wildlife Resources. Süleyman Demirel University Journal of Faculty of Forestry, Isparta."
+    reference_29: "Okutucu, A. M. (2007). Studies on Wild Goat Capra aegagrus Erxleben 1777 Populations in Oltu Wildlife Development Area, Kafkas University Graduate School of Natural and Applied Sciences, Master's Thesis, 65p, Artvin."
+    reference_30: "R Core Team. (2021). R: A Language and environment for statistical computing. (Version 4.1) [Computer software]. Retrieved from https://cran.r-project.org. (R packages retrieved from MRAN snapshot 2022-01-01)."
+    reference_31: "Resmi Gazete (2022). Tarım ve Orman Bakanlığı Yaban Hayatı Listesi, Sayı 31919, (Erişim Tarihi: 10 Ağustos 2022)."
+    reference_32: "Saribaşak, H., Başaran, A. M., Başaran, S., Kaçar, S. M. (2010). Evaluation of Wild Goat (Capra aegagrus Erxleben 1777) Population and Habitat in Antalya Düzlerçamı Wildlife Development Area, Technical Bulletin No:42, General Directorate of Forestry Western Mediterranean Forestry Research Institute, Institute Publication No: 57 ISBN: 978-605-393-106-5, Antalya."
+    reference_33: "Süel, H. (2014). Habitat Suitability Modeling of Hunting Species in Isparta-Sütçüler Region, Süleyman Demirel University Graduate School of Natural and Applied Sciences, PhD Thesis, 146p, Isparta."
+    reference_34: "Tarım ve Orman Bakanlığı. (2018). T.C. Tarım ve Orman Bakanlığı Arşivi, Ankara."
+    reference_35: "The Jamovi Project. (2022). Jamovi. (Version 2.3) [Computer software]. Retrieved from https://www.jamovi.org."
+    reference_36: "Tolunay, A. (1953). Özel Zooloji-Omurgalılar. (2), Ankara Üniversitesi Fen Fakültesi Yayınları: 64,840, Istanbul."
+    reference_37: "Tramem.(2018).http://www,tramem.org/memeliler/yabankecisi (Erişim Tarihi 06 Şubat 2018)."
+    reference_38: "Turan, N. (1987a). Major Game Animals and Their Problems in Turkey, International Symposium, Wildlife in Turkey and Balkan Countries, 16-20 September, 61-83, Istanbul."
+    reference_39: "Turan, N. (1987b). Development, Current Status and Problems of the Wild Goat (Capra aegagrus L.) Population in Antalya-Termesos, International Symposium, Wildlife in Turkey and Balkan Countries, 16-20 September, 83-105, Istanbul."
+    reference_40: "Turan, N. 1984. Turkey's Game and Wildlife-Mammals, T.C. Ministry of Forestry, 87, Ankara."
+    reference_41: "Uçarlı, Y. (2016). Effects of Dams on Wild Goat in Çoruh Valley and Vergenik Mountain Wildlife Development Areas, Çoruh University Graduate School of Natural and Applied Sciences, PhD Thesis, 130p, Artvin."
+    reference_42: "Ünal, Y. (2003). Observations on the Wild Goat Capra aegagrus Erxleben 1777 Population in Isparta Region, Süleyman Demirel University Graduate School of Natural and Applied Sciences, Master's Thesis, 47p, Isparta."
+    reference_43: "Ünal, Y. (2011). Wildlife Inventory in Isparta-Yazılıkaya, Süleyman Demirel University Graduate School of Natural and Applied Sciences, PhD Thesis, 151p, Isparta."
+    reference_44: "Ünal, Y. (2017). (14.03.2017) \"Yaban Keçileri Artık İnsanlarla Bütünleşti\", Milliyet Antalya Yerel Gazetesi, Antalya."
+    reference_45: "Ünal, Y., Oğurlu, İ. (2022). Population Status of Wild Goat (Capra aegagrus Erxl. 1777) in the Yazılıkaya State Reserve in Isparta: Isparta Yazılıkaya Devlet Avlağında Yaban Keçisi (Capra aegagrus Erxl. 1777)’nin Popülasyon Durumu. Journal of Protected Areas Research, 1(1), 24-33."
+mobile_menu:
+    open: "Menüyü Aç"
+sidebar:
+    journal_home: Dergi Anasayfası
+    archive: Arşiv
+    volume: Cilt
+    issue: Sayı
+language:
+    tr: Türkçe
+    en: İngilizce
+tr_version: "Türkçe versiyonu görüntüle"
+en_version: "İngilizce versiyonu görüntüle"
+breadcrumb:
+    home: Anasayfa
+    journal: Dergi
+    journal_name: Fen ve Teknik
+journal:
+    title: "21. Yüzyılda Fen ve Teknik"

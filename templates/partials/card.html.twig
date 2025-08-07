@@ -4,31 +4,32 @@
         <div class="card-body">
 
             <h6 class="card-subtitle mb-3 text-primary font-weight-bold">
-                <a href="https://dergipark.org.tr/tr/pub/fenveteknik/issue/79903/1304396"> Makalenin Tamamını İncelemek için tıkla</a>
+                {# "article.full_article_link" çeviri anahtarını trans filtresi ile kullanın #}
+                <a href="https://dergipark.org.tr/tr/pub/fenveteknik/issue/79903/1304396"> {{ 'article.full_article_link'|trans }}</a>
             </h6>
 
             <div class="indir">
                 <div class="dropdown mb-3">
                     <button class="btn btn-outline-primary dropdown-toggle" type="button" id="downloadDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Farklı Formatlarda İndir
+                        {# "article.download_formats" çeviri anahtarını trans filtresi ile kullanın #}
+                        {{ 'article.download_formats'|trans }}
                     </button>
                     <div class="dropdown-menu" aria-labelledby="downloadDropdown">
                         <a class="dropdown-item" href="{{ asset('/files/sample.pdf') }}" download>
-                            <i class="fas fa-file-pdf text-danger mr-2"></i>PDF İndir
+                            <i class="fas fa-file-pdf text-danger mr-2"></i>{{ 'article.download_pdf'|trans }}
                         </a>
                         <a class="dropdown-item" href="{{ asset('/files/sample.bib') }}" download>
-                            <i class="fas fa-code text-success mr-2"></i>BibTeX İndir
+                            <i class="fas fa-code text-success mr-2"></i>{{ 'article.download_bibtex'|trans }}
                         </a>
                         <a class="dropdown-item" href="{{ asset('/files/sample.ris') }}" download>
-                            <i class="fas fa-file-alt text-info mr-2"></i>RIS İndir
+                            <i class="fas fa-file-alt text-info mr-2"></i>{{ 'article.download_ris'|trans }}
                         </a>
-
                     </div>
                 </div>
             </div>
 
             <div class="share">
-                <h6>SOSYAL MEDYADA PAYLAŞ</h6>
+                <h6>{{ 'article.share_social_media'|trans }}</h6>
             </div>
             <div class="col-md-12">
                 <div class="social-buttons d-flex justify-content-center">
@@ -48,4 +49,3 @@
     <span class="kapat-butonu">&times;</span>
     <img class="modal-resim" id="buyuk-resim">
 </div>
-

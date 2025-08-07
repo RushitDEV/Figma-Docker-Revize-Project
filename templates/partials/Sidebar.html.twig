@@ -2,32 +2,35 @@
 <div class="dergi-side-section">
     <div class="side-item">
         <span class="side-title">
-            <a href="#"> Dergi Ana Sayfası</a>
+            {# "Dergi Ana Sayfası" metnini çeviri anahtarı ile değiştirdik #}
+            <a href="#">{{ 'sidebar.journal_home'|trans }}</a>
         </span>
     </div>
 
     <div class="side-item">
         <span class="sidee-title">
-            <a href="#">Arşiv</a>
+            {# "Arşiv" metnini çeviri anahtarı ile değiştirdik #}
+            <a href="#">{{ 'sidebar.archive'|trans }}</a>
         </span>
     </div>
 
     {# Cilt ve Sayı Listesi #}
     <div class="cilt-sayi-list">
         <div class="cilt-item">
-            <span>Cilt: 9 Sayı: 18</span>
+            {# "Cilt" ve "Sayı" kelimelerini çeviri anahtarları ile değiştirdik #}
+            <span>{{ 'sidebar.volume'|trans }}: 9 {{ 'sidebar.issue'|trans }}: 18</span>
         </div>
         <div class="cilt-item">
-            <span>Cilt: 10 Sayı: 19</span>
+            <span>{{ 'sidebar.volume'|trans }}: 10 {{ 'sidebar.issue'|trans }}: 19</span>
         </div>
         <div class="cilt-item active">
-            <span>Cilt: 10 Sayı: 20</span>
+            <span>{{ 'sidebar.volume'|trans }}: 10 {{ 'sidebar.issue'|trans }}: 20</span>
         </div>
         <div class="cilt-item">
-            <span>Cilt: 11 Sayı: 21</span>
+            <span>{{ 'sidebar.volume'|trans }}: 11 {{ 'sidebar.issue'|trans }}: 21</span>
         </div>
         <div class="cilt-item">
-            <span>Cilt: 11 Sayı: 22</span>
+            <span>{{ 'sidebar.volume'|trans }}: 11 {{ 'sidebar.issue'|trans }}: 22</span>
         </div>
     </div>
 </div>

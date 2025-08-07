@@ -1,22 +1,13 @@
-{#
-Bu dosya, daha önce paylaşılan CSS koduyla tam uyumlu bir footer (altbilgi)
-oluşturmak için güncellenmiş Twig şablonudur.
-#}
-<!-- Footer -->
 <footer class="bg-dark text-light mt-5">
     <div class="container py-5">
         <div class="row">
-            <!-- DergiPark Info -->
             <div class="col-lg-3 col-md-6 mb-4">
                 <img src="{{ asset('/image/logo.png') }}" height="50px" style="margin-bottom: 50px" alt="logo">
 
                 <p class="text-muted mb-3">
-                    Türkiye'nin en kapsamlı akademik dergi ve makale platformu. Bilimsel yayınlara ücretsiz erişim sağlayan ulusal akademik veri tabanı.
+                    {{ 'footer.dergipark.slogan1'|trans }} {{ 'footer.dergipark.slogan2'|trans }}
                 </p>
-                <!-- Sosyal medya ikonlarının kapsayıcısı -->
-                <!-- CSS kodunuzla uyum sağlaması için "social-links" sınıfı ve Bootstrap'ın flexbox sınıfları kullanıldı. -->
                 <div class="social-links d-flex align-items-center mb-3">
-                    <!-- İkonlar için text-light sınıfı kaldırıldı, çünkü CSS kodunuz renkleri zaten belirliyor -->
                     <a href="#"><i class="fab fa-facebook-f"></i></a>
                     <a href="#"><i class="fab fa-twitter"></i></a>
                     <a href="#"><i class="fab fa-linkedin-in"></i></a>
@@ -25,48 +16,44 @@ oluşturmak için güncellenmiş Twig şablonudur.
                 </div>
             </div>
 
-            <!-- Quick Links -->
             <div class="col-lg-2 col-md-6 mb-4">
-                <h6 class="text-white mb-3">Hızlı Erişim</h6>
+                <h6 class="text-white mb-3">{{ 'footer.quick_links.title'|trans }}</h6>
                 <ul class="list-unstyled">
-                    <li class="mb-2"><a href="#" class="footer-link">Ana Sayfa</a></li>
-                    <li class="mb-2"><a href="#" class="footer-link">Dergiler</a></li>
-                    <li class="mb-2"><a href="#" class="footer-link">Makaleler</a></li>
-                    <li class="mb-2"><a href="#" class="footer-link">Yazarlar</a></li>
-                    <li class="mb-2"><a href="#" class="footer-link">İstatistikler</a></li>
-                    <li class="mb-2"><a href="#" class="footer-link">Haberler</a></li>
+                    <li class="mb-2"><a href="#" class="footer-link">{{ 'footer.quick_links.home'|trans }}</a></li>
+                    <li class="mb-2"><a href="#" class="footer-link">{{ 'footer.quick_links.journals'|trans }}</a></li>
+                    <li class="mb-2"><a href="#" class="footer-link">{{ 'footer.quick_links.articles'|trans }}</a></li>
+                    <li class="mb-2"><a href="#" class="footer-link">{{ 'footer.quick_links.authors'|trans }}</a></li>
+                    <li class="mb-2"><a href="#" class="footer-link">{{ 'footer.quick_links.stats'|trans }}</a></li>
+                    <li class="mb-2"><a href="#" class="footer-link">{{ 'footer.quick_links.news'|trans }}</a></li>
                 </ul>
             </div>
 
-            <!-- Academic Resources -->
             <div class="col-lg-2 col-md-6 mb-4">
-                <h6 class="text-white mb-3">Akademik Kaynaklar</h6>
+                <h6 class="text-white mb-3">{{ 'footer.academic_resources.title'|trans }}</h6>
                 <ul class="list-unstyled">
-                    <li class="mb-2"><a href="#" class="footer-link">Araştırma Makaleleri</a></li>
-                    <li class="mb-2"><a href="#" class="footer-link">Derleme Makaleleri</a></li>
-                    <li class="mb-2"><a href="#" class="footer-link">Kitap İncelemeleri</a></li>
-                    <li class="mb-2"><a href="#" class="footer-link">Konferans Bildirileri</a></li>
-                    <li class="mb-2"><a href="#" class="footer-link">Tez Özetleri</a></li>
-                    <li class="mb-2"><a href="#" class="footer-link">Editöryel</a></li>
+                    <li class="mb-2"><a href="#" class="footer-link">{{ 'footer.academic_resources.research_articles'|trans }}</a></li>
+                    <li class="mb-2"><a href="#" class="footer-link">{{ 'footer.academic_resources.review_articles'|trans }}</a></li>
+                    <li class="mb-2"><a href="#" class="footer-link">{{ 'footer.academic_resources.book_reviews'|trans }}</a></li>
+                    <li class="mb-2"><a href="#" class="footer-link">{{ 'footer.academic_resources.conference_papers'|trans }}</a></li>
+                    <li class="mb-2"><a href="#" class="footer-link">{{ 'footer.academic_resources.thesis_abstracts'|trans }}</a></li>
+                    <li class="mb-2"><a href="#" class="footer-link">{{ 'footer.academic_resources.editorial'|trans }}</a></li>
                 </ul>
             </div>
 
-            <!-- Support -->
             <div class="col-lg-2 col-md-6 mb-4">
-                <h6 class="text-white mb-3">Destek</h6>
+                <h6 class="text-white mb-3">{{ 'footer.support.title'|trans }}</h6>
                 <ul class="list-unstyled">
-                    <li class="mb-2"><a href="#" class="footer-link">Yardım Merkezi</a></li>
-                    <li class="mb-2"><a href="#" class="footer-link">SSS</a></li>
-                    <li class="mb-2"><a href="#" class="footer-link">İletişim</a></li>
-                    <li class="mb-2"><a href="#" class="footer-link">Geri Bildirim</a></li>
-                    <li class="mb-2"><a href="#" class="footer-link">Teknik Destek</a></li>
-                    <li class="mb-2"><a href="#" class="footer-link">Kullanım Kılavuzu</a></li>
+                    <li class="mb-2"><a href="#" class="footer-link">{{ 'footer.support.help_center'|trans }}</a></li>
+                    <li class="mb-2"><a href="#" class="footer-link">{{ 'footer.support.faq'|trans }}</a></li>
+                    <li class="mb-2"><a href="#" class="footer-link">{{ 'footer.support.contact'|trans }}</a></li>
+                    <li class="mb-2"><a href="#" class="footer-link">{{ 'footer.support.feedback'|trans }}</a></li>
+                    <li class="mb-2"><a href="#" class="footer-link">{{ 'footer.support.tech_support'|trans }}</a></li>
+                    <li class="mb-2"><a href="#" class="footer-link">{{ 'footer.support.user_manual'|trans }}</a></li>
                 </ul>
             </div>
 
-            <!-- Contact & Newsletter -->
             <div class="col-lg-3 col-md-6 mb-4">
-                <h6 class="text-white mb-3">İletişim & Bülten</h6>
+                <h6 class="text-white mb-3">{{ 'footer.contact.title'|trans }}</h6>
                 <div class="contact-info mb-3">
                     <p class="text-muted mb-2">
                         <i class="fas fa-envelope mr-2"></i>
@@ -84,32 +71,31 @@ oluşturmak için güncellenmiş Twig şablonudur.
             </div>
         </div>
 
-        <!-- Statistics Row -->
         <div class="row border-top border-secondary pt-4 mt-4">
             <div class="col-lg-12">
                 <div class="row text-center">
                     <div class="col-md-3 mb-3">
                         <div class="stat-item">
                             <h4 class="mb-1">2,847</h4>
-                            <small class="text-muted">Aktif Dergi</small>
+                            <small class="text-muted">{{ 'footer.stats.active_journals'|trans }}</small>
                         </div>
                     </div>
                     <div class="col-md-3 mb-3">
                         <div class="stat-item">
                             <h4 class="mb-1">156,432</h4>
-                            <small class="text-muted">Yayınlanan Makale</small>
+                            <small class="text-muted">{{ 'footer.stats.published_articles'|trans }}</small>
                         </div>
                     </div>
                     <div class="col-md-3 mb-3">
                         <div class="stat-item">
                             <h4 class="mb-1">89,234</h4>
-                            <small class="text-muted">Kayıtlı Yazar</small>
+                            <small class="text-muted">{{ 'footer.stats.registered_authors'|trans }}</small>
                         </div>
                     </div>
                     <div class="col-md-3 mb-3">
                         <div class="stat-item">
                             <h4 class="mb-1">1,234,567</h4>
-                            <small class="text-muted">Toplam İndirme</small>
+                            <small class="text-muted">{{ 'footer.stats.total_downloads'|trans }}</small>
                         </div>
                     </div>
                 </div>

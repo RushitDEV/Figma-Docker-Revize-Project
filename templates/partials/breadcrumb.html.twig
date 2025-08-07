@@ -1,14 +1,18 @@
+
 <nav aria-label="breadcrumb" class="custom-breadcrumb">
     <div class="container">
         <ol class="breadcrumb mb-0">
+            {# Anasayfa bağlantısı #}
             <li class="breadcrumb-item">
-                <a href="/">Anasayfa</a>
+                <a href="{{ path('app_home') }}">{{ 'breadcrumb.home'|trans }}</a>
             </li>
+            {# Dergi bağlantısı #}
             <li class="breadcrumb-item">
-                <a href="/dergi">Dergi</a>
+                <a href="#">{{ 'breadcrumb.journal'|trans }}</a>
             </li>
+            {# Dergi adı bağlantısı. slug değeri dinamik olarak gelmelidir. #}
             <li class="breadcrumb-item">
-                <a href="/dergi/fen-ve-teknik">Fen ve Teknik</a>
+                <a href="#">{{ 'breadcrumb.journal_name'|trans }}</a>
             </li>
         </ol>
     </div>
