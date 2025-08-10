@@ -39,4 +39,5 @@ import './controllers/card.js';
 import './controllers/modal.js';
 import './controllers/list_group.js';
 import './controllers/language-switcher.js'
+import './controllers/fontsize.js';
 

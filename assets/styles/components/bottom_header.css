@@ -1,32 +1,63 @@
 /* ======================== */
-/* Bottom Header          */
+/* Bottom Header Responsive */
 /* ======================== */
 .bottom-header {
-    background-color: rgba(255, 255, 255, 0.62); /* Arka planı şeffaf yaptım */
-    background-image: none; /* Arka plan görselini kaldırdım */
+    background-image: none;
     position: relative;
-    height: 140px;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 10px;
+    min-height: 140px; /* Minimum yükseklik */
+    width: 100%;
 }
 
 .bottom-header .overlay {
     width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
+    background-color: rgba(255, 255, 255, 0.62); /* Arka plan rengi */
+    position: relative; /* Absolute değil, yükseklik otomatik */
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 15px; /* İç boşluk */
+    height: auto; /* Yükseklik yazıya göre ayarlansın */
+    box-sizing: border-box;
 }
 
 .bottom-header-title {
-    font-size: 2.5rem;
     font-weight: 700;
     color: #000000;
     margin: 0;
     text-align: center;
-    z-index: 1;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+    max-width: 90%;
+    line-height: 1.3; /* JS'in doğru ölçmesi için sabit */
+}
+
+
+
+/* Küçük ekranlar (mobil) */
+@media (max-width: 768px) {
+    .bottom-header {
+        padding: 8px;
+        min-height: auto;
+    }
+
+    .bottom-header .overlay {
+        padding: 10px;
+    }
+
+    .bottom-header-title {
+        font-size: clamp(1rem, 4vw, 1.8rem);
+        max-width: 95%;
+    }
+}
+
+/* Çok küçük ekranlar (küçük telefonlar) */
+@media (max-width: 480px) {
+    .bottom-header-title {
+        font-size: clamp(0.9rem, 4.5vw, 1.5rem);
+    }
 }
