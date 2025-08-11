@@ -1,21 +1,11 @@
 /* assets/styles/dergi_ana_sayfa.css */
 
-
-
-
-
-
-
-
-
-
-
 /* Dergi Navigasyon Bölümü */
 .dergi-side-section {
     background-color: white;
     border-radius: 8px;
     padding: 20px;
-    margin-bottom: 10px;
+    margin-top: 2rem;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
@@ -96,7 +86,40 @@
         height: 35px;
         font-size: 16px;
     }
+
 }
+@media (max-width: 576px) {
+    .indir {
+        width: 100%;
+        padding: 0 1rem;
+    }
+
+    .indir .dropdown .btn {
+        width: 100%;
+        box-sizing: border-box;
+        text-align: center;
+        border-radius: 6px;
+    }
+
+    .dropdown-menu {
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
+@media (max-width: 768px) {
+    .indir .dropdown .btn {
+        width: 100%;
+        box-sizing: border-box;
+        text-align: center;
+        border-radius: 6px;
+    }
+
+    .dropdown-menu {
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
+
 
 /* Font Awesome ikonları için (eğer CDN kullanıyorsanız) */
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');

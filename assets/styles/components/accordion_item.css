@@ -6,6 +6,9 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     overflow: hidden;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+
 }
 
 .custom-accordion .card {
